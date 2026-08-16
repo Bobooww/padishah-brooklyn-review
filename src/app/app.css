@@ -524,41 +524,71 @@
   justify-items: center;
   padding-block: 34px 20px;
 }
-
-@keyframes settle {
-  from {
-    opacity: 0;
-    transform: translateY(26px) scale(0.98);
+/* the arch anchors left so the sepia print can breathe at the right edge */
+@media (min-width: 900px) {
+  .hero__collage .hero__arch {
+    justify-self: start;
+    margin-left: 2px;
   }
-  to {
+}
+
+/* Cracked varnish over the whole paper field. */
+.hero__texture {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url('/textures/craquelure.webp');
+  background-size: 760px;
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* The scraps are STAMPED onto the paper, one after another — pressed down
+   with a little overshoot and twist, the way a hand slaps a cut-out into a
+   scrapbook. After the last stamp the collage breathes, barely. */
+@keyframes stampIn {
+  0% {
+    opacity: 0;
+    transform: scale(1.35) rotate(-5deg);
+  }
+  62% {
+    opacity: 1;
+    transform: scale(0.96) rotate(1.6deg);
+  }
+  100% {
     opacity: 1;
     transform: none;
   }
 }
-.hero__disc-settle,
-.hero__shard-settle,
-.hero__snap-settle,
-.hero__collage .ornament {
-  animation: settle 0.9s var(--ease) both;
-}
-.hero__shard-settle {
-  animation-delay: 0.05s;
+@keyframes breathe {
+  50% {
+    transform: translateY(-6px);
+  }
 }
 .hero__disc-settle {
-  animation-delay: 0.18s;
+  animation:
+    stampIn 0.5s var(--ease-spring) 0.34s both,
+    breathe 10s ease-in-out 3s infinite alternate;
 }
 .hero__collage .ornament {
-  animation-delay: 0.3s;
+  animation: settleInk 0.9s var(--ease) 0.5s both;
 }
-.hero__snap-settle {
-  animation-delay: 0.45s;
+@keyframes settleInk {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero__disc-settle,
   .hero__shard-settle,
   .hero__snap-settle,
+  .hero__print-settle,
   .hero__collage .ornament {
-    animation: none;
+    animation: none !important;
   }
 }
 
@@ -617,18 +647,22 @@
   transform: rotate(-3deg);
   opacity: 0.94;
 }
-@keyframes settleShard {
-  from {
+@keyframes stampShard {
+  0% {
     opacity: 0;
-    transform: translateY(26px) rotate(-6deg) scale(0.98);
+    transform: scale(1.3) rotate(-9deg);
   }
-  to {
+  62% {
+    opacity: 0.94;
+    transform: scale(0.97) rotate(-1.4deg);
+  }
+  100% {
     opacity: 0.94;
     transform: rotate(-3deg);
   }
 }
 .hero__shard-settle {
-  animation-name: settleShard;
+  animation: stampShard 0.5s var(--ease-spring) 0.12s both;
 }
 
 /* Ink scrollwork over the paper edge. */
@@ -691,18 +725,24 @@
     0 2px 8px rgba(25, 20, 17, 0.12);
   transform: rotate(-2.6deg);
 }
-@keyframes settleSnap {
-  from {
+@keyframes stampSnap {
+  0% {
     opacity: 0;
-    transform: translateY(26px) rotate(-6deg) scale(0.98);
+    transform: scale(1.4) rotate(-8deg);
   }
-  to {
+  62% {
+    opacity: 1;
+    transform: scale(0.95) rotate(-1deg);
+  }
+  100% {
     opacity: 1;
     transform: rotate(-2.6deg);
   }
 }
 .hero__snap-settle {
-  animation-name: settleSnap;
+  animation:
+    stampSnap 0.52s var(--ease-spring) 0.95s both,
+    breathe 8s ease-in-out 2.4s infinite alternate;
 }
 .hero__snap .frame {
   padding: 0;
@@ -714,6 +754,72 @@
   bottom: 8px;
   padding: 0.2rem 0.45rem;
   font-size: 0.54rem;
+}
+
+/* The big figure of the collage: the cook as an old print — desaturated to
+   sepia, torn along the edge, half a scrollwork medallion inked over him.
+   Low resolution becomes the point: it reads as a page from an archive. */
+.hero__print {
+  position: absolute;
+  top: 44px;
+  right: -58px;
+  width: min(300px, 56%);
+  z-index: 2;
+  will-change: transform;
+}
+.hero__print-settle {
+  position: relative;
+  animation:
+    stampIn 0.54s var(--ease-spring) 0.62s both,
+    breathe 12s ease-in-out 3.6s infinite alternate;
+}
+.hero__print .frame {
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  filter: drop-shadow(0 18px 34px rgba(25, 20, 17, 0.28));
+}
+.hero__print .frame__core {
+  clip-path: polygon(
+    4% 3%, 26% 0%, 47% 4%, 70% 1%, 94% 5%, 98% 22%, 93% 41%, 99% 62%,
+    94% 82%, 97% 96%, 74% 99%, 49% 95%, 27% 100%, 6% 96%, 0% 78%, 5% 58%, 1% 37%, 3% 18%
+  );
+  box-shadow: none;
+}
+/* mirrored so the cook himself faces out from behind the arch (the original
+   has him on the photo's left, which the arch would swallow entirely) */
+.hero__print img {
+  filter: grayscale(1) sepia(0.52) contrast(1.1) brightness(1.02);
+  transform: scaleX(-1);
+}
+/* halftone screen over the print, like newsprint */
+.hero__print .frame__core::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(43, 5, 4, 0.55) 0.9px, transparent 1.4px);
+  background-size: 4px 4px;
+  opacity: 0.2;
+  pointer-events: none;
+}
+/* the badge rides the visible half of the print — never behind the arch */
+.hero__print .rights {
+  left: auto;
+  right: 12px;
+  bottom: 14px;
+  padding: 0.2rem 0.45rem;
+  font-size: 0.54rem;
+}
+.hero__ornament--echo {
+  position: absolute;
+  top: -52px;
+  left: -64px;
+  width: 150px;
+  pointer-events: none;
+}
+.hero__ornament--echo .ornament__ring,
+.hero__ornament--echo .ornament__curl {
+  stroke: rgba(43, 5, 4, 0.5);
 }
 .hero__arch {
   position: relative;
@@ -815,6 +921,16 @@
   .hero__shard {
     width: 86%;
     left: 0;
+  }
+  .hero__print {
+    width: 150px;
+    top: 30px;
+    right: -16px;
+  }
+  .hero__ornament--echo {
+    width: 96px;
+    top: -34px;
+    left: -40px;
   }
 }
 .hero__eyebrow {

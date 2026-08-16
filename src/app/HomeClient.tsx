@@ -83,6 +83,7 @@ export default function HomeClient() {
          */}
         <section id="hero" className="hero">
           <div className="hero__glow" aria-hidden="true" />
+          <div className="hero__texture" aria-hidden="true" />
           <div className="rail hero__grid">
             <div className="hero__body">
               <p className="eyebrow hero__eyebrow">{t.hero.eyebrow}</p>
@@ -155,6 +156,20 @@ export default function HomeClient() {
               {/* ink scrollwork, drawn in once */}
               <div className="hero__ornament-slot" data-drift="0.06">
                 <Ornament draw className="hero__ornament" />
+              </div>
+
+              {/* the big sepia figure of the collage: the cook, torn straight
+                  out of an old print — release-required badge and all */}
+              <div className="hero__print" data-drift="0.045" data-drift-rotate="-0.8">
+                <div className="hero__print-settle">
+                  <Still
+                    asset={media('people/chef-fruit-platter')}
+                    alt=""
+                    sizes="(min-width: 900px) 300px, 44vw"
+                    lang={lang}
+                  />
+                  <Ornament draw className="hero__ornament hero__ornament--echo" />
+                </div>
               </div>
 
               <div className="hero__arch" data-drift="0.05">
@@ -246,21 +261,6 @@ export default function HomeClient() {
                   : 'Off the skewers, onto wood, with lemon, herbs and a heap of red onion. That is how it leaves the kitchen and how it crosses the room.'}
               </p>
 
-              {/* The human beat: one small snapshot from the restaurant's own posts,
-                  drifting a few pixels against the scroll — a pinned photo, not a claim. */}
-              <div className="polaroid reveal" data-drift="0.07" data-drift-rotate="1.2">
-                <div className="polaroid__tilt">
-                  <Still
-                    asset={media('people/chef-fruit-platter')}
-                    alt=""
-                    sizes="(min-width: 900px) 260px, 55vw"
-                    lang={lang}
-                  />
-                  <p className="polaroid__note">
-                    {lang === 'ru' ? 'Кухня — из публикаций самого ресторана.' : "The kitchen — from the restaurant's own posts."}
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </section>
