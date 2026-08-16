@@ -8,7 +8,9 @@ import './fonts.css';
 import './globals.css';
 import './app.css';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:4480';
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  'https://padishah-brooklyn-review.shamsworkcabin.chatgpt.site';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
