@@ -514,16 +514,210 @@
   color: var(--brand-red);
 }
 
-/* ---- the arch ----------------------------------------------------------
-   A pointed-shoulder arch drawn with border-radius, echoed by a second gold
-   hairline — the same double-stroke DNA as the cartouche. The 9:16 footage
-   ships native inside it: nothing is cropped away, nothing upscaled. */
-.hero__stage {
+/* ---- the collage --------------------------------------------------------
+   Paper-scrap layers around the arch: a sun disc, torn red paper, ink
+   scrollwork, the arch window, and a pinned snapshot — each at its own drift
+   depth, each settling into place once. Cut-out grammar, daylight field. */
+.hero__collage {
+  position: relative;
   display: grid;
   justify-items: center;
+  padding-block: 34px 20px;
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(26px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.hero__disc-settle,
+.hero__shard-settle,
+.hero__snap-settle,
+.hero__collage .ornament {
+  animation: settle 0.9s var(--ease) both;
+}
+.hero__shard-settle {
+  animation-delay: 0.05s;
+}
+.hero__disc-settle {
+  animation-delay: 0.18s;
+}
+.hero__collage .ornament {
+  animation-delay: 0.3s;
+}
+.hero__snap-settle {
+  animation-delay: 0.45s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__disc-settle,
+  .hero__shard-settle,
+  .hero__snap-settle,
+  .hero__collage .ornament {
+    animation: none;
+  }
+}
+
+/* The sun with a crescent bite, cut from warm paper. */
+.hero__disc {
+  position: absolute;
+  top: -34px;
+  left: -74px;
+  width: 208px;
+  height: 208px;
+  z-index: 2;
+  will-change: transform;
+  pointer-events: none;
+}
+.hero__disc-settle {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background: radial-gradient(80% 80% at 34% 28%, #cf7b2c, #b8641f 55%, var(--brand-red) 100%);
+  position: relative;
+}
+/* the crescent: a smaller gold moon low in the disc, orange sky above it */
+.hero__disc-settle::after {
+  content: '';
+  position: absolute;
+  width: 72%;
+  height: 72%;
+  left: 7%;
+  bottom: -16%;
+  border-radius: 50%;
+  background: radial-gradient(72% 72% at 40% 32%, #f0dfae, var(--gold-warm) 70%, var(--gold-ink) 100%);
+}
+
+/* Torn red paper behind the arch. */
+.hero__shard {
+  position: absolute;
+  top: 26px;
+  left: 4px;
+  width: min(360px, 74%);
+  height: 74%;
+  z-index: 0;
+  will-change: transform;
+  pointer-events: none;
+}
+.hero__shard-settle {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(165deg, #c24b32 0%, var(--brand-red) 62%, #7e1d2b 100%);
+  clip-path: polygon(
+    12% 2%, 38% 0%, 61% 5%, 84% 2%, 96% 14%, 91% 33%, 98% 52%, 92% 71%,
+    97% 86%, 78% 96%, 52% 92%, 30% 99%, 12% 93%, 3% 76%, 8% 55%, 1% 34%, 7% 15%
+  );
+  transform: rotate(-3deg);
+  opacity: 0.94;
+}
+@keyframes settleShard {
+  from {
+    opacity: 0;
+    transform: translateY(26px) rotate(-6deg) scale(0.98);
+  }
+  to {
+    opacity: 0.94;
+    transform: rotate(-3deg);
+  }
+}
+.hero__shard-settle {
+  animation-name: settleShard;
+}
+
+/* Ink scrollwork over the paper edge. */
+.hero__ornament-slot {
+  position: absolute;
+  top: -46px;
+  right: -46px;
+  width: min(280px, 56%);
+  z-index: 1;
+  will-change: transform;
+  pointer-events: none;
+}
+.ornament__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.ornament__ring,
+.ornament__curl {
+  fill: none;
+  stroke: rgba(6, 5, 5, 0.38);
+  stroke-width: 1.3;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.ornament__ring--inner {
+  opacity: 0.75;
+}
+.reveal--armed .ornament__svg--draw .ornament__ring,
+.reveal--armed .ornament__svg--draw .ornament__curl {
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+}
+.reveal--armed.is-in .ornament__svg--draw .ornament__ring,
+.reveal--armed.is-in .ornament__svg--draw .ornament__curl {
+  animation: draw 2.2s var(--ease) 0.35s forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal--armed .ornament__svg--draw .ornament__ring,
+  .reveal--armed .ornament__svg--draw .ornament__curl {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* A snapshot pinned at the arch's foot. */
+.hero__snap {
+  position: absolute;
+  bottom: 12px;
+  left: -56px;
+  width: min(178px, 40%);
+  z-index: 4;
+  will-change: transform;
+}
+.hero__snap-settle {
+  background: #fff;
+  padding: 7px 7px 9px;
+  box-shadow:
+    0 16px 38px rgba(25, 20, 17, 0.22),
+    0 2px 8px rgba(25, 20, 17, 0.12);
+  transform: rotate(-2.6deg);
+}
+@keyframes settleSnap {
+  from {
+    opacity: 0;
+    transform: translateY(26px) rotate(-6deg) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(-2.6deg);
+  }
+}
+.hero__snap-settle {
+  animation-name: settleSnap;
+}
+.hero__snap .frame {
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+.hero__snap .rights {
+  left: 8px;
+  bottom: 8px;
+  padding: 0.2rem 0.45rem;
+  font-size: 0.54rem;
 }
 .hero__arch {
   position: relative;
+  z-index: 3;
   width: min(430px, 84vw);
   margin-top: 46px; /* room for the seated crest */
   will-change: transform;
@@ -578,8 +772,10 @@
   text-align: center;
   max-width: none;
 }
+/* badge and pause sit together bottom-right, clear of the pinned snapshot */
 .hero__arch .rights {
-  left: 14px;
+  left: auto;
+  right: 64px;
   bottom: 14px;
 }
 .hero__arch .loopctl {
@@ -597,6 +793,28 @@
   .hero__crest {
     width: 92px;
     top: -28px;
+  }
+  .hero__disc {
+    width: 128px;
+    height: 128px;
+    top: -8px;
+    left: auto;
+    right: -14px;
+  }
+  .hero__ornament-slot {
+    width: 190px;
+    top: -34px;
+    right: auto;
+    left: -34px;
+  }
+  .hero__snap {
+    width: 128px;
+    left: -10px;
+    bottom: 62px; /* clear of the caption strip */
+  }
+  .hero__shard {
+    width: 86%;
+    left: 0;
   }
 }
 .hero__eyebrow {

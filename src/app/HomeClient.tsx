@@ -10,6 +10,7 @@ import { observeReveals, stagger } from '@/lib/reveal';
 import { observeDrift } from '@/lib/drift';
 import { Loop, Still } from '@/components/Media';
 import { Cartouche } from '@/components/Cartouche';
+import { Ornament } from '@/components/Ornament';
 import { IG_HANDLE, ReviewBar, SiteHeader, SiteFooter, StickyActions } from '@/components/Shell';
 import { useLang } from '@/components/LangProvider';
 import Stage from '@/components/motion/Stage';
@@ -134,7 +135,28 @@ export default function HomeClient() {
               </p>
             </div>
 
-            <div className="hero__stage">
+            {/*
+             * The collage: paper-scrap layers around the arch, each at its own
+             * drift depth, settling into place once on load. Cut-out grammar
+             * from the reference board; every photographic piece is still the
+             * restaurant's own footage with its badge on.
+             */}
+            <div className="hero__collage">
+              {/* the sun disc with a crescent bite — pure paper, no claim */}
+              <span className="hero__disc" aria-hidden="true" data-drift="0.09">
+                <span className="hero__disc-settle" />
+              </span>
+
+              {/* torn red paper behind the arch */}
+              <span className="hero__shard" aria-hidden="true" data-drift="0.03">
+                <span className="hero__shard-settle" />
+              </span>
+
+              {/* ink scrollwork, drawn in once */}
+              <div className="hero__ornament-slot" data-drift="0.06">
+                <Ornament draw className="hero__ornament" />
+              </div>
+
               <div className="hero__arch" data-drift="0.05">
                 {/* the crowned frame from the restaurant's own mark, drawn in once —
                     it names the window: this is Padishah's arch, not decoration */}
@@ -150,6 +172,18 @@ export default function HomeClient() {
                 <p className="hero__caption micro">
                   {lang === 'ru' ? 'Мангал — из съёмки самого ресторана.' : "The grill — the restaurant's own footage."}
                 </p>
+              </div>
+
+              {/* a small snapshot tucked behind the arch, like a photo pinned to the board */}
+              <div className="hero__snap" data-drift="0.08" data-drift-rotate="1.6">
+                <div className="hero__snap-settle">
+                  <Still
+                    asset={media('food/skewer-ranks')}
+                    alt=""
+                    sizes="(min-width: 900px) 190px, 34vw"
+                    lang={lang}
+                  />
+                </div>
               </div>
             </div>
           </div>
