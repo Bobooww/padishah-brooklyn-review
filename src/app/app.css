@@ -1,0 +1,1258 @@
+/* =========================================================================
+   Padishah — section layer.
+   The fire, then the room: ink and smoke at the top, ivory and gold below.
+   ========================================================================= */
+
+/* ------------------------------------------------------------ primitives */
+
+.btn {
+  --btn-bg: transparent;
+  --btn-fg: currentColor;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.72rem 1.35rem;
+  border: 1px solid var(--gold-line);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.4s var(--ease),
+    background-color 0.4s var(--ease),
+    border-color 0.4s var(--ease),
+    color 0.4s var(--ease);
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn--gold {
+  --btn-bg: var(--gold);
+  --btn-fg: #1a1006;
+  border-color: var(--gold);
+}
+.btn--gold:hover {
+  --btn-bg: var(--gold-warm);
+}
+.btn--ghost {
+  border-color: currentColor;
+  opacity: 0.92;
+}
+.btn--lg {
+  padding: 0.95rem 1.8rem;
+  font-size: 0.9rem;
+}
+
+.lead {
+  font-size: clamp(1.02rem, 1.5vw, 1.2rem);
+  line-height: 1.66;
+  max-width: 46ch;
+  color: inherit;
+  opacity: 0.86;
+  margin-top: 1.1rem;
+}
+
+.micro {
+  font-size: 0.76rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  opacity: 0.62;
+  margin-top: 0.7rem;
+  max-width: 44ch;
+}
+
+/* A value the restaurant has not confirmed yet: marked, never hidden. */
+.provisional {
+  /* A marker, not an error state: a fine dotted rule that sits off the baseline
+     so it never reads as a broken link or a spellcheck squiggle. */
+  border-bottom: 1px dotted currentColor;
+  border-bottom-color: rgba(207, 154, 49, 0.55);
+  padding-bottom: 2px;
+}
+
+.notice {
+  margin-top: 1.4rem;
+  padding: 0.9rem 1.1rem;
+  border-left: 2px solid var(--gold);
+  background: rgba(207, 154, 49, 0.07);
+  font-size: 0.86rem;
+  line-height: 1.6;
+  max-width: 46ch;
+}
+
+/* ---- the printed-object frame: bezel inside a bezel --------------------- */
+
+.frame {
+  position: relative;
+  margin: 0;
+  padding: 8px;
+  background: linear-gradient(160deg, rgba(207, 154, 49, 0.26), rgba(207, 154, 49, 0.05));
+  box-shadow: inset 0 1px 0 rgba(255, 250, 236, 0.24);
+}
+.frame__core {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink-2);
+  box-shadow: inset 0 0 0 1px rgba(6, 5, 5, 0.4);
+}
+.frame__core img,
+.frame__core video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* four different white balances in the source library, normalised — never retouched */
+  filter: saturate(1.06) contrast(1.03);
+}
+.frame--loop .frame__core {
+  aspect-ratio: 9 / 16;
+}
+@media (min-width: 860px) {
+  .frame--loop .frame__core {
+    aspect-ratio: 16 / 9;
+  }
+  .frame--loop[data-portrait='true'] .frame__core {
+    aspect-ratio: 9 / 16;
+  }
+}
+
+.rights {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  padding: 0.3rem 0.6rem;
+  background: rgba(6, 5, 5, 0.78);
+  color: var(--ivory);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
+}
+.rights__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.rights[data-state='release_required'] .rights__dot {
+  background: #e0623c;
+}
+
+.loopctl {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(238, 235, 229, 0.4);
+  background: rgba(6, 5, 5, 0.55);
+  color: var(--ivory);
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background-color 0.4s var(--ease);
+}
+.loopctl:hover {
+  background: rgba(6, 5, 5, 0.8);
+}
+.loopctl__glyph {
+  font-size: 0.7rem;
+  line-height: 1;
+}
+
+/* ---- the cartouche ----------------------------------------------------- */
+
+.cartouche {
+  position: relative;
+  width: 100%;
+}
+.cartouche__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.cartouche__outer,
+.cartouche__inner {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+}
+.cartouche__inner {
+  stroke-width: 1.5;
+  opacity: 0.7;
+}
+.cartouche__slot {
+  position: absolute;
+  inset: 14% 12%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  text-align: center;
+}
+
+/* The one drawn-line moment on the site. It rides the reveal system: the strokes
+   hide only once JS arms the plate, so no-JS, reduced motion and a crashed script
+   all see the finished frame. */
+.reveal--armed .cartouche__svg--draw .cartouche__outer,
+.reveal--armed .cartouche__svg--draw .cartouche__inner {
+  stroke-dasharray: 4200;
+  stroke-dashoffset: 4200;
+}
+.reveal--armed.is-in .cartouche__svg--draw .cartouche__outer {
+  animation: draw 1.9s var(--ease) forwards;
+}
+.reveal--armed.is-in .cartouche__svg--draw .cartouche__inner {
+  animation: draw 1.9s var(--ease) 0.18s forwards;
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal--armed .cartouche__svg--draw .cartouche__outer,
+  .reveal--armed .cartouche__svg--draw .cartouche__inner {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* --------------------------------------------------------------- canvas */
+
+#stage {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.7s var(--ease);
+  contain: strict;
+}
+#stage[data-motion='on'] {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  #stage {
+    display: none;
+  }
+}
+
+/* ----------------------------------------------------------- review bar */
+
+.reviewbar {
+  position: sticky;
+  top: 0;
+  z-index: 120;
+  background: var(--oxblood);
+  color: var(--ivory);
+  border-bottom: 1px solid rgba(207, 154, 49, 0.35);
+}
+/* Unpinned on phones (--bar-h is 0 there): wrapped banner text would otherwise
+   sit underneath the header, and two pinned bars eat a small viewport. */
+@media (max-width: 719px) {
+  .reviewbar {
+    position: static;
+  }
+}
+.reviewbar__inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 40px;
+  padding-block: 0.4rem;
+  flex-wrap: wrap;
+}
+.reviewbar__text {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
+  opacity: 0.94;
+}
+.reviewbar__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex: none;
+}
+.reviewbar__toggle {
+  margin-left: auto;
+  background: none;
+  border: 1px solid rgba(238, 235, 229, 0.32);
+  padding: 0.24rem 0.6rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.reviewbar__panel {
+  padding-bottom: 1rem;
+}
+.reviewbar__panel dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.6rem 1.4rem;
+  margin: 0 0 0.7rem;
+}
+.reviewbar__panel dt {
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+.reviewbar__panel dd {
+  margin: 0.1rem 0 0;
+  font-size: 0.84rem;
+}
+.reviewbar__meta {
+  font-size: 0.72rem;
+  opacity: 0.7;
+  max-width: 70ch;
+}
+
+/* --------------------------------------------------------------- header */
+
+.hdr {
+  position: sticky;
+  top: var(--bar-h);
+  z-index: 100;
+  transition:
+    background-color 0.45s var(--ease),
+    border-color 0.45s var(--ease);
+  border-bottom: 1px solid transparent;
+}
+.hdr[data-tone='ink'] {
+  color: var(--ivory);
+}
+.hdr[data-scrolled='true'] {
+  background: rgba(6, 5, 5, 0.86);
+  border-bottom-color: var(--gold-line);
+  backdrop-filter: blur(14px);
+  color: var(--ivory);
+}
+.hdr__inner {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  min-height: 70px;
+}
+.hdr__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  flex: none;
+}
+.hdr__brand img {
+  height: 34px;
+  width: auto;
+}
+/* disambiguates the "1920" inside the mark: it is a street number, not a founding year */
+.hdr__where {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+.hdr__nav {
+  display: none;
+  gap: 1.5rem;
+  margin-left: auto;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+}
+.hdr__nav a {
+  text-decoration: none;
+  position: relative;
+}
+.hdr__nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -4px;
+  height: 1px;
+  background: var(--gold);
+  transition: right 0.45s var(--ease);
+}
+.hdr__nav a:hover::after {
+  right: 0;
+}
+.hdr__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-left: auto;
+}
+.hdr__actions .btn {
+  display: none;
+}
+@media (min-width: 900px) {
+  .hdr__nav {
+    display: flex;
+  }
+  .hdr__actions {
+    margin-left: 0;
+  }
+  .hdr__actions .btn {
+    display: inline-flex;
+  }
+}
+@media (max-width: 620px) {
+  .hdr__where {
+    display: none;
+  }
+}
+
+.langtoggle {
+  display: inline-flex;
+  border: 1px solid var(--gold-line);
+}
+.langtoggle__btn {
+  background: none;
+  border: 0;
+  padding: 0.4rem 0.55rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  opacity: 0.55;
+}
+/* Gold is the page's single call to action (CALL). The language switch is a
+   control, not an offer, so it states itself in ivory and stays quiet. */
+.langtoggle__btn[aria-pressed='true'] {
+  background: rgba(238, 235, 229, 0.94);
+  color: var(--ink);
+  opacity: 1;
+}
+/* On the ivory header an ivory chip would vanish into the page: invert it. */
+.hdr[data-tone='ivory']:not([data-scrolled='true']) .langtoggle__btn[aria-pressed='true'] {
+  background: var(--ink);
+  color: var(--ivory);
+}
+.hdr[data-scrolled='true'] .langtoggle {
+  border-color: rgba(238, 235, 229, 0.28);
+}
+
+/* ----------------------------------------------------------------- hero */
+
+.hero {
+  position: relative;
+  min-height: 86svh;
+  display: flex;
+  align-items: flex-end;
+  background: var(--ink);
+  color: var(--text-on-ink);
+  padding-block: clamp(3rem, 9vw, 7rem);
+  overflow: hidden;
+  margin-top: calc(-1 * var(--chrome-h)); /* the pinned bar + header sit over the media */
+  padding-top: calc(var(--chrome-h) + 40px);
+}
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero__media .frame {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+.hero__media .frame__core {
+  position: absolute;
+  inset: 0;
+  aspect-ratio: auto !important;
+}
+.hero__media video,
+.hero__media img {
+  filter: saturate(0.86) contrast(1.14) brightness(0.82);
+}
+/* The hero footage is pale and smoke-heavy; it needs its own grade to sit
+   under cream display type without turning the headline grey. */
+.hero__media .frame__core video,
+.hero__media .frame__core img {
+  filter: saturate(1.02) contrast(1.12) brightness(0.88);
+}
+/* The hero frame fills the viewport, so its default top-right control corner sits
+   underneath the pinned banner and header. Anchor both chrome pieces to the bottom:
+   rights badge left, pause control right — always reachable, never buried. */
+.hero__media .rights {
+  top: auto;
+  left: 16px;
+  right: auto;
+  bottom: 16px;
+}
+.hero__media .loopctl {
+  top: auto;
+  right: 16px;
+  bottom: 16px;
+}
+.hero__veil {
+  position: absolute;
+  inset: 0;
+  background:
+    /* the text column is protected from the left, so the fire stays bright on the right */
+    linear-gradient(
+      to right,
+      rgba(6, 5, 5, 0.88) 0%,
+      rgba(6, 5, 5, 0.66) 34%,
+      rgba(6, 5, 5, 0.18) 66%,
+      rgba(6, 5, 5, 0.42) 100%
+    ),
+    linear-gradient(to top, rgba(6, 5, 5, 0.94) 2%, rgba(6, 5, 5, 0.3) 52%, rgba(6, 5, 5, 0.78) 100%),
+    radial-gradient(120% 80% at 30% 74%, rgba(207, 154, 49, 0.14), transparent 62%);
+}
+@media (max-width: 860px) {
+  /* No room for a side-lit scrim on a phone: darken evenly instead. */
+  .hero__veil {
+    background:
+      linear-gradient(to top, rgba(6, 5, 5, 0.95) 4%, rgba(6, 5, 5, 0.55) 54%, rgba(6, 5, 5, 0.8) 100%),
+      radial-gradient(120% 80% at 50% 78%, rgba(207, 154, 49, 0.12), transparent 60%);
+  }
+}
+.hero__body {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+}
+.hero__eyebrow {
+  color: var(--gold);
+  margin-bottom: 1.4rem;
+}
+.hero__title {
+  max-width: 13ch;
+}
+.hero__line {
+  display: block;
+  overflow: hidden;
+}
+.hero__line > span {
+  display: block;
+  transform: translateY(110%);
+  animation: rise 1.05s var(--ease) forwards;
+}
+@keyframes rise {
+  to {
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__line > span {
+    transform: none;
+    animation: none;
+  }
+}
+.hero__sub {
+  margin-top: 1.5rem;
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+  max-width: 44ch;
+  opacity: 0.88;
+}
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+.hero__hours {
+  margin-top: 1.5rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  opacity: 0.6;
+}
+
+/* ----------------------------------------------------------------- fire */
+
+.fire__inner {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+@media (min-width: 900px) {
+  .fire__inner {
+    grid-template-columns: 1fr 0.85fr;
+    align-items: center;
+  }
+}
+.fire__facts {
+  list-style: none;
+  margin: 2.2rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+  max-width: 30ch;
+}
+.fire__facts li {
+  padding-left: 1.5rem;
+  position: relative;
+  font-family: var(--display);
+  font-size: 1.3rem;
+}
+.fire__facts li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 0.9rem;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* ---------------------------------------------------------------- board */
+
+.board__inner {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .board__inner {
+    grid-template-columns: 0.8fr 1fr;
+  }
+  .board__media {
+    max-width: 420px;
+  }
+}
+
+/* --------------------------------------------------------------- dishes */
+
+.dishes__head {
+  margin-bottom: clamp(2.4rem, 5vw, 4rem);
+}
+.dishes__head > * {
+  max-width: 52ch;
+}
+.dishes__foot {
+  margin-top: 2.4rem;
+  max-width: 60ch;
+}
+
+/* -------------------------------------------------------------- passage */
+
+.passage {
+  position: relative;
+  background: var(--ink);
+  color: var(--text-on-ink);
+  padding-block: clamp(6rem, 16vw, 14rem);
+}
+.passage__inner {
+  display: grid;
+  place-items: center;
+}
+.passage__plate {
+  max-width: 760px;
+  position: relative;
+  z-index: 3;
+}
+.passage__title {
+  font-size: clamp(1.5rem, 3.4vw, 2.6rem);
+  max-width: 18ch;
+}
+/* when the GPU draws the cartouche, the printed one steps aside */
+html[data-tier='3'] .passage__plate .cartouche__svg {
+  opacity: 0.18;
+  transition: opacity 0.8s var(--ease);
+}
+
+/* --------------------------------------------------------- menu preview */
+
+.menupreview__head {
+  margin-bottom: clamp(2rem, 4vw, 3.4rem);
+}
+.menupreview__head > * {
+  max-width: 52ch;
+}
+.menupreview__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1px;
+  background: var(--gold-line);
+  border: 1px solid var(--gold-line);
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+.catcard a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.3rem 1.4rem;
+  background: var(--ivory-2);
+  text-decoration: none;
+  transition: background-color 0.4s var(--ease);
+}
+.catcard a:hover {
+  background: #fff;
+}
+.catcard__name {
+  font-family: var(--display);
+  font-size: 1.32rem;
+}
+.catcard__count {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--gold-ink);
+}
+
+/* ----------------------------------------------------------------- room */
+
+.room__inner {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .room__inner {
+    grid-template-columns: 1fr 0.9fr;
+  }
+}
+
+/* ---------------------------------------------------------------- visit */
+
+.visit__inner {
+  display: grid;
+  gap: clamp(2.4rem, 6vw, 5rem);
+}
+@media (min-width: 900px) {
+  .visit__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.visit__addr {
+  font-size: clamp(2.2rem, 5.4vw, 4rem);
+}
+.visit__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+.visit__facts {
+  display: grid;
+  gap: 2.4rem;
+}
+@media (min-width: 560px) {
+  .visit__facts {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.visit__block h3 {
+  font-family: var(--ui);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-ink);
+  margin-bottom: 0.7rem;
+}
+.visit__block h3 + h3 {
+  margin-top: 1.6rem;
+}
+.hours {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.88rem;
+}
+.hours li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid rgba(25, 20, 17, 0.08);
+}
+.hours__day {
+  text-transform: capitalize;
+  opacity: 0.72;
+}
+.visit__phone {
+  font-family: var(--display);
+  font-size: 1.7rem;
+}
+.visit__phone a {
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------- footer */
+
+.ftr {
+  background: var(--ink);
+  color: var(--text-on-ink);
+  padding-block: clamp(3.5rem, 7vw, 5.5rem);
+}
+.ftr__inner {
+  display: grid;
+  gap: 2rem;
+}
+.ftr__brand img {
+  height: 42px;
+  width: auto;
+}
+.ftr__addr {
+  margin-top: 1rem;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  opacity: 0.8;
+}
+.ftr__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  font-size: 0.86rem;
+}
+.ftr__prov {
+  display: inline-grid;
+  place-items: center;
+  width: 1.05em;
+  height: 1.05em;
+  margin-left: 0.35em;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  font-size: 0.6rem;
+  color: var(--gold);
+}
+.ftr__pending {
+  border-top: 1px solid rgba(238, 235, 229, 0.14);
+  padding-top: 1.4rem;
+  font-size: 0.82rem;
+}
+.ftr__pending summary {
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+}
+.ftr__pending ul {
+  margin: 0.9rem 0 0;
+  padding-left: 1.1rem;
+  columns: 2;
+  column-gap: 2rem;
+  opacity: 0.75;
+  line-height: 1.7;
+}
+@media (max-width: 620px) {
+  .ftr__pending ul {
+    columns: 1;
+  }
+}
+.ftr__note {
+  font-size: 0.74rem;
+  opacity: 0.55;
+  max-width: 60ch;
+}
+
+/* ------------------------------------------------------- sticky actions */
+
+.sticky-actions {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 95;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--gold-line);
+  border-top: 1px solid var(--gold-line);
+  transform: translateY(120%);
+  transition: transform 0.45s var(--ease);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.sticky-actions[data-show='true'] {
+  transform: none;
+}
+.sticky-actions__btn {
+  display: grid;
+  place-items: center;
+  min-height: 52px;
+  background: var(--ivory-2);
+  color: var(--text-on-ivory);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.sticky-actions__btn--gold {
+  background: var(--gold);
+  color: #1a1006;
+}
+@media (min-width: 900px) {
+  .sticky-actions {
+    display: none;
+  }
+}
+
+/* ============================================================ menu route */
+
+.menupage {
+  padding-top: clamp(2.5rem, 6vw, 4.5rem);
+  padding-bottom: clamp(4rem, 9vw, 7rem);
+}
+.menupage__head {
+  /* .rail already centres the column; a max-width here must not re-centre it. */
+  margin-inline: auto;
+}
+.menupage__head > * {
+  max-width: 62ch;
+}
+.menupage__title {
+  margin-top: 0.8rem;
+  font-size: var(--t-h2);
+}
+.menupage__lead {
+  margin-top: 1rem;
+  opacity: 0.8;
+}
+.menupage__notice {
+  margin-top: 1.4rem;
+  padding: 0.95rem 1.15rem;
+  border-left: 2px solid var(--gold);
+  background: rgba(207, 154, 49, 0.08);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+.menupage__observed {
+  margin-top: 0.7rem;
+  font-size: 0.74rem;
+  opacity: 0.6;
+}
+
+.menunav {
+  position: sticky;
+  top: var(--chrome-h);
+  z-index: 60;
+  margin-top: 2.2rem;
+  background: var(--ivory);
+  border-block: 1px solid var(--gold-line);
+}
+.menunav__inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 0.6rem;
+}
+.menunav__tabs {
+  display: flex;
+  gap: 0.35rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex: 1;
+}
+.menunav__tabs::-webkit-scrollbar {
+  display: none;
+}
+.menunav__tab {
+  flex: none;
+  background: none;
+  border: 1px solid transparent;
+  padding: 0.45rem 0.8rem;
+  font-size: 0.78rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    border-color 0.4s var(--ease),
+    background-color 0.4s var(--ease);
+}
+/* the buttons state themselves with aria-pressed — the style reads the same attribute */
+.menunav__tab[aria-pressed='true'] {
+  border-color: var(--gold);
+  background: rgba(207, 154, 49, 0.14);
+}
+.menunav__search input {
+  min-height: 40px;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--gold-line);
+  background: #fff;
+  font: inherit;
+  font-size: 0.84rem;
+  width: min(240px, 40vw);
+}
+
+.menupage__body {
+  padding-top: 2.4rem;
+}
+.menupage__count {
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin-bottom: 2rem;
+}
+.course {
+  margin-bottom: clamp(2.6rem, 5vw, 4rem);
+  scroll-margin-top: calc(var(--chrome-h) + 80px);
+}
+.course__title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--gold-line);
+}
+.course__count {
+  font-family: var(--ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  color: var(--gold-ink);
+}
+.course__list {
+  list-style: none;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1.5rem;
+}
+@media (min-width: 760px) {
+  .course__list {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.6rem 3rem;
+  }
+}
+.dish__head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+.dish__name {
+  font-size: 1.16rem;
+  font-weight: 500;
+}
+.dish__leader {
+  flex: 1;
+  border-bottom: 1px dotted rgba(25, 20, 17, 0.3);
+  transform: translateY(-0.28em);
+}
+.dish__price {
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--gold-ink);
+  font-weight: 600;
+}
+.dish__price[data-unpriced='true'] {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+.dish__desc {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  opacity: 0.7;
+  max-width: 52ch;
+}
+.dish__notes {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.55rem 0 0;
+  padding: 0;
+}
+.dish__note {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--gold-line);
+  color: var(--gold-ink);
+}
+.menupage__empty {
+  padding: 2rem 0;
+  opacity: 0.7;
+}
+
+/* ------------------------------------------------------------ concierge */
+
+.concierge {
+  margin-top: clamp(3rem, 6vw, 5rem);
+  padding: clamp(1.6rem, 4vw, 2.6rem);
+  background: var(--ink);
+  color: var(--text-on-ink);
+}
+.concierge__title {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+}
+.concierge__lead {
+  margin-top: 0.6rem;
+  font-size: 0.86rem;
+  opacity: 0.7;
+  max-width: 52ch;
+}
+.concierge__form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.4rem;
+}
+.concierge__form input {
+  flex: 1 1 240px;
+  min-height: 46px;
+  padding: 0.5rem 0.9rem;
+  background: rgba(238, 235, 229, 0.06);
+  border: 1px solid var(--gold-line);
+  color: var(--ivory);
+  font: inherit;
+  font-size: 0.92rem;
+}
+.concierge__out {
+  margin-top: 1.4rem;
+  min-height: 1.5rem;
+}
+.concierge__refusal {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  max-width: 56ch;
+  border-left: 2px solid var(--gold);
+  padding-left: 0.9rem;
+  opacity: 0.9;
+}
+.concierge__label {
+  font-size: 0.64rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.concierge__list {
+  list-style: none;
+  margin: 0.8rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.concierge__list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid rgba(238, 235, 229, 0.12);
+}
+.concierge__dish {
+  font-family: var(--display);
+  font-size: 1.15rem;
+}
+.concierge__cat {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+.concierge__price {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------------------------------------------- researched-price reveal */
+
+.pricereveal {
+  margin-top: 1.1rem;
+}
+.pricereveal__btn {
+  background: none;
+  border: 1px solid var(--gold-line);
+  padding: 0.45rem 0.85rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-ink);
+  cursor: pointer;
+  transition: background-color 0.4s var(--ease);
+}
+.pricereveal__btn:hover {
+  background: rgba(207, 154, 49, 0.12);
+}
+.pricereveal__note {
+  margin-top: 0.7rem;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  max-width: 56ch;
+  opacity: 0.72;
+}
+/* a price we found, not a price the restaurant gave us */
+.dish__price[data-research='true'] {
+  color: var(--text-on-ivory);
+  border-bottom: 1px dashed var(--gold);
+  opacity: 0.8;
+}
+
+/* ------------------------------------------------------------ kitchen strip */
+
+.kitchenstrip {
+  margin-top: clamp(3rem, 6vw, 5rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--gold-line);
+}
+.kitchenstrip__label {
+  margin-bottom: 1.4rem;
+}
+.kitchenstrip__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: clamp(0.8rem, 2vw, 1.4rem);
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+.kitchenstrip__grid .frame__core {
+  aspect-ratio: 1 / 1 !important;
+}
+
+/* -------------------------------------------------------------- dish list */
+
+.dishlist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  grid-template-columns: 1fr;
+  border-top: 1px solid var(--gold-line);
+}
+@media (min-width: 760px) {
+  .dishlist {
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(2rem, 6vw, 6rem);
+  }
+}
+.dishlist__item {
+  padding: 1.35rem 0;
+  border-bottom: 1px solid var(--gold-line);
+}
+.dishlist__name {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 400;
+}
+.dishlist__desc {
+  margin-top: 0.4rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  opacity: 0.7;
+  max-width: 44ch;
+}
