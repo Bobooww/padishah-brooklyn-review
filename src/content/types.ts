@@ -83,6 +83,8 @@ export type MediaWeb = {
   derivedFrom?: string;
   /** [start, length] pairs, in seconds, taken from the source reel. */
   segments?: [number, number][];
+  /** For a still lifted from a reel: the exact frame timestamp, in seconds. */
+  frameAtSeconds?: number;
 };
 
 export type MediaAsset = {

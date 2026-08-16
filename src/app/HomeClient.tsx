@@ -7,6 +7,7 @@ import { HOURS, PROVISIONAL, VERIFIED, OBSERVED_AT } from '@/content/generated/f
 import type { MenuItem } from '@/content/types';
 import { media } from '@/lib/review-mode';
 import { observeReveals, stagger } from '@/lib/reveal';
+import { observeDrift } from '@/lib/drift';
 import { Loop, Still } from '@/components/Media';
 import { Cartouche } from '@/components/Cartouche';
 import { IG_HANDLE, ReviewBar, SiteHeader, SiteFooter, StickyActions } from '@/components/Shell';
@@ -31,18 +32,33 @@ const DISH_IDS = [
  * They live in their own strip below, described only by what is visibly in them.
  */
 const KITCHEN_STRIP = [
+  'food/platter-overhead',
   'food/grill-skewers-closeup',
-  'food/samsa-trays',
-  'food/kebab-on-bread',
-  'food/chebureki',
+  'food/skewer-ranks',
+  'food/salmon-grill',
 ];
+
+/**
+ * The provisional cuisine wording is research data and arrives in English. On the
+ * Russian page the same claim is rendered in Russian — the translation maps ONLY
+ * the exact known research string, so a corrected fact can never be silently
+ * re-translated; anything else falls back to the raw research value.
+ */
+const CUISINE_RU: Record<string, string> = {
+  'Uzbek and Central Asian cuisine': 'Узбекская и среднеазиатская кухня',
+};
 
 export default function HomeClient() {
   const { t, lang } = useLang();
 
   useEffect(() => {
     document.querySelectorAll<HTMLElement>('[data-stagger]').forEach((el) => stagger(el));
-    return observeReveals(document);
+    const teardownReveals = observeReveals(document);
+    const teardownDrift = observeDrift(document);
+    return () => {
+      teardownReveals();
+      teardownDrift();
+    };
   }, []);
 
   const dishes = DISH_IDS.map((id) => ITEMS.find((i) => i.id === id)).filter(
@@ -53,54 +69,89 @@ export default function HomeClient() {
     <>
       <Stage />
       <ReviewBar />
-      <SiteHeader tone="ink" />
+      <SiteHeader tone="ivory" />
 
       <main>
         {/* ---------------------------------------------------------- hero */}
+        {/*
+         * Editorial split, not a stretched backdrop: the reels are 9:16 phone
+         * footage, and cropping them to a full-bleed 16:9 wall threw away two
+         * thirds of the pixels and upscaled the rest. Framed portrait in an
+         * arch, the same footage ships at native sharpness — and the fire
+         * reads as the object of the page instead of wallpaper.
+         */}
         <section id="hero" className="hero">
-          <div className="hero__media">
-            <Loop asset={media('motion/fire')} alt={t.hero.title.replace('\n', ' ')} priority lang={lang} />
-            <div className="hero__veil" aria-hidden="true" />
-          </div>
-
-          <div className="rail hero__body">
-            <p className="eyebrow hero__eyebrow">{t.hero.eyebrow}</p>
-            <h1 className="hero__title">
-              {t.hero.title.split('\n').map((line, i) => (
-                <span key={line} className="hero__line" style={{ animationDelay: `${120 + i * 130}ms` }}>
-                  <span>{line}</span>
-                </span>
-              ))}
-            </h1>
-            <p className="hero__sub">
-              <span
-                className="provisional"
-                title={
-                  lang === 'ru'
-                    ? 'Формулировку кухни ещё подтверждает ресторан'
-                    : 'Cuisine wording is still being confirmed by the restaurant'
-                }
-              >
-                {PROVISIONAL.cuisine.value}
-                {/* the dotted marker and title are invisible to readers and touch: say it */}
-                <span className="u-sr">
-                  {lang === 'ru' ? ' (формулировка уточняется у ресторана)' : ' (wording pending the restaurant’s confirmation)'}
-                </span>
-              </span>{' '}
-              {lang === 'ru' ? 'на Avenue U, 1920, в Бруклине.' : 'at 1920 Avenue U in Brooklyn.'}
-            </p>
-            <div className="hero__cta">
-              <Link className="btn btn--gold btn--lg" href="/menu/">
-                {t.hero.ctaMenu}
-              </Link>
-              <a className="btn btn--ghost btn--lg" href={`tel:${VERIFIED.phoneE164}`}>
-                {t.hero.ctaCall}
-              </a>
+          <div className="hero__glow" aria-hidden="true" />
+          <div className="rail hero__grid">
+            <div className="hero__body">
+              <p className="eyebrow hero__eyebrow">{t.hero.eyebrow}</p>
+              <h1 className="hero__title">
+                {t.hero.title.split('\n').map((line, i) => (
+                  <span key={line} className="hero__line" style={{ animationDelay: `${120 + i * 130}ms` }}>
+                    <span>
+                      {/* the word the sign is about, in the sign's own red script voice */}
+                      {line.split(/(fire|огня)/).map((part, j) =>
+                        /^(fire|огня)$/.test(part) ? (
+                          <em key={j} className="hero__flame">
+                            {part}
+                          </em>
+                        ) : (
+                          part
+                        ),
+                      )}
+                    </span>
+                  </span>
+                ))}
+              </h1>
+              <p className="hero__sub">
+                <span
+                  className="provisional"
+                  title={
+                    lang === 'ru'
+                      ? 'Формулировку кухни ещё подтверждает ресторан'
+                      : 'Cuisine wording is still being confirmed by the restaurant'
+                  }
+                >
+                  {lang === 'ru' ? (CUISINE_RU[PROVISIONAL.cuisine.value] ?? PROVISIONAL.cuisine.value) : PROVISIONAL.cuisine.value}
+                  {/* the dotted marker and title are invisible to readers and touch: say it */}
+                  <span className="u-sr">
+                    {lang === 'ru' ? ' (формулировка уточняется у ресторана)' : ' (wording pending the restaurant’s confirmation)'}
+                  </span>
+                </span>{' '}
+                {lang === 'ru' ? '— 1920 Avenue U, Бруклин.' : 'at 1920 Avenue U in Brooklyn.'}
+              </p>
+              <div className="hero__cta">
+                <Link className="btn btn--gold btn--lg" href="/menu/">
+                  {t.hero.ctaMenu}
+                </Link>
+                <a className="btn btn--ghost btn--lg" href={`tel:${VERIFIED.phoneE164}`}>
+                  {t.hero.ctaCall}
+                </a>
+              </div>
+              <p className="hero__hours">
+                {PROVISIONAL.hoursSummary.value}
+                {PROVISIONAL.hoursSummary.status !== 'owner_confirmed' && <> · {t.visit.hoursNote}</>}
+              </p>
             </div>
-            <p className="hero__hours">
-              {PROVISIONAL.hoursSummary.value}
-              {PROVISIONAL.hoursSummary.status !== 'owner_confirmed' && <> · {t.visit.hoursNote}</>}
-            </p>
+
+            <div className="hero__stage">
+              <div className="hero__arch" data-drift="0.05">
+                {/* the crowned frame from the restaurant's own mark, drawn in once —
+                    it names the window: this is Padishah's arch, not decoration */}
+                <Cartouche draw className="hero__crest" />
+                <span className="hero__arch-echo" aria-hidden="true" />
+                <Loop
+                  asset={media('motion/fire')}
+                  alt={t.hero.title.replace('\n', ' ')}
+                  priority
+                  orientation="portrait"
+                  lang={lang}
+                />
+                <p className="hero__caption micro">
+                  {lang === 'ru' ? 'Мангал — из съёмки самого ресторана.' : "The grill — the restaurant's own footage."}
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -160,6 +211,22 @@ export default function HomeClient() {
                   ? 'С шампуров — на дерево, с лимоном, зеленью и горкой красного лука. Так это уходит из кухни и так пересекает зал.'
                   : 'Off the skewers, onto wood, with lemon, herbs and a heap of red onion. That is how it leaves the kitchen and how it crosses the room.'}
               </p>
+
+              {/* The human beat: one small snapshot from the restaurant's own posts,
+                  drifting a few pixels against the scroll — a pinned photo, not a claim. */}
+              <div className="polaroid reveal" data-drift="0.07" data-drift-rotate="1.2">
+                <div className="polaroid__tilt">
+                  <Still
+                    asset={media('people/chef-fruit-platter')}
+                    alt=""
+                    sizes="(min-width: 900px) 260px, 55vw"
+                    lang={lang}
+                  />
+                  <p className="polaroid__note">
+                    {lang === 'ru' ? 'Кухня — из публикаций самого ресторана.' : "The kitchen — from the restaurant's own posts."}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -168,9 +235,21 @@ export default function HomeClient() {
         <section id="dishes" className="section section--ivory dishes">
           <div className="rail">
             <header className="dishes__head reveal">
-              <p className="eyebrow">{t.dishes.eyebrow}</p>
-              <h2>{t.dishes.title}</h2>
-              <p className="lead">{t.dishes.body}</p>
+              <div className="dishes__intro">
+                <p className="eyebrow">{t.dishes.eyebrow}</p>
+                <h2>{t.dishes.title}</h2>
+                <p className="lead">{t.dishes.body}</p>
+              </div>
+              {/* the sharing board as a plate: a circle that turns a few degrees
+                  against the scroll — food doing the moving, nothing else */}
+              <div className="plate" data-drift="0.06" data-drift-rotate="7">
+                <Still
+                  asset={media('food/platter-overhead')}
+                  alt=""
+                  sizes="(min-width: 900px) 380px, 70vw"
+                  lang={lang}
+                />
+              </div>
             </header>
 
             {/* A printed card, not six empty photo frames: the names are the content. */}
@@ -217,10 +296,11 @@ export default function HomeClient() {
         {/* ------------------------------------------------------- passage */}
         <section id="passage" className="passage">
           <div className="rail passage__inner">
+            {/* The gate, not the inventory: the menu preview right below carries the
+                "The menu / nine sections" head, so the plate must not repeat it. */}
             <Cartouche className="passage__plate" draw>
-              <p className="eyebrow">{t.menuPreview.eyebrow}</p>
               <h2 className="passage__title">
-                {lang === 'ru' ? 'Девять разделов — от салатов до шашлыка.' : 'Nine categories, from salads to skewers.'}
+                {lang === 'ru' ? 'От салатов до шашлыка.' : 'From salads to skewers.'}
               </h2>
               <Link className="btn btn--gold" href="/menu/">
                 {lang === 'ru' ? 'Открыть всё меню' : 'Open the full menu'}
@@ -282,7 +362,7 @@ export default function HomeClient() {
           <div className="rail visit__inner">
             <div className="visit__copy reveal">
               <p className="eyebrow">{t.visit.eyebrow}</p>
-              <h2 className="visit__addr">1920 Avenue U, Brooklyn.</h2>
+              <h2 className="visit__addr">{lang === 'ru' ? '1920 Avenue U, Бруклин.' : '1920 Avenue U, Brooklyn.'}</h2>
               <p className="lead">
                 {lang === 'ru'
                   ? 'Позвоните в ресторан — про меню и про всё, на что сайт пока не отвечает.'
@@ -300,6 +380,11 @@ export default function HomeClient() {
                 >
                   {t.visit.directions}
                 </a>
+              </div>
+
+              {/* The sign you are actually looking for on Avenue U. */}
+              <div className="visit__store reveal" data-drift="0.03">
+                <Loop asset={media('motion/storefront')} alt="" lang={lang} />
               </div>
             </div>
 

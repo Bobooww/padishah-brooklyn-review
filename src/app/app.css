@@ -254,36 +254,39 @@
 
 /* ----------------------------------------------------------- review bar */
 
+/* The persistent disclosure as a floating pill: always on screen, never a
+   banner shouting over the hero. Oxblood keeps its one appearance here. */
 .reviewbar {
-  position: sticky;
-  top: 0;
-  z-index: 120;
-  background: var(--oxblood);
+  position: fixed;
+  left: 14px;
+  bottom: calc(14px + env(safe-area-inset-bottom));
+  z-index: 110;
   color: var(--ivory);
-  border-bottom: 1px solid rgba(207, 154, 49, 0.35);
+  max-width: min(420px, calc(100vw - 28px));
 }
-/* Unpinned on phones (--bar-h is 0 there): wrapped banner text would otherwise
-   sit underneath the header, and two pinned bars eat a small viewport. */
-@media (max-width: 719px) {
+/* Above the mobile action bar (52px) instead of underneath it. */
+@media (max-width: 899px) {
   .reviewbar {
-    position: static;
+    bottom: calc(66px + env(safe-area-inset-bottom));
   }
 }
-.reviewbar__inner {
-  display: flex;
+.reviewbar__toggle {
+  display: inline-flex;
   align-items: center;
-  gap: 1rem;
-  min-height: 40px;
-  padding-block: 0.4rem;
-  flex-wrap: wrap;
-}
-.reviewbar__text {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  font-size: 0.74rem;
-  letter-spacing: 0.02em;
-  opacity: 0.94;
+  gap: 0.5rem;
+  min-height: 36px;
+  padding: 0.3rem 0.85rem;
+  background: rgba(43, 5, 4, 0.92);
+  color: var(--ivory);
+  border: 1px solid rgba(207, 154, 49, 0.45);
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 22px rgba(6, 5, 5, 0.35);
 }
 .reviewbar__dot {
   width: 7px;
@@ -292,22 +295,26 @@
   background: var(--gold);
   flex: none;
 }
-.reviewbar__toggle {
-  margin-left: auto;
-  background: none;
-  border: 1px solid rgba(238, 235, 229, 0.32);
-  padding: 0.24rem 0.6rem;
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
+.reviewbar__sep {
+  opacity: 0.5;
 }
 .reviewbar__panel {
-  padding-bottom: 1rem;
+  margin-bottom: 0.6rem;
+  padding: 1.1rem 1.2rem;
+  background: rgba(43, 5, 4, 0.96);
+  border: 1px solid rgba(207, 154, 49, 0.45);
+  box-shadow: 0 14px 40px rgba(6, 5, 5, 0.45);
+  backdrop-filter: blur(12px);
+}
+.reviewbar__text {
+  margin-bottom: 0.9rem;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  opacity: 0.94;
 }
 .reviewbar__panel dl {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 0.6rem 1.4rem;
   margin: 0 0 0.7rem;
 }
@@ -331,7 +338,7 @@
 
 .hdr {
   position: sticky;
-  top: var(--bar-h);
+  top: 0;
   z-index: 100;
   transition:
     background-color 0.45s var(--ease),
@@ -454,89 +461,146 @@
 
 /* ----------------------------------------------------------------- hero */
 
+/* Editorial split on daylight paper: copy at the left, the fire framed in the
+   restaurant's crowned arch at the right. The page opens warm and light — the
+   dark room waits one chapter below, where the coals actually are. */
 .hero {
   position: relative;
-  min-height: 86svh;
+  min-height: 92svh;
   display: flex;
-  align-items: flex-end;
-  background: var(--ink);
-  color: var(--text-on-ink);
-  padding-block: clamp(3rem, 9vw, 7rem);
+  align-items: center;
+  background: linear-gradient(180deg, var(--paper) 0%, var(--ivory) 62%, var(--cream) 100%);
+  color: var(--text-on-ivory);
+  padding-block: clamp(2.5rem, 7vw, 5rem);
   overflow: hidden;
-  margin-top: calc(-1 * var(--chrome-h)); /* the pinned bar + header sit over the media */
-  padding-top: calc(var(--chrome-h) + 40px);
+  margin-top: calc(-1 * var(--chrome-h)); /* the transparent header sits over the paper */
+  padding-top: calc(var(--chrome-h) + 24px);
 }
-.hero__media {
+/* Morning light behind the arch — warmth, not decoration. */
+.hero__glow {
   position: absolute;
   inset: 0;
   z-index: 0;
-}
-.hero__media .frame {
-  position: absolute;
-  inset: 0;
-  padding: 0;
-  background: none;
-  box-shadow: none;
-}
-.hero__media .frame__core {
-  position: absolute;
-  inset: 0;
-  aspect-ratio: auto !important;
-}
-.hero__media video,
-.hero__media img {
-  filter: saturate(0.86) contrast(1.14) brightness(0.82);
-}
-/* The hero footage is pale and smoke-heavy; it needs its own grade to sit
-   under cream display type without turning the headline grey. */
-.hero__media .frame__core video,
-.hero__media .frame__core img {
-  filter: saturate(1.02) contrast(1.12) brightness(0.88);
-}
-/* The hero frame fills the viewport, so its default top-right control corner sits
-   underneath the pinned banner and header. Anchor both chrome pieces to the bottom:
-   rights badge left, pause control right — always reachable, never buried. */
-.hero__media .rights {
-  top: auto;
-  left: 16px;
-  right: auto;
-  bottom: 16px;
-}
-.hero__media .loopctl {
-  top: auto;
-  right: 16px;
-  bottom: 16px;
-}
-.hero__veil {
-  position: absolute;
-  inset: 0;
   background:
-    /* the text column is protected from the left, so the fire stays bright on the right */
-    linear-gradient(
-      to right,
-      rgba(6, 5, 5, 0.88) 0%,
-      rgba(6, 5, 5, 0.66) 34%,
-      rgba(6, 5, 5, 0.18) 66%,
-      rgba(6, 5, 5, 0.42) 100%
-    ),
-    linear-gradient(to top, rgba(6, 5, 5, 0.94) 2%, rgba(6, 5, 5, 0.3) 52%, rgba(6, 5, 5, 0.78) 100%),
-    radial-gradient(120% 80% at 30% 74%, rgba(207, 154, 49, 0.14), transparent 62%);
+    radial-gradient(50% 62% at 72% 48%, rgba(207, 154, 49, 0.2), transparent 70%),
+    radial-gradient(36% 44% at 14% 6%, rgba(163, 38, 56, 0.05), transparent 65%);
+  pointer-events: none;
 }
-@media (max-width: 860px) {
-  /* No room for a side-lit scrim on a phone: darken evenly instead. */
-  .hero__veil {
-    background:
-      linear-gradient(to top, rgba(6, 5, 5, 0.95) 4%, rgba(6, 5, 5, 0.55) 54%, rgba(6, 5, 5, 0.8) 100%),
-      radial-gradient(120% 80% at 50% 78%, rgba(207, 154, 49, 0.12), transparent 60%);
+.hero__grid {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: grid;
+  gap: clamp(2.4rem, 6vw, 5rem);
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .hero__grid {
+    grid-template-columns: 1.05fr 0.95fr;
   }
 }
 .hero__body {
   position: relative;
-  z-index: 3;
-  width: 100%;
+  max-width: 620px;
+}
+/* The split column is narrower than the old full-bleed stage: the display size
+   steps down so the two written lines stay two lines. */
+.hero__title {
+  font-size: clamp(2.9rem, 6.2vw, 5.7rem);
+}
+/* The word the sign is about, in the sign's own red script voice. */
+.hero__flame {
+  font-style: italic;
+  color: var(--brand-red);
+}
+
+/* ---- the arch ----------------------------------------------------------
+   A pointed-shoulder arch drawn with border-radius, echoed by a second gold
+   hairline — the same double-stroke DNA as the cartouche. The 9:16 footage
+   ships native inside it: nothing is cropped away, nothing upscaled. */
+.hero__stage {
+  display: grid;
+  justify-items: center;
+}
+.hero__arch {
+  position: relative;
+  width: min(430px, 84vw);
+  margin-top: 46px; /* room for the seated crest */
+  will-change: transform;
+  /* a mounted print: warm card behind the window makes the arch read as an object */
+  background: var(--ivory-2);
+  padding: 12px 12px 0;
+  box-shadow:
+    0 26px 70px rgba(25, 20, 17, 0.16),
+    0 3px 10px rgba(25, 20, 17, 0.08);
+}
+.hero__arch .frame {
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+.hero__arch .frame__core {
+  border-radius: 50% 50% var(--r) var(--r) / 26% 26% var(--r) var(--r);
+  border: 2px solid rgba(207, 154, 49, 0.75);
+  box-shadow: inset 0 0 0 1px rgba(6, 5, 5, 0.35);
+}
+.hero__arch .frame__core video,
+.hero__arch .frame__core img {
+  filter: saturate(1.04) contrast(1.08) brightness(0.98);
+}
+.hero__arch-echo {
+  position: absolute;
+  inset: 4px 4px 34px;
+  border-radius: 50% 50% 4px 4px / 26% 26% 4px 4px;
+  border: 1px solid rgba(207, 154, 49, 0.35);
+  pointer-events: none;
+}
+/* The crowned mark seated on the arch like a seal: half above the card edge,
+   drawn in once — the window belongs to Padishah, not to the layout.
+   Centred with auto margins, NOT transform: the reveal system owns transform
+   on armed elements and would win the fight. */
+.hero__crest {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  right: 0;
+  width: 132px;
+  margin-inline: auto;
+  z-index: 2;
+}
+.hero__crest .cartouche__outer,
+.hero__crest .cartouche__inner {
+  filter: drop-shadow(0 1px 0 var(--paper));
+}
+.hero__caption {
+  margin: 0;
+  padding: 0.65rem 0.3rem 0.75rem;
+  text-align: center;
+  max-width: none;
+}
+.hero__arch .rights {
+  left: 14px;
+  bottom: 14px;
+}
+.hero__arch .loopctl {
+  top: auto;
+  right: 14px;
+  bottom: 14px;
+}
+@media (max-width: 899px) {
+  .hero {
+    padding-top: calc(var(--chrome-h) + 12px);
+  }
+  .hero__arch {
+    width: min(330px, 82vw);
+  }
+  .hero__crest {
+    width: 92px;
+    top: -28px;
+  }
 }
 .hero__eyebrow {
-  color: var(--gold);
+  color: var(--gold-ink); /* gold text never carries on light paper */
   margin-bottom: 1.4rem;
 }
 .hero__title {
@@ -632,14 +696,90 @@
     max-width: 420px;
   }
 }
+/* 3:4 instead of the reel's full 9:16: the top of this shot is a supply box on
+   a shelf, not food. The lower anchor keeps the board and loses the shelf. */
+.board__media .frame__core {
+  aspect-ratio: 3 / 4 !important;
+}
+.board__media video {
+  object-position: 50% 82%;
+}
+
+/* A pinned snapshot: paper mat, slight tilt, drifting a few px on scroll.
+   The one human moment on the page — kept small, honest, badge and all. */
+.polaroid {
+  margin-top: clamp(2.2rem, 5vw, 3.6rem);
+  max-width: 300px;
+  will-change: transform;
+}
+.polaroid__tilt {
+  transform: rotate(-2.4deg);
+  background: #fff;
+  padding: 10px 10px 0;
+  box-shadow:
+    0 18px 44px rgba(25, 20, 17, 0.18),
+    0 2px 8px rgba(25, 20, 17, 0.12);
+}
+.polaroid__tilt .frame {
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+.polaroid__note {
+  margin: 0;
+  padding: 0.7rem 0.2rem 0.8rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--text-on-ivory-dim);
+}
 
 /* --------------------------------------------------------------- dishes */
 
 .dishes__head {
   margin-bottom: clamp(2.4rem, 5vw, 4rem);
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
 }
-.dishes__head > * {
+@media (min-width: 900px) {
+  .dishes__head {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+.dishes__intro > * {
   max-width: 52ch;
+}
+
+/* The sharing board served as a plate: a circle that turns a few degrees
+   against the scroll. Food does the moving; the page around it stays still. */
+.plate {
+  justify-self: center;
+  width: min(380px, 74vw);
+  will-change: transform;
+}
+.plate .frame {
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+.plate .frame__core {
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 50%;
+  border: 2px solid rgba(207, 154, 49, 0.55);
+  box-shadow:
+    0 24px 60px rgba(25, 20, 17, 0.18),
+    inset 0 0 0 6px var(--ivory-2);
+}
+.plate img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
+}
+.plate .rights {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 12px;
 }
 .dishes__foot {
   margin-top: 2.4rem;
@@ -746,6 +886,12 @@ html[data-tier='3'] .passage__plate .cartouche__svg {
   flex-wrap: wrap;
   gap: 0.8rem;
   margin-top: 2rem;
+}
+/* The storefront you are looking for, small and matter-of-fact. */
+.visit__store {
+  margin-top: clamp(2.2rem, 5vw, 3.4rem);
+  max-width: 480px;
+  will-change: transform;
 }
 .visit__facts {
   display: grid;
@@ -962,6 +1108,14 @@ html[data-tier='3'] .passage__plate .cartouche__svg {
 }
 .menunav__tabs::-webkit-scrollbar {
   display: none;
+}
+/* With a pointer and room to breathe, every tab is visible — a hidden-scrollbar
+   row on desktop silently cuts the last categories off. Phones keep the swipe. */
+@media (min-width: 900px) {
+  .menunav__tabs {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
 }
 .menunav__tab {
   flex: none;
@@ -1220,8 +1374,37 @@ html[data-tier='3'] .passage__plate .cartouche__svg {
   gap: clamp(0.8rem, 2vw, 1.4rem);
   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
 }
+/* One ratio for the whole strip: four frames from four moments read as a set. */
 .kitchenstrip__grid .frame__core {
-  aspect-ratio: 1 / 1 !important;
+  aspect-ratio: 4 / 5 !important;
+  position: relative;
+}
+.kitchenstrip__grid img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
+}
+/* On a phone the strip becomes a swipe: one card at a time, snapped centre —
+   browsing food should feel like flipping through it, not squinting at tiles. */
+@media (max-width: 759px) {
+  .kitchenstrip__grid {
+    grid-auto-flow: column;
+    grid-auto-columns: 74%;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding-bottom: 0.4rem;
+    margin-inline: calc(-1 * var(--pad-x));
+    padding-inline: var(--pad-x);
+  }
+  .kitchenstrip__grid::-webkit-scrollbar {
+    display: none;
+  }
+  .kitchenstrip__grid > li {
+    scroll-snap-align: center;
+  }
 }
 
 /* -------------------------------------------------------------- dish list */

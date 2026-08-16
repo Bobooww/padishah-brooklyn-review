@@ -33,9 +33,14 @@ const CUTS = [
   {
     id: 'motion/fire',
     src: REEL_FIRE,
-    segments: [[16.8, 1.2], [21.0, 1.4]],
-    poster: 17.3,
-    quality: 26,
+    // A longer breath for the hero arch: ribs settling over the coals, then the
+    // smoke bank rolling through the lulya rank. Both shots are people-free.
+    // Segment edges verified frame-by-frame: ribs cut to tomato-cutting at
+    // ~17.95, smoke cuts to the banquet board at ~22.4 — live inside both.
+    segments: [[16.3, 1.55], [21.4, 0.95]],
+    poster: 17.0,
+    quality: 23,
+    enhance: true,
     focus: 0.62,
     note: 'lamb ribs over coals, then smoke rolling over the skewers',
   },
@@ -96,6 +101,38 @@ const STILLS = [
   'selected/food/kebab-smoke-review-only.jpg',
   'selected/food/chebureki-review-only.webp',
   'selected/location/storefront-2025-review-only.jpg',
+  'selected/people/chef-fruit-platter-release-required.jpg',
+];
+
+/**
+ * Stills lifted from single reel frames — the phone photos in the library have four
+ * clashing white balances and crumpled-foil backgrounds, while the reel's composed
+ * platter shots read like an actual food story. A frame is a derivative like any cut:
+ * it inherits the reel's rights verbatim and ships with the same review badge.
+ * Cropped to one 4:5 ratio so the kitchen strip reads as a set, not a camera roll.
+ */
+const FRAME_STILLS = [
+  {
+    id: 'food/platter-overhead',
+    src: REEL_FIRE,
+    t: 0.55,
+    focus: 0.5,
+    note: 'overhead sharing board: grilled meat, fries, cherry tomatoes',
+  },
+  {
+    id: 'food/skewer-ranks',
+    src: REEL_FIRE,
+    t: 15.2,
+    focus: 0.42,
+    note: 'hands laying kebab skewers in ranks',
+  },
+  {
+    id: 'food/salmon-grill',
+    src: REEL_FIRE,
+    t: 10.4,
+    focus: 0.38,
+    note: 'salmon fingers with balsamic glaze on wood',
+  },
 ];
 
 const ff = (args) => execFileSync('ffmpeg', ['-y', '-v', 'error', ...args], { stdio: ['ignore', 'pipe', 'pipe'] });
@@ -118,7 +155,7 @@ const rel = (f) => '/media/' + f.slice(OUT.length + 1);
 
 rmSync(TMP, { recursive: true, force: true });
 mkdirSync(TMP, { recursive: true });
-for (const d of ['motion', 'hero', 'food', 'location']) mkdirSync(join(OUT, d), { recursive: true });
+for (const d of ['motion', 'hero', 'food', 'location', 'people']) mkdirSync(join(OUT, d), { recursive: true });
 
 const assets = {};
 
@@ -161,9 +198,13 @@ for (const cut of CUTS) {
   const base = join(OUT, group, name);
   const duration = cut.segments.reduce((n, [, t]) => n + t, 0);
 
-  // Mobile / portrait master: the reels are already 9:16.
+  // IG re-compression leaves mosquito noise that x264 then spends bits preserving;
+  // a light denoise + gentle unsharp reads as a cleaner lens, not a filter.
+  const clean = cut.enhance ? 'hqdn3d=1.5:1.5:4:4,unsharp=5:5:0.35:5:5:0,' : '';
+
+  // Mobile / portrait master: the reels are already 9:16, so this never upscales.
   const portrait = `${base}-portrait.mp4`;
-  encodeCut(src, cut, portrait, 'scale=720:-2,fps=25,setsar=1,format=yuv420p');
+  encodeCut(src, cut, portrait, `${clean}scale=810:-2,fps=25,setsar=1,format=yuv420p`);
 
   // Desktop / landscape: centre-crop the 9:16 source to 16:9 and keep the food in frame.
   const landscape = `${base}-landscape.mp4`;
@@ -173,7 +214,7 @@ for (const cut of CUTS) {
     src,
     cut,
     landscape,
-    `crop=iw:iw*9/16:0:(ih-iw*9/16)*${focus},scale=1280:-2,fps=25,setsar=1,format=yuv420p`,
+    `${clean}crop=iw:iw*9/16:0:(ih-iw*9/16)*${focus},scale=1080:-2,fps=25,setsar=1,format=yuv420p`,
   );
 
   const poster = `${base}-poster.jpg`;
@@ -225,6 +266,44 @@ for (const relPath of STILLS) {
 
   assets[id] = { lqip: lqip(src), sources, derivedFrom: relPath };
   console.log(`image ${id}: ${sources.map((s) => `${(s.bytes / 1024).toFixed(0)}KB`).join(' / ')}`);
+}
+
+/* ------------------------------------------------------ stills from frames */
+
+for (const frame of FRAME_STILLS) {
+  const src = resolve(LIB, frame.src);
+  const [group, name] = frame.id.split('/');
+
+  // One frame, cropped 9:16 -> 4:5 around the composition's anchor.
+  const master = join(TMP, `${name}.png`);
+  ff([
+    '-i', src,
+    '-vf', `select='gte(t,${frame.t})',crop=iw:iw*5/4:0:(ih-iw*5/4)*${frame.focus ?? 0.5}`,
+    '-frames:v', '1', '-fps_mode', 'passthrough',
+    master,
+  ]);
+
+  const meta = probe(master);
+  const widths = [...new Set([Math.min(meta.width, 1080), Math.min(meta.width, 640)])].sort((a, b) => a - b);
+  const sources = [];
+  for (const w of widths) {
+    const webp = join(OUT, group, `${name}-${w}.webp`);
+    execFileSync('cwebp', ['-quiet', '-q', '80', '-resize', String(w), '0', master, '-o', webp]);
+    const jpg = join(OUT, group, `${name}-${w}.jpg`);
+    ff(['-i', master, '-vf', `scale=${w}:-2`, '-q:v', '5', jpg]);
+    const p = probe(jpg);
+    sources.push({ src: rel(webp), width: p.width, height: p.height, bytes: size(webp) });
+    sources.push({ src: rel(jpg), width: p.width, height: p.height, bytes: size(jpg) });
+  }
+
+  assets[frame.id] = {
+    lqip: lqip(master),
+    sources,
+    derivedFrom: frame.src,
+    frameAtSeconds: frame.t,
+    note: frame.note,
+  };
+  console.log(`frame ${frame.id}: ${sources.map((s) => `${(s.bytes / 1024).toFixed(0)}KB`).join(' / ')}`);
 }
 
 rmSync(TMP, { recursive: true, force: true });

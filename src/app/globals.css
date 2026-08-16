@@ -17,6 +17,8 @@
   --gold-ink: #8a6420; /* the ONLY gold allowed as text on light surfaces */
   --gold-line: rgba(207, 154, 49, 0.34);
   --oxblood: #2b0504; /* legacy accent, ≤ 2 uses per page */
+  --brand-red: #a32638; /* the script on the storefront sign — display accents only, never body text */
+  --paper: #f7f3ea; /* the daylight field the page now opens on */
 
   --text-on-ink: rgba(238, 235, 229, 0.92);
   --text-on-ink-dim: rgba(238, 235, 229, 0.62);
@@ -40,10 +42,9 @@
   --pad-y: clamp(5rem, 11vw, 9.5rem);
   --r: 2px; /* the site is edged, not rounded — ornament does the softening */
 
-  /* ---- chrome: the pinned review banner + header ----------------------- */
-  --bar-h: 40px; /* 0 when the banner is absent (production) or unpinned (phones) */
+  /* ---- chrome: the sticky header (the review disclosure floats, see .reviewbar) */
   --hdr-h: 70px;
-  --chrome-h: calc(var(--bar-h) + var(--hdr-h));
+  --chrome-h: var(--hdr-h);
 
   /* ---- motion --------------------------------------------------------- */
   --ease: cubic-bezier(0.19, 1, 0.22, 1);
@@ -51,18 +52,6 @@
   --dur: 0.8s;
 }
 
-/* Production builds render no review banner; the chrome maths must not assume one. */
-html[data-review='false'] {
-  --bar-h: 0px;
-}
-
-/* On phones the banner may wrap to two lines. It reads once at the top of the page
-   instead of being pinned, and the header alone sticks to the viewport. */
-@media (max-width: 719px) {
-  :root {
-    --bar-h: 0px;
-  }
-}
 
 *,
 *::before,

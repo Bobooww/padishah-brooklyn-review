@@ -38,6 +38,12 @@ export function SkipLink() {
 
 /* --------------------------------------------------------------- review bar */
 
+/**
+ * The persistent review disclosure, restaged as a quiet floating pill instead of
+ * a bar across the top: the disclaimer never leaves the screen, but it stops
+ * shouting over the hero. The full banner text and the verified-facts list live
+ * in the panel the pill opens.
+ */
 export function ReviewBar() {
   const { t } = useLang();
   const [open, setOpen] = useState(false);
@@ -52,23 +58,9 @@ export function ReviewBar() {
   ];
 
   return (
-    <div className="reviewbar">
-      <div className="rail reviewbar__inner">
-        <p className="reviewbar__text">
-          <span className="reviewbar__dot" aria-hidden="true" />
-          {t.review.banner}
-        </p>
-        <button
-          type="button"
-          className="reviewbar__toggle"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-controls="reviewbar-panel"
-        >
-          {t.review.verifiedToggle}
-        </button>
-      </div>
-      <div className="rail reviewbar__panel" id="reviewbar-panel" hidden={!open}>
+    <div className="reviewbar" data-open={open ? 'true' : 'false'}>
+      <div className="reviewbar__panel" id="reviewbar-panel" hidden={!open}>
+        <p className="reviewbar__text">{t.review.banner}</p>
         <dl>
           {verified.map(([k, v]) => (
             <div key={k}>
@@ -77,10 +69,22 @@ export function ReviewBar() {
             </div>
           ))}
         </dl>
-        <p className="reviewbar__meta">
-          {fill(t.review.checked, { date: OBSERVED_AT })}
-        </p>
+        <p className="reviewbar__meta">{fill(t.review.checked, { date: OBSERVED_AT })}</p>
       </div>
+      <button
+        type="button"
+        className="reviewbar__toggle"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        aria-controls="reviewbar-panel"
+      >
+        <span className="reviewbar__dot" aria-hidden="true" />
+        {t.review.bannerShort}
+        <span className="reviewbar__sep" aria-hidden="true">
+          ·
+        </span>
+        {t.review.verifiedToggle}
+      </button>
     </div>
   );
 }

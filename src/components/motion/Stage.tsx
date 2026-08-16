@@ -37,41 +37,36 @@ export default function Stage() {
       const stage = createStage(canvas, tier);
       const triggers: { kill(): void }[] = [];
 
-      const hero = document.getElementById('hero');
       const fire = document.getElementById('fire');
       const passage = document.getElementById('passage');
 
-      // --- Scene A: the hearth breathes under the hero, then flares in the fire chapter
-      if (hero) {
-        triggers.push(
-          ScrollTrigger.create({
-            trigger: hero,
-            start: 'top top',
-            end: 'bottom center',
-            onToggle: (self: { isActive: boolean }) => stage.setScene(self.isActive ? 'hearth' : 'none'),
-            onUpdate: (self: { progress: number }) => {
-              stage.hearth?.setIntensity(0.3 + self.progress * 0.25);
-              stage.hearth?.setHearth(0.5, 0.3 - self.progress * 0.08);
-              stage.markDirty();
-            },
-          }),
-        );
-      }
+      // Each scene may only paint inside its own sections — the canvas is
+      // viewport-fixed, and the daylight page either side must stay untouched.
+      // Since the hero turned to paper, the hearth lives in the fire chapter only:
+      // dark smoke composited over ivory reads as dirt, not atmosphere.
+      stage.setBounds('hearth', [fire]);
+      stage.setBounds('passage', [passage]);
 
+      // --- Scene A: the hearth flares across the fire chapter
       if (fire) {
+        // The hearth is born at intensity 0 (it only ever glows as hard as the
+        // scroll says). Seed it the moment the scene wakes, or a fast scroll can
+        // create it invisible and leave it that way until the next scroll tick.
+        const flare = (p: number) => {
+          stage.hearth?.setIntensity(p < 0.5 ? 0.55 + p * 0.9 : 1.0 - (p - 0.5) * 0.6);
+          stage.hearth?.setHearth(0.5, 0.24);
+          stage.markDirty();
+        };
         triggers.push(
           ScrollTrigger.create({
             trigger: fire,
             start: 'top bottom',
             end: 'bottom top',
-            onToggle: (self: { isActive: boolean }) => stage.setScene(self.isActive ? 'hearth' : 'none'),
-            onUpdate: (self: { progress: number }) => {
-              const p = self.progress;
-              // rise to full over the first half, ease back so the section can end quietly
-              stage.hearth?.setIntensity(p < 0.5 ? 0.55 + p * 0.9 : 1.0 - (p - 0.5) * 0.6);
-              stage.hearth?.setHearth(0.5, 0.24);
-              stage.markDirty();
+            onToggle: (self: { isActive: boolean; progress: number }) => {
+              stage.setScene(self.isActive ? 'hearth' : 'none');
+              if (self.isActive) flare(self.progress);
             },
+            onUpdate: (self: { progress: number }) => flare(self.progress),
           }),
         );
       }

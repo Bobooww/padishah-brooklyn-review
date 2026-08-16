@@ -31,10 +31,14 @@ export function createStage(canvas: HTMLCanvasElement, tier: Tier) {
   renderer.toneMapping = NoToneMapping;
   renderer.outputColorSpace = SRGBColorSpace;
   renderer.setClearColor(0x000000, 0);
+  renderer.autoClear = false;
 
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
   let hearth: Hearth | null = null;
   let passage: Passage | null = null;
+  // The canvas is fixed to the viewport, but each scene belongs to specific
+  // sections: it must never paint over the ivory page either side of them.
+  const bounds: Record<Exclude<Active, 'none'>, HTMLElement[]> = { hearth: [], passage: [] };
   let active: Active = 'none';
   let dirty = true;
   let running = false;
@@ -60,6 +64,26 @@ export function createStage(canvas: HTMLCanvasElement, tier: Tier) {
     dirty = true;
   }
 
+  /** Viewport intersection of the active scene's sections, in CSS px, GL origin (bottom-left). */
+  function sceneRect(): { x: number; y: number; w: number; h: number } | null {
+    if (active === 'none') return null;
+    const els = bounds[active];
+    if (els.length === 0) return { x: 0, y: 0, w: window.innerWidth, h: window.innerHeight };
+    let top = Infinity;
+    let bottom = -Infinity;
+    for (const el of els) {
+      const r = el.getBoundingClientRect();
+      top = Math.min(top, r.top);
+      bottom = Math.max(bottom, r.bottom);
+    }
+    const vh = window.innerHeight;
+    const clampedTop = Math.max(0, top);
+    const clampedBottom = Math.min(vh, bottom);
+    const h = clampedBottom - clampedTop;
+    if (h <= 0) return null;
+    return { x: 0, y: vh - clampedBottom, w: window.innerWidth, h };
+  }
+
   function step(now: number) {
     raf = requestAnimationFrame(step);
     if (dead || active === 'none') return;
@@ -78,8 +102,20 @@ export function createStage(canvas: HTMLCanvasElement, tier: Tier) {
 
     if (!dirty) return;
     const t0 = performance.now();
-    if (active === 'hearth' && hearth) renderer.render(hearth.scene, hearth.camera);
-    if (active === 'passage' && passage) renderer.render(passage.scene, passage.camera);
+
+    // Clear the whole canvas first (no scissor), then draw only inside the
+    // union of the active scene's sections. Without the full clear, pixels
+    // painted on a previous frame would survive outside a shrinking scissor.
+    renderer.setScissorTest(false);
+    renderer.clear();
+    const rect = sceneRect();
+    if (rect) {
+      renderer.setScissorTest(true);
+      renderer.setScissor(rect.x, rect.y, rect.w, rect.h);
+      if (active === 'hearth' && hearth) renderer.render(hearth.scene, hearth.camera);
+      if (active === 'passage' && passage) renderer.render(passage.scene, passage.camera);
+      renderer.setScissorTest(false);
+    }
     dirty = false;
 
     // self-defence: a 3D layer that cannot turn itself off is a liability
@@ -158,6 +194,10 @@ export function createStage(canvas: HTMLCanvasElement, tier: Tier) {
 
   return {
     setScene,
+    /** Register the sections a scene is allowed to paint over. */
+    setBounds(scene: Exclude<Active, 'none'>, els: (HTMLElement | null)[]) {
+      bounds[scene] = els.filter((el): el is HTMLElement => el !== null);
+    },
     get hearth() {
       return hearth;
     },
