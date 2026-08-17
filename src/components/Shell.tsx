@@ -113,7 +113,7 @@ export function SiteHeader({ tone = 'ink' }: { tone?: 'ink' | 'ivory' }) {
         <nav className="hdr__nav" aria-label={t.nav.mainLabel}>
           <Link href="/menu/">{t.nav.menu}</Link>
           <a href="/#fire">{t.nav.fire}</a>
-          <a href="/#banquets">{t.nav.banquets}</a>
+          <a href="/#chapters-banquets">{t.nav.banquets}</a>
           <a href="/#visit">{t.nav.visit}</a>
         </nav>
 

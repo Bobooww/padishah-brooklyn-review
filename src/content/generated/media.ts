@@ -182,6 +182,56 @@ export const MEDIA: Record<string, MediaAsset> = {
     },
     "web": null
   },
+  "food/cheese-plates": {
+    "id": "food/cheese-plates",
+    "kind": "image",
+    "sourcePath": "originals/client-supplied/2026-08-16-telegram/photo_4904843783384534325_y.jpg",
+    "width": 1280,
+    "height": 960,
+    "durationSeconds": null,
+    "rightsStatus": "client_supplied_review_only",
+    "productionApproved": false,
+    "curationLabel": "cheese plates: red wax rounds, dill cheese, cheese sticks in glasses",
+    "sourceUrl": null,
+    "qualityFlags": [
+      "production_resolution_candidate"
+    ],
+    "alt": {
+      "en": "Cheese plates: red wax rounds, dill cheese and cheese sticks in glasses",
+      "ru": "Сырные тарелки: красные головки в воске, сыр с укропом и сырные палочки в бокалах",
+      "status": "draft_owner_approval_required"
+    },
+    "web": {
+      "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAEAAPAAD//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABtAAEBAQEBAAAAAAAAAAAAAAAFBAMHBgEBAQEAAAAAAAAAAAAAAAAABQEEEAACAQIEBAcBAAAAAAAAAAABAhEDABIhBBMxQZFxoYFTwVIiQlERAAEDBQEAAAAAAAAAAAAAAAABEhECIYFhUTH/wAARCAAQABQDASIAAhEAAxEA/9oADAMBAAIRAxEAPwAZRJDim7hRAkwD8oAGeXLrdmmbe3ClHjkrR9O2ftaOo1Iw7SgYFAjuOV0pqVo0qQgREEcIP685syUtsQbVPhzytTVCAySYzgEjibPin6fg1+ybG7uaYfCWMQLzw1/5V6XcqZHJw//Z",
+      "sources": [
+        {
+          "src": "/media/food/cheese-plates-640.webp",
+          "width": 640,
+          "height": 480,
+          "bytes": 47746
+        },
+        {
+          "src": "/media/food/cheese-plates-640.jpg",
+          "width": 640,
+          "height": 480,
+          "bytes": 45803
+        },
+        {
+          "src": "/media/food/cheese-plates-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 99016
+        },
+        {
+          "src": "/media/food/cheese-plates-1200.jpg",
+          "width": 1200,
+          "height": 900,
+          "bytes": 110055
+        }
+      ],
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/photo_4904843783384534325_y.jpg"
+    }
+  },
   "food/coals-close": {
     "id": "food/coals-close",
     "kind": "video",
@@ -232,6 +282,106 @@ export const MEDIA: Record<string, MediaAsset> = {
       "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_6587.MOV",
       "frameAtSeconds": 4.2,
       "note": "skewers over glowing coals — 4K frame"
+    }
+  },
+  "food/cold-platter": {
+    "id": "food/cold-platter",
+    "kind": "image",
+    "sourcePath": "originals/client-supplied/2026-08-16-telegram/IMG_5902.HEIC",
+    "width": 3213,
+    "height": 5712,
+    "durationSeconds": null,
+    "rightsStatus": "client_supplied_review_only",
+    "productionApproved": false,
+    "curationLabel": "platter of sliced cured meats on lettuce, white cloth",
+    "sourceUrl": null,
+    "qualityFlags": [
+      "production_resolution_candidate"
+    ],
+    "alt": {
+      "en": "A platter of sliced cured meats on lettuce, on a white cloth",
+      "ru": "Блюдо с мясной нарезкой на листьях салата, на белой скатерти",
+      "status": "draft_owner_approval_required"
+    },
+    "web": {
+      "lqip": "data:image/jpeg;base64,/9j/4gIoSUNDX1BST0ZJTEUAAQEAAAIYYXBwbAQAAABtbnRyUkdCIFhZWiAH5gABAAEAAAAAAABhY3NwQVBQTAAAAABBUFBMAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWFwcGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApkZXNjAAAA/AAAADBjcHJ0AAABLAAAAFB3dHB0AAABfAAAABRyWFlaAAABkAAAABRnWFlaAAABpAAAABRiWFlaAAABuAAAABRyVFJDAAABzAAAACBjaGFkAAAB7AAAACxiVFJDAAABzAAAACBnVFJDAAABzAAAACBtbHVjAAAAAAAAAAEAAAAMZW5VUwAAABQAAAAcAEQAaQBzAHAAbABhAHkAIABQADNtbHVjAAAAAAAAAAEAAAAMZW5VUwAAADQAAAAcAEMAbwBwAHkAcgBpAGcAaAB0ACAAQQBwAHAAbABlACAASQBuAGMALgAsACAAMgAwADIAMlhZWiAAAAAAAAD21QABAAAAANMsWFlaIAAAAAAAAIPfAAA9v////7tYWVogAAAAAAAASr8AALE3AAAKuVhZWiAAAAAAAAAoOAAAEQsAAMi5cGFyYQAAAAAAAwAAAAJmZgAA8qcAAA1ZAAAT0AAACltzZjMyAAAAAAABDEIAAAXe///zJgAAB5MAAP2Q///7ov///aMAAAPcAADAbv/+ABBMYXZjNjIuMjguMTAyAP/bAEMACBgYHBgcISEhISEhJyQnKCgoJycnJygoKCsrKzMzMysrKygoKyswMDMzNzk3NDQzNDk5PDw8SEhFRVRUV2dnfP/EAGUAAAMBAQEBAAAAAAAAAAAAAAIHBgMABAUBAQEBAAAAAAAAAAAAAAAAAAMAAhAAAQMDAwQDAQAAAAAAAAAAAQACEQMhMUFRBAVCYTLwwbEjEQEBAQAAAAAAAAAAAAAAAAAAARH/wAARCAAkABQDASIAAhEAAxEA/9oADAMBAAIRAxEAPwCzrVm0RfOg3UpT6mO9hBnt2nyt+o+wUHTDXFsm030udCgulk0/xcWRrCkZptPhetMIs+pe0fuFBspSG3GRA+01uZxX1iCwib53i0Jeso8gPDQx0yLRgbkoLTyw5aB/k35qvorHC5MEaFEhUmZKGVxQLCf/2Q==",
+      "sources": [
+        {
+          "src": "/media/food/cold-platter-640.webp",
+          "width": 640,
+          "height": 1138,
+          "bytes": 66294
+        },
+        {
+          "src": "/media/food/cold-platter-640.jpg",
+          "width": 640,
+          "height": 1138,
+          "bytes": 61794
+        },
+        {
+          "src": "/media/food/cold-platter-1200.webp",
+          "width": 1200,
+          "height": 2134,
+          "bytes": 204428
+        },
+        {
+          "src": "/media/food/cold-platter-1200.jpg",
+          "width": 1200,
+          "height": 2134,
+          "bytes": 191852
+        }
+      ],
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_5902.HEIC"
+    }
+  },
+  "food/fruit-tower": {
+    "id": "food/fruit-tower",
+    "kind": "image",
+    "sourcePath": "originals/client-supplied/2026-08-16-telegram/IMG_0010.HEIC",
+    "width": 5712,
+    "height": 4284,
+    "durationSeconds": null,
+    "rightsStatus": "client_supplied_review_only",
+    "productionApproved": false,
+    "curationLabel": "banquet fruit tower with pineapple crown, pastel chairs",
+    "sourceUrl": null,
+    "qualityFlags": [
+      "production_resolution_candidate"
+    ],
+    "alt": {
+      "en": "A banquet fruit tower crowned with a pineapple, pastel chairs behind",
+      "ru": "Фруктовая башня с ананасом на банкетном столе, пастельные кресла позади",
+      "status": "draft_owner_approval_required"
+    },
+    "web": {
+      "lqip": "data:image/jpeg;base64,/9j/4gIoSUNDX1BST0ZJTEUAAQEAAAIYYXBwbAQAAABtbnRyUkdCIFhZWiAH5gABAAEAAAAAAABhY3NwQVBQTAAAAABBUFBMAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWFwcGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApkZXNjAAAA/AAAADBjcHJ0AAABLAAAAFB3dHB0AAABfAAAABRyWFlaAAABkAAAABRnWFlaAAABpAAAABRiWFlaAAABuAAAABRyVFJDAAABzAAAACBjaGFkAAAB7AAAACxiVFJDAAABzAAAACBnVFJDAAABzAAAACBtbHVjAAAAAAAAAAEAAAAMZW5VUwAAABQAAAAcAEQAaQBzAHAAbABhAHkAIABQADNtbHVjAAAAAAAAAAEAAAAMZW5VUwAAADQAAAAcAEMAbwBwAHkAcgBpAGcAaAB0ACAAQQBwAHAAbABlACAASQBuAGMALgAsACAAMgAwADIAMlhZWiAAAAAAAAD21QABAAAAANMsWFlaIAAAAAAAAIPfAAA9v////7tYWVogAAAAAAAASr8AALE3AAAKuVhZWiAAAAAAAAAoOAAAEQsAAMi5cGFyYQAAAAAAAwAAAAJmZgAA8qcAAA1ZAAAT0AAACltzZjMyAAAAAAABDEIAAAXe///zJgAAB5MAAP2Q///7ov///aMAAAPcAADAbv/+ABBMYXZjNjIuMjguMTAyAP/bAEMACBgYHBgcISEhISEhJyQnKCgoJycnJygoKCsrKzMzMysrKygoKyswMDMzNzk3NDQzNDk5PDw8SEhFRVRUV2dnfP/EAGgAAQEBAQAAAAAAAAAAAAAAAAYFAgMBAAMBAAAAAAAAAAAAAAAAAAADBAUQAAIBAwMDBAMBAAAAAAAAAAECEQAhAwQSQSIxYeLRsbKjURSREQEAAwEBAAAAAAAAAAAAAAAAAgERcRL/wAARCAAQABQDASIAAhEAAxEA/9oADAMBAAIRAxEAPwBydRjQXYGSB/tQsmtTGNmFbjpXgT8kUfdGMMDeAQtgfMTYxUZSxaQQYmywW78z2jms+5SVZR+uLEo633sbsxm59q77dP8Augp1m0wGJHBKSfsKz/d5/H6qdvB5f//Z",
+      "sources": [
+        {
+          "src": "/media/food/fruit-tower-640.webp",
+          "width": 640,
+          "height": 542,
+          "bytes": 61982
+        },
+        {
+          "src": "/media/food/fruit-tower-640.jpg",
+          "width": 640,
+          "height": 542,
+          "bytes": 59273
+        },
+        {
+          "src": "/media/food/fruit-tower-1200.webp",
+          "width": 1200,
+          "height": 1014,
+          "bytes": 157068
+        },
+        {
+          "src": "/media/food/fruit-tower-1200.jpg",
+          "width": 1200,
+          "height": 1014,
+          "bytes": 158561
+        }
+      ],
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_0010.HEIC"
     }
   },
   "food/grill-hands-print": {
@@ -327,31 +477,31 @@ export const MEDIA: Record<string, MediaAsset> = {
       "status": "draft_owner_approval_required"
     },
     "web": {
-      "lqip": "data:image/jpeg;base64,/9j/4gIoSUNDX1BST0ZJTEUAAQEAAAIYYXBwbAQAAABtbnRyUkdCIFhZWiAH5gABAAEAAAAAAABhY3NwQVBQTAAAAABBUFBMAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWFwcGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApkZXNjAAAA/AAAADBjcHJ0AAABLAAAAFB3dHB0AAABfAAAABRyWFlaAAABkAAAABRnWFlaAAABpAAAABRiWFlaAAABuAAAABRyVFJDAAABzAAAACBjaGFkAAAB7AAAACxiVFJDAAABzAAAACBnVFJDAAABzAAAACBtbHVjAAAAAAAAAAEAAAAMZW5VUwAAABQAAAAcAEQAaQBzAHAAbABhAHkAIABQADNtbHVjAAAAAAAAAAEAAAAMZW5VUwAAADQAAAAcAEMAbwBwAHkAcgBpAGcAaAB0ACAAQQBwAHAAbABlACAASQBuAGMALgAsACAAMgAwADIAMlhZWiAAAAAAAAD21QABAAAAANMsWFlaIAAAAAAAAIPfAAA9v////7tYWVogAAAAAAAASr8AALE3AAAKuVhZWiAAAAAAAAAoOAAAEQsAAMi5cGFyYQAAAAAAAwAAAAJmZgAA8qcAAA1ZAAAT0AAACltzZjMyAAAAAAABDEIAAAXe///zJgAAB5MAAP2Q///7ov///aMAAAPcAADAbv/+ABBMYXZjNjIuMjguMTAyAP/bAEMACBgYHBgcISEhISEhJyQnKCgoJycnJygoKCsrKzMzMysrKygoKyswMDMzNzk3NDQzNDk5PDw8SEhFRVRUV2dnfP/EAHQAAAIDAQEAAAAAAAAAAAAAAAYFBAMCAAgBAQEBAQAAAAAAAAAAAAAAAAMCAAQQAAIBAgEICgMBAAAAAAAAAAECEQADEjEhQVEEFHEyE9FhIgWSkbHwUoGhQlMRAQEBAAMBAAAAAAAAAAAAAAABERJRIUH/wAARCAAkABQDASIAAhEAAxEA/9oADAMBAAIRAxEAPwAZvOmBIOcBaJ9na3cAXFBmWmY1e1KNm8Me+oNx8AI7qgS0azOYCjUeG7uMVu4WOkOM3quT0o7na0rdgcn6iu3b5m6qUttK2zhdMLcQRxB1VVvlr6+1HlUM9ku23QwRIyjSBwpg9+2mU6NGc/ivNzjCcVskEdtFttG6FLrXSxY8swZ1HryVGSlvgjdblw4jZuEHl7sws5pqP0T/AOFzyGsM5cyztOSAYA7BVXd+7+Y9dbYTjQvhBVjqpvYQKs6TSz+G+aadWeQcKJ2fSB3OKqOkPZWX5qjVSH//2Q==",
+      "lqip": "data:image/jpeg;base64,/9j/4gIoSUNDX1BST0ZJTEUAAQEAAAIYYXBwbAQAAABtbnRyUkdCIFhZWiAH5gABAAEAAAAAAABhY3NwQVBQTAAAAABBUFBMAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWFwcGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApkZXNjAAAA/AAAADBjcHJ0AAABLAAAAFB3dHB0AAABfAAAABRyWFlaAAABkAAAABRnWFlaAAABpAAAABRiWFlaAAABuAAAABRyVFJDAAABzAAAACBjaGFkAAAB7AAAACxiVFJDAAABzAAAACBnVFJDAAABzAAAACBtbHVjAAAAAAAAAAEAAAAMZW5VUwAAABQAAAAcAEQAaQBzAHAAbABhAHkAIABQADNtbHVjAAAAAAAAAAEAAAAMZW5VUwAAADQAAAAcAEMAbwBwAHkAcgBpAGcAaAB0ACAAQQBwAHAAbABlACAASQBuAGMALgAsACAAMgAwADIAMlhZWiAAAAAAAAD21QABAAAAANMsWFlaIAAAAAAAAIPfAAA9v////7tYWVogAAAAAAAASr8AALE3AAAKuVhZWiAAAAAAAAAoOAAAEQsAAMi5cGFyYQAAAAAAAwAAAAJmZgAA8qcAAA1ZAAAT0AAACltzZjMyAAAAAAABDEIAAAXe///zJgAAB5MAAP2Q///7ov///aMAAAPcAADAbv/+ABBMYXZjNjIuMjguMTAyAP/bAEMACBgYHBgcISEhISEhJyQnKCgoJycnJygoKCsrKzMzMysrKygoKyswMDMzNzk3NDQzNDk5PDw8SEhFRVRUV2dnfP/EAG4AAQADAQEAAAAAAAAAAAAAAAYFBAMABwEBAQEAAAAAAAAAAAAAAAAAAgMBEAACAAMFCAEFAQAAAAAAAAABAgARAxIEITEiQWETkYEFcVEy4bHRo1SiEQEBAQEBAQAAAAAAAAAAAAAAAREhEmH/wAARCAAaABQDASIAAhEAAxEA/9oADAMBAAIRAxEAPwAXVrhkXDICFt0r8SSlZ2ZmYMj1zhBc+20VUF1FRiBaLYgT2KuXWFr3OgV0oqHYy6DzWURtinUXZpnYeUdYp+v8/SC9SpXpNZU2x7wn4O+KnHvHr7QM+kkrt3WmgsVAVOYaWB3HaIlW7kh+BBn1xO4Yx43eviIS3cDgKZCec+cbJp3hS6qp1XgWji2gnE+MvEVtH9H6n/MboBw03rON5QFvL//Z",
       "sources": [
         {
           "src": "/media/food/kazan-boil-640.webp",
           "width": 640,
-          "height": 1138,
-          "bytes": 92950
+          "height": 842,
+          "bytes": 61290
         },
         {
           "src": "/media/food/kazan-boil-640.jpg",
           "width": 640,
-          "height": 1138,
-          "bytes": 84684
+          "height": 842,
+          "bytes": 57341
         },
         {
           "src": "/media/food/kazan-boil-1200.webp",
           "width": 1200,
-          "height": 2134,
-          "bytes": 234786
+          "height": 1578,
+          "bytes": 164376
         },
         {
           "src": "/media/food/kazan-boil-1200.jpg",
           "width": 1200,
-          "height": 2134,
-          "bytes": 232000
+          "height": 1578,
+          "bytes": 160372
         }
       ],
       "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_6590.HEIC"
@@ -501,6 +651,56 @@ export const MEDIA: Record<string, MediaAsset> = {
       "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_6572.MOV",
       "frameAtSeconds": 8,
       "note": "the lulya rank in smoke — 4K frame"
+    }
+  },
+  "food/samsa-plate": {
+    "id": "food/samsa-plate",
+    "kind": "image",
+    "sourcePath": "originals/client-supplied/2026-08-16-telegram/IMG_5849.HEIC",
+    "width": 2268,
+    "height": 4032,
+    "durationSeconds": null,
+    "rightsStatus": "client_supplied_review_only",
+    "productionApproved": false,
+    "curationLabel": "golden sesame pastries with two red sauces on a gold-handled tray",
+    "sourceUrl": null,
+    "qualityFlags": [
+      "production_resolution_candidate"
+    ],
+    "alt": {
+      "en": "Golden sesame pastries with two red dipping sauces on a gold-handled tray",
+      "ru": "Золотистая выпечка с кунжутом и два красных соуса на подносе с золотыми ручками",
+      "status": "draft_owner_approval_required"
+    },
+    "web": {
+      "lqip": "data:image/jpeg;base64,/9j/4gIoSUNDX1BST0ZJTEUAAQEAAAIYYXBwbAQAAABtbnRyUkdCIFhZWiAH5gABAAEAAAAAAABhY3NwQVBQTAAAAABBUFBMAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWFwcGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApkZXNjAAAA/AAAADBjcHJ0AAABLAAAAFB3dHB0AAABfAAAABRyWFlaAAABkAAAABRnWFlaAAABpAAAABRiWFlaAAABuAAAABRyVFJDAAABzAAAACBjaGFkAAAB7AAAACxiVFJDAAABzAAAACBnVFJDAAABzAAAACBtbHVjAAAAAAAAAAEAAAAMZW5VUwAAABQAAAAcAEQAaQBzAHAAbABhAHkAIABQADNtbHVjAAAAAAAAAAEAAAAMZW5VUwAAADQAAAAcAEMAbwBwAHkAcgBpAGcAaAB0ACAAQQBwAHAAbABlACAASQBuAGMALgAsACAAMgAwADIAMlhZWiAAAAAAAAD21QABAAAAANMsWFlaIAAAAAAAAIPfAAA9v////7tYWVogAAAAAAAASr8AALE3AAAKuVhZWiAAAAAAAAAoOAAAEQsAAMi5cGFyYQAAAAAAAwAAAAJmZgAA8qcAAA1ZAAAT0AAACltzZjMyAAAAAAABDEIAAAXe///zJgAAB5MAAP2Q///7ov///aMAAAPcAADAbv/+ABBMYXZjNjIuMjguMTAyAP/bAEMACBgYHBgcISEhISEhJyQnKCgoJycnJygoKCsrKzMzMysrKygoKyswMDMzNzk3NDQzNDk5PDw8SEhFRVRUV2dnfP/EAHEAAAIDAQEAAAAAAAAAAAAAAAYFAgQDAAEBAQEBAQAAAAAAAAAAAAAAAAQFAwIQAAIBAgUCBgMBAAAAAAAAAAECAwARIRJRQTEyBGGRccGh0VKBE/ARAAIDAQEBAQEAAAAAAAAAAAABESECYUETEgP/wAARCAAkABQDASIAAhEAAxEA/9oADAMBAAIRAxEAPwAgllg7cLnzXbGwG1+a0lnghVWJZhILiwwqfdQwzZQwbMo5XYeOtKVgV4lQ9C/evINE1/SG7QrOcwqfQlhEc6B0OHiKYfwXX4qUcaQqETACrVOnXAj/AD0F5SBIQrC72zDSw96TXkiAGxNi3A8jTNu3dXwtiSVYnXY1SkMisQ+B4Wwvm9Kh6Tl1FlBRVyWAn45m1I186nkbST5+6M4zZQD/ALCreYUv49Zh9AFktlGG9bxYux8BrvWEnT+xW0PU3ovvVb0D4PK9vUa6tDg//9k=",
+      "sources": [
+        {
+          "src": "/media/food/samsa-plate-640.webp",
+          "width": 640,
+          "height": 1138,
+          "bytes": 84080
+        },
+        {
+          "src": "/media/food/samsa-plate-640.jpg",
+          "width": 640,
+          "height": 1138,
+          "bytes": 86497
+        },
+        {
+          "src": "/media/food/samsa-plate-1200.webp",
+          "width": 1200,
+          "height": 2134,
+          "bytes": 181774
+        },
+        {
+          "src": "/media/food/samsa-plate-1200.jpg",
+          "width": 1200,
+          "height": 2134,
+          "bytes": 204296
+        }
+      ],
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_5849.HEIC"
     }
   },
   "food/samsa-trays": {
@@ -981,6 +1181,58 @@ export const MEDIA: Record<string, MediaAsset> = {
         [
           13.2,
           2.6
+        ]
+      ]
+    }
+  },
+  "motion/mangal": {
+    "id": "motion/mangal",
+    "kind": "video",
+    "sourcePath": "originals/client-supplied/2026-08-16-telegram/IMG_5911.MOV",
+    "width": 720,
+    "height": 1280,
+    "durationSeconds": 3,
+    "rightsStatus": "client_supplied_review_only",
+    "productionApproved": false,
+    "curationLabel": "shashlik skewers over glowing red coals, classic mangal, 4K",
+    "sourceUrl": null,
+    "qualityFlags": [
+      "production_resolution_candidate"
+    ],
+    "alt": {
+      "en": "Shashlik skewers over glowing red coals",
+      "ru": "Шампуры шашлыка над раскалёнными красными углями",
+      "status": "draft_owner_approval_required"
+    },
+    "web": {
+      "poster": {
+        "src": "/media/motion/mangal-poster.jpg",
+        "width": 720,
+        "height": 1280,
+        "bytes": 53494
+      },
+      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABqAAEAAwEBAAAAAAAAAAAAAAAGBAMHBQIBAQEBAAAAAAAAAAAAAAAAAAIDARAAAQQAAwcDBQEAAAAAAAAAAQIRAwASITETobFRYSJBMnHRwSMEkeEzEQEBAQAAAAAAAAAAAAAAAAAAERL/wAARCAAkABQDASIAAhEAAxEA/9oADAMBAAIRAxEAPwBvIlBHc1LSJjGjnLlUh5kbnvHCUmMnJJXufQZ2NOBymBtDitDFGGBcsGfK1bKLlwrrI87dEyyhD9pIUfH9e3pQoyl2wgAAN5omOaPYSLWkpKTgD6FS38akpTn0vSgWPuKRJiSlDudXGQBfSjKlK1qSksTv+bHxx8xuubSKVKoqU5PDpYuH3qyythnjRgYpChmWVnnxpzYRpgkwjDjKXboer1b+R6f3xvDP+B9/raosoX2lhY2I2RL6rBpJ/9k=",
+      "sources": [
+        {
+          "src": "/media/motion/mangal-portrait.mp4",
+          "width": 810,
+          "height": 1440,
+          "bytes": 1500866
+        },
+        {
+          "src": "/media/motion/mangal-landscape.mp4",
+          "width": 1080,
+          "height": 608,
+          "bytes": 936559
+        }
+      ],
+      "durationSeconds": 3,
+      "note": "shashlik over glowing red coals — 4K original, the classic mangal shot",
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_5911.MOV",
+      "segments": [
+        [
+          0.8,
+          3
         ]
       ]
     }

@@ -98,6 +98,15 @@ const CUTS = [
     note: 'the renovated room: chandeliers and murals band — guests low in frame, release required',
   },
   {
+    id: 'motion/mangal',
+    src: `${CS}/IMG_5911.MOV`,
+    segments: [[0.8, 3.0]],
+    poster: 1.6,
+    quality: 23,
+    focus: 0.55,
+    note: 'shashlik over glowing red coals — 4K original, the classic mangal shot',
+  },
+  {
     id: 'motion/sign-smoke',
     src: `${CS}/IMG_6578.MOV`,
     segments: [[3.6, 2.6]],
@@ -113,12 +122,27 @@ const STILLS = [
   'selected/hero/current-brand-grand-opening-poster-review-only.jpg',
   `${CS}/IMG_6590.HEIC`,
   `${CS}/photo_4904754040042884368_y.jpg`,
+  `${CS}/IMG_5902.HEIC`,
+  `${CS}/IMG_5849.HEIC`,
+  `${CS}/IMG_0010.HEIC`,
+  `${CS}/photo_4904843783384534325_y.jpg`,
 ];
+
+/** Optional 4:5 centre crops for stills whose edges carry clutter (0..1 = vertical anchor). */
+const STILL_CROPS = {
+  // fractional region {x, y, w, h}; keep the fruit tower, lose the soda below
+  [`${CS}/IMG_0010.HEIC`]: { x: 0.18, y: 0, w: 0.82, h: 0.52 },
+  [`${CS}/IMG_6590.HEIC`]: { x: 0, y: 0.06, w: 1, h: 0.74 }, // kazan, no floor mats
+};
 
 /** The stills loop reads these to give owner-supplied files proper site ids. */
 const STILL_ID_OVERRIDES = {
   [`${CS}/IMG_6590.HEIC`]: 'food/kazan-boil',
   [`${CS}/photo_4904754040042884368_y.jpg`]: 'food/banquet-dessert',
+  [`${CS}/IMG_5902.HEIC`]: 'food/cold-platter',
+  [`${CS}/IMG_5849.HEIC`]: 'food/samsa-plate',
+  [`${CS}/IMG_0010.HEIC`]: 'food/fruit-tower',
+  [`${CS}/photo_4904843783384534325_y.jpg`]: 'food/cheese-plates',
 };
 
 /**
@@ -293,6 +317,21 @@ for (const relPath of STILLS) {
   }
   const id = STILL_ID_OVERRIDES[relPath] ?? idOf(relPath);
   const [group, name] = id.split('/');
+  if (STILL_CROPS[relPath] !== undefined) {
+    // bake EXIF rotation first: ffprobe reports sensor dims, ffmpeg decodes rotated
+    const baked = join(TMP, `baked-${basename(src)}.jpg`);
+    ff(['-i', src, '-q:v', '2', baked]);
+    src = baked;
+    const dims = probe(src);
+    const r = STILL_CROPS[relPath];
+    const cw = Math.round(dims.width * r.w);
+    const ch = Math.round(dims.height * r.h);
+    const cx = Math.round(dims.width * r.x);
+    const cy = Math.round(dims.height * r.y);
+    const cropped = join(TMP, `crop-${basename(src)}.jpg`);
+    ff(['-i', src, '-vf', `crop=${cw}:${ch}:${cx}:${cy}`, '-q:v', '3', cropped]);
+    src = cropped;
+  }
   const meta = probe(src);
   const widths = [...new Set([Math.min(meta.width, 1200), Math.min(meta.width, 640)])].sort((a, b) => a - b);
 
