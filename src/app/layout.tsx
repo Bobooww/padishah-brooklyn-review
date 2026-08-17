@@ -10,7 +10,7 @@ import './app.css';
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ??
-  'https://padishah-brooklyn-review.shamsworkcabin.chatgpt.site';
+  'https://padishah-brooklyn-review.netlify.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -26,10 +26,10 @@ export const metadata: Metadata = {
     images: REVIEW_MODE
       ? [
           {
-            url: '/og-review-only.jpg',
+            url: '/og-padishah-logo.jpg',
             width: 1200,
-            height: 627,
-            alt: 'Padishah Restaurant — off the fire, onto the table',
+            height: 630,
+            alt: 'Padishah Restaurant — the crowned mark',
           },
         ]
       : undefined,

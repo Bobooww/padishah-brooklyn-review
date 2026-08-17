@@ -102,12 +102,13 @@ const CUTS = [
   },
   {
     id: 'motion/plated-spin',
-    src: `${CS}/IMG_1721.MOV`,
-    segments: [[0.8, 4.0]],
-    poster: 2.0,
-    quality: 26,
+    // client swap 2026-08-17: the table take replaces the kitchen take
+    src: `${CS}/IMG_5309.MOV`,
+    segments: [[0.6, 4.2]],
+    poster: 1.6,
+    quality: 25,
     focus: 0.5,
-    note: 'the pedestal salad turning (352px source)',
+    note: 'the pedestal salad on the laid table (720px source)',
   },
   {
     id: 'motion/dessert-glasses',

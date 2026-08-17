@@ -274,31 +274,31 @@
       "poster": {
         "src": "/media/motion/plated-spin-poster.jpg",
         "width": 720,
-        "height": 1310,
-        "bytes": 57974
+        "height": 1280,
+        "bytes": 64882
       },
-      "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAYwBkAAD//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xAB8AAACAwEBAQAAAAAAAAAAAAAEBQYBAgMABwEBAQEBAQAAAAAAAAAAAAAAAwEEAAIQAAEDAgQDBgcBAAAAAAAAAAECAAMRIRIxBEHBgSITUXGSoXKxkfEzUlNiYREAAgEDBAMBAAAAAAAAAAAAAAECURIhIgNhQRGhMRP/wAARCAAkABQDASIAAhEAAxEA/9oADAMBAAIRAxEAPwCMiTtZBcJ5V+DyqkcUkSVA471pl6/6yEaMIJ6yeXFtBHGmpwYvH6h5nuxVWNYyHiRSQBTIAO+2V3D1f0cHT0vDH5Q9V0v6I/KH5/WPJbGELQVIJGadtj48HF40y4kjaxIO97i7lKZjQKTkoVox1atcY6YUA/ld4IrOX6Hl56AZ4xEugyIrfZrPkx8S5aqXcku8LdqNC6qjjSXhV/KrcxVngVLA0f2V+7g2Kc2L+sU64E9zvAl9358U/9k=",
+      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xAB0AAACAgMBAAAAAAAAAAAAAAAFAwcGBAECAAEAAwEBAAAAAAAAAAAAAAAAAgQDBQAQAAEDAwMCBgMBAAAAAAAAAAECEQADIRIEYZFRMTIiQaJx4qFTFEIRAAIBBQEBAQAAAAAAAAAAAAEAIQIxQRJREaFh/8AAEQgAJAAUAwEiAAIRAAMRAP/aAAwDAQACEQMRAD8AkmlSSXBSEG3g7kQRXSELWPMcUpVkQDcuG/EVV1lNKhYk+gEEo1wKl5DIKI8ruwmYa/Ign89XBTlGJyA8GW4aOdX6z7ZfE06bBksCHFnneCentnTz6Gu7E+oSpNSoSHcM3EApDZG4a5LHg9BvJh1CqSagy/0Hdnb5iyKGJbE27ddmMS1qBIMzdPfI5ZK6dChRQ5e1muG5EJY/PH2gilqRTQEi4HbbaZn9m00RbKm04qKy5u85KU9IsTKVCpuUWpk3M1NepnpVJ//Z",
       "sources": [
         {
           "src": "/media/motion/plated-spin-portrait.mp4",
           "width": 810,
-          "height": 1472,
-          "bytes": 444246
+          "height": 1440,
+          "bytes": 896301
         },
         {
           "src": "/media/motion/plated-spin-landscape.mp4",
           "width": 1080,
-          "height": 608,
-          "bytes": 308622
+          "height": 606,
+          "bytes": 633863
         }
       ],
-      "durationSeconds": 4,
-      "note": "the pedestal salad turning (352px source)",
-      "derivedFrom": "originals/client-supplied/2026-08-16-padishah-final/IMG_1721.MOV",
+      "durationSeconds": 4.2,
+      "note": "the pedestal salad on the laid table (720px source)",
+      "derivedFrom": "originals/client-supplied/2026-08-16-padishah-final/IMG_5309.MOV",
       "segments": [
         [
-          0.8,
-          4
+          0.6,
+          4.2
         ]
       ]
     },
