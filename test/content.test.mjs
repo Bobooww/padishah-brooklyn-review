@@ -41,16 +41,26 @@ test('menu generation preserves all structured items but withholds unapproved pr
 
 test('generated media carries bilingual manifest alt text for every referenced asset', () => {
   const source = readFileSync(resolve(SITE, 'src/content/generated/media.ts'), 'utf8');
+  // The roster changed 2026-08-16: every photographic asset now derives from
+  // the owner-supplied 4K batch; pre-renovation assets were retired outright.
   for (const id of [
-    'food/chebureki',
-    'food/grill-skewers-closeup',
-    'food/kebab-on-bread',
-    'food/kebab-smoke',
-    'food/samsa-trays',
+    'food/board-overhead',
+    'food/coals-close',
+    'food/lulya-smoke',
+    'food/kazan-skim',
+    'food/kazan-boil',
+    'food/banquet-dessert',
+    'food/banquet-frame',
+    'food/grill-hands-print',
     'hero/current-padishah-logo-poster-crop',
     'motion/fire',
+    'motion/coals',
+    'motion/kazan',
+    'motion/meat-board',
+    'motion/grill-hands',
+    'motion/banquet-room',
     'motion/room-table',
-    'motion/serving',
+    'motion/sign-smoke',
   ]) {
     const offset = source.indexOf(`"${id}":`);
     assert.notEqual(offset, -1, `missing media asset ${id}`);
