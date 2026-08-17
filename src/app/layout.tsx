@@ -39,7 +39,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: COPY.en.meta.title,
         description: COPY.en.meta.description,
-        images: ['/og-review-only.jpg'],
+        images: ['/og-padishah-logo.jpg'],
       }
     : undefined,
 };
