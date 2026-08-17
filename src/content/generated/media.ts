@@ -7,6 +7,96 @@ import type { MediaAsset } from '../types';
 export const MEDIA_PRODUCTION_GATE = "No file is production-cleared. Obtain written client approval and clean originals. Clear identifiable people and any audio/music separately. Replace pre-relaunch location media with current 2026 photography." as const;
 
 export const MEDIA: Record<string, MediaAsset> = {
+  "food/banquet-dessert": {
+    "id": "food/banquet-dessert",
+    "kind": "image",
+    "sourcePath": "originals/client-supplied/2026-08-16-telegram/photo_4904754040042884368_y.jpg",
+    "width": 960,
+    "height": 1280,
+    "durationSeconds": null,
+    "rightsStatus": "client_supplied_review_only",
+    "productionApproved": false,
+    "curationLabel": "dessert setting: gold bowls of chocolates, berries, figs",
+    "sourceUrl": null,
+    "qualityFlags": [
+      "telegram_compressed"
+    ],
+    "alt": {
+      "en": "Dessert setting with gold bowls of chocolates, berries and figs",
+      "ru": "Десертная сервировка: золотые вазы с конфетами, ягоды и инжир",
+      "status": "draft_owner_approval_required"
+    },
+    "web": {
+      "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAJwAoAAD//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xAByAAADAQEBAAAAAAAAAAAAAAAEBQYDAAEBAQEBAQAAAAAAAAAAAAAAAAMCBAUQAAIBAwIEBQUBAAAAAAAAAAECESEAA0ExUWES0QSRE/AioTMUk0JxEQACAQUBAQEAAAAAAAAAAAAAARESEyFRYbECQf/AABEIABoAFAMBIgACEQADEQD/2gAMAwEAAhEDEQA/AOyNjYKqRtpI1gczfpZBiILz/EHRiZImJM2J6eQrIZZ0mmop742AxORBDCSYj5CYYk6bgRpfNtqI0bqhIwqekECdomOU1vOG5+VsW8Pk4tSnxDfWm95fjPxyeR7W9PfAp4VOXIEZZQkyWECRSm3+0NBtYDZVKq5UdJ4g0JBO443YgkraR1EJQfex6cr0L5WY/SJykDI/SIDdQ0nJEU2ETSdq2R6p5ftPa4HxgjM0e62gsLS2VUf/2Q==",
+      "sources": [
+        {
+          "src": "/media/food/banquet-dessert-640.webp",
+          "width": 640,
+          "height": 854,
+          "bytes": 98786
+        },
+        {
+          "src": "/media/food/banquet-dessert-640.jpg",
+          "width": 640,
+          "height": 854,
+          "bytes": 97677
+        },
+        {
+          "src": "/media/food/banquet-dessert-960.webp",
+          "width": 960,
+          "height": 1280,
+          "bytes": 193740
+        },
+        {
+          "src": "/media/food/banquet-dessert-960.jpg",
+          "width": 960,
+          "height": 1280,
+          "bytes": 186797
+        }
+      ],
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/photo_4904754040042884368_y.jpg"
+    }
+  },
+  "food/banquet-hall": {
+    "id": "food/banquet-hall",
+    "kind": "video",
+    "sourcePath": "originals/client-supplied/2026-08-16-telegram/IMG_1341.MOV",
+    "width": 352,
+    "height": 640,
+    "durationSeconds": 24.333333,
+    "rightsStatus": "client_supplied_review_only",
+    "productionApproved": false,
+    "curationLabel": "banquet hall with glowing gold Padishah sign and fruit towers (352x640 telegram compression)",
+    "sourceUrl": null,
+    "qualityFlags": [
+      "telegram_compressed"
+    ],
+    "alt": {
+      "en": "Fruit towers on a banquet table under the glowing gold Padishah sign",
+      "ru": "Фруктовые башни на банкетном столе под золотой вывеской Padishah",
+      "status": "draft_owner_approval_required"
+    },
+    "web": {
+      "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAGgAZAAD//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABwAAEBAQEAAAAAAAAAAAAAAAAGBAMFAQEAAwEAAAAAAAAAAAAAAAADBAEFAhAAAgECBAUFAQAAAAAAAAAAAQIRACEDMRJBIuEyUYHBkRNxUhQRAAIDAQABBQEAAAAAAAAAAAEAAiERMaFBsQPwgVH/wAARCAAaABQDARIAAhIAAxIA/9oADAMBAAIRAxEAPwANhll4Y4mBzHce9q1bVrlWGYkZVUq69S0gny0FBmF5TYzLKNE+Lc6QE6BMK5MajwyZ2IzpAlCYHogQobRWtDJYkSchlTP+BPwx8mplKCIkNtFvjn8IDX6tok1WK4Mb5bMHfxSuoMTLFytjtaZO8ircO6n6HpWPKEgNoW6/32XBGojrXhpihbMyjsDzrq4fSKiRj8mVjuAUuZR/nhhv/9k=",
+      "sources": [
+        {
+          "src": "/media/food/banquet-hall-352.webp",
+          "width": 352,
+          "height": 440,
+          "bytes": 28130
+        },
+        {
+          "src": "/media/food/banquet-hall-352.jpg",
+          "width": 352,
+          "height": 440,
+          "bytes": 32928
+        }
+      ],
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_1341.MOV",
+      "frameAtSeconds": 8,
+      "note": "fruit towers under the glowing gold Padishah sign — small placements only (352px source)"
+    }
+  },
   "food/chebureki": {
     "id": "food/chebureki",
     "kind": "image",
@@ -105,6 +195,56 @@ export const MEDIA: Record<string, MediaAsset> = {
         }
       ],
       "derivedFrom": "selected/food/grill-skewers-closeup-review-only.jpg"
+    }
+  },
+  "food/kazan-boil": {
+    "id": "food/kazan-boil",
+    "kind": "image",
+    "sourcePath": "originals/client-supplied/2026-08-16-telegram/IMG_6590.HEIC",
+    "width": 3213,
+    "height": 5712,
+    "durationSeconds": null,
+    "rightsStatus": "client_supplied_review_only",
+    "productionApproved": false,
+    "curationLabel": "the kazan at a rolling boil in the kitchen",
+    "sourceUrl": null,
+    "qualityFlags": [
+      "production_resolution_candidate"
+    ],
+    "alt": {
+      "en": "The kazan at a rolling boil in the kitchen",
+      "ru": "Казан кипит на кухне",
+      "status": "draft_owner_approval_required"
+    },
+    "web": {
+      "lqip": "data:image/jpeg;base64,/9j/4gIoSUNDX1BST0ZJTEUAAQEAAAIYYXBwbAQAAABtbnRyUkdCIFhZWiAH5gABAAEAAAAAAABhY3NwQVBQTAAAAABBUFBMAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWFwcGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApkZXNjAAAA/AAAADBjcHJ0AAABLAAAAFB3dHB0AAABfAAAABRyWFlaAAABkAAAABRnWFlaAAABpAAAABRiWFlaAAABuAAAABRyVFJDAAABzAAAACBjaGFkAAAB7AAAACxiVFJDAAABzAAAACBnVFJDAAABzAAAACBtbHVjAAAAAAAAAAEAAAAMZW5VUwAAABQAAAAcAEQAaQBzAHAAbABhAHkAIABQADNtbHVjAAAAAAAAAAEAAAAMZW5VUwAAADQAAAAcAEMAbwBwAHkAcgBpAGcAaAB0ACAAQQBwAHAAbABlACAASQBuAGMALgAsACAAMgAwADIAMlhZWiAAAAAAAAD21QABAAAAANMsWFlaIAAAAAAAAIPfAAA9v////7tYWVogAAAAAAAASr8AALE3AAAKuVhZWiAAAAAAAAAoOAAAEQsAAMi5cGFyYQAAAAAAAwAAAAJmZgAA8qcAAA1ZAAAT0AAACltzZjMyAAAAAAABDEIAAAXe///zJgAAB5MAAP2Q///7ov///aMAAAPcAADAbv/+ABBMYXZjNjIuMjguMTAyAP/bAEMACBgYHBgcISEhISEhJyQnKCgoJycnJygoKCsrKzMzMysrKygoKyswMDMzNzk3NDQzNDk5PDw8SEhFRVRUV2dnfP/EAHQAAAIDAQEAAAAAAAAAAAAAAAYFBAMCAAgBAQEBAQAAAAAAAAAAAAAAAAMCAAQQAAIBAgEICgMBAAAAAAAAAAECEQADEjEhQVEEFHEyE9FhIgWSkbHwUoGhQlMRAQEBAAMBAAAAAAAAAAAAAAABERJRIUH/wAARCAAkABQDASIAAhEAAxEA/9oADAMBAAIRAxEAPwAZvOmBIOcBaJ9na3cAXFBmWmY1e1KNm8Me+oNx8AI7qgS0azOYCjUeG7uMVu4WOkOM3quT0o7na0rdgcn6iu3b5m6qUttK2zhdMLcQRxB1VVvlr6+1HlUM9ku23QwRIyjSBwpg9+2mU6NGc/ivNzjCcVskEdtFttG6FLrXSxY8swZ1HryVGSlvgjdblw4jZuEHl7sws5pqP0T/AOFzyGsM5cyztOSAYA7BVXd+7+Y9dbYTjQvhBVjqpvYQKs6TSz+G+aadWeQcKJ2fSB3OKqOkPZWX5qjVSH//2Q==",
+      "sources": [
+        {
+          "src": "/media/food/kazan-boil-640.webp",
+          "width": 640,
+          "height": 1138,
+          "bytes": 92950
+        },
+        {
+          "src": "/media/food/kazan-boil-640.jpg",
+          "width": 640,
+          "height": 1138,
+          "bytes": 84684
+        },
+        {
+          "src": "/media/food/kazan-boil-1200.webp",
+          "width": 1200,
+          "height": 2134,
+          "bytes": 234786
+        },
+        {
+          "src": "/media/food/kazan-boil-1200.jpg",
+          "width": 1200,
+          "height": 2134,
+          "bytes": 232000
+        }
+      ],
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_6590.HEIC"
     }
   },
   "food/kebab-on-bread": {
@@ -616,6 +756,110 @@ export const MEDIA: Record<string, MediaAsset> = {
       "derivedFrom": "selected/location/storefront-2025-review-only.jpg"
     }
   },
+  "motion/banquet-room": {
+    "id": "motion/banquet-room",
+    "kind": "video",
+    "sourcePath": "originals/client-supplied/2026-08-16-telegram/IMG_6575.MOV",
+    "width": 720,
+    "height": 1280,
+    "durationSeconds": 3.4,
+    "rightsStatus": "people_release_required",
+    "productionApproved": false,
+    "curationLabel": "banquet in the dining room: guests, chandeliers, murals, 4K",
+    "sourceUrl": null,
+    "qualityFlags": [
+      "production_resolution_candidate"
+    ],
+    "alt": {
+      "en": "A banquet in the dining room: long laid tables, chandeliers and guests",
+      "ru": "Банкет в зале: длинные накрытые столы, люстры и гости",
+      "status": "draft_owner_approval_required"
+    },
+    "web": {
+      "poster": {
+        "src": "/media/motion/banquet-room-poster.jpg",
+        "width": 720,
+        "height": 1280,
+        "bytes": 114010
+      },
+      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xAB1AAABBQEAAAAAAAAAAAAAAAAGAQAEBQcDAQEBAQEBAAAAAAAAAAAAAAADAgEABBAAAQMBBAcHBQEAAAAAAAAAAQIRAAMhMQQSURNhUqFTcUGBFGLBIpE0FeGxMvARAQADAQEAAAAAAAAAAAAAAABRESFBAf/AABEIACQAFAMBIgACEQADEQD/2gAMAwEAAhEDEQA/ADuktIvhBrFn+adnmUAT3AHjBljyldzH1kpNZLMUORY5Ah21IVVS9zaROOtRognrbTmQp3O2PWp3FxNhLuo1CgtUKAl/aA5X/miioAnMdm0u+jTACqUpqspSgVJYe4tb2l0j8y3XhmDqtKSSq9rT2MboUFHTZrWfpdFyeUzLEY+mh05SwJAcvZwkj7jS3f3K1B1MLTOIQkuRYb+E0LGB0oG8z9l1sFqn1VPoPWFWLupdYfCqPwtDlI+I/DYflU/iWsSeS/Zc/9k=",
+      "sources": [
+        {
+          "src": "/media/motion/banquet-room-portrait.mp4",
+          "width": 810,
+          "height": 1440,
+          "bytes": 941050
+        },
+        {
+          "src": "/media/motion/banquet-room-landscape.mp4",
+          "width": 1080,
+          "height": 608,
+          "bytes": 462807
+        }
+      ],
+      "durationSeconds": 3.4,
+      "note": "banquet in the dining room — guests in frame, release required",
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_6575.MOV",
+      "segments": [
+        [
+          1.5,
+          3.4
+        ]
+      ]
+    }
+  },
+  "motion/coals": {
+    "id": "motion/coals",
+    "kind": "video",
+    "sourcePath": "originals/client-supplied/2026-08-16-telegram/IMG_6587.MOV",
+    "width": 720,
+    "height": 1280,
+    "durationSeconds": 2.8,
+    "rightsStatus": "client_supplied_review_only",
+    "productionApproved": false,
+    "curationLabel": "meat skewers over glowing red coals, 4K",
+    "sourceUrl": null,
+    "qualityFlags": [
+      "production_resolution_candidate"
+    ],
+    "alt": {
+      "en": "Meat skewers over glowing red coals",
+      "ru": "Шампуры с мясом над раскалёнными красными углями",
+      "status": "draft_owner_approval_required"
+    },
+    "web": {
+      "poster": {
+        "src": "/media/motion/coals-poster.jpg",
+        "width": 720,
+        "height": 1280,
+        "bytes": 63097
+      },
+      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABtAAACAwEBAQAAAAAAAAAAAAAFBAIGAwEABwEBAQEBAAAAAAAAAAAAAAAAAgMABBAAAQMCAwcEAwEAAAAAAAAAAQIAEQMhEpFBUXExExRCoVJy0cLxBMFhEQEBAQAAAAAAAAAAAAAAAAAAEQH/wAARCAAkABQDASIAAhEAAxEA/9oADAMBAAIRAxEAPwB1YCZIJlu0qlSJInc54hcqk2m4vv3lthCOI/wbi5HEz+ykavPqk7WHXQE8T5a/IHqOZ+GhSQT7ximxlRIFuMGGPRWUhWFYgjEoxt+bvCrSqo1nfxzEFgzUV34hf3DMX8MRSrOqolMa2nbqXhzk7DkwWI9qhmPzm/Yl7RmGIpcfVayR5df5aTp3Oy1f6wY+xd3MW6ekblIL50tH0BlQ5PM//9k=",
+      "sources": [
+        {
+          "src": "/media/motion/coals-portrait.mp4",
+          "width": 810,
+          "height": 1440,
+          "bytes": 1644140
+        },
+        {
+          "src": "/media/motion/coals-landscape.mp4",
+          "width": 1080,
+          "height": 608,
+          "bytes": 1155742
+        }
+      ],
+      "durationSeconds": 2.8,
+      "note": "meat skewers over glowing red coals — 4K original",
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_6587.MOV",
+      "segments": [
+        [
+          2,
+          2.8
+        ]
+      ]
+    }
+  },
   "motion/craft": {
     "id": "motion/craft",
     "kind": "video",
@@ -671,20 +915,20 @@ export const MEDIA: Record<string, MediaAsset> = {
   "motion/fire": {
     "id": "motion/fire",
     "kind": "video",
-    "sourcePath": "selected/motion/meat-platter-story-review-only.mp4",
+    "sourcePath": "originals/client-supplied/2026-08-16-telegram/IMG_6572.MOV",
     "width": 720,
     "height": 1280,
-    "durationSeconds": 2.5,
-    "rightsStatus": "official_social_review_only",
+    "durationSeconds": 4,
+    "rightsStatus": "client_supplied_review_only",
     "productionApproved": false,
-    "curationLabel": "story-after-original",
-    "sourceUrl": "https://www.instagram.com/padishah_restaurant/reel/DOZRAC1Es86/",
+    "curationLabel": "lulya skewers over coals in heavy smoke, 4K",
+    "sourceUrl": null,
     "qualityFlags": [
-      "web_resolution_candidate"
+      "production_resolution_candidate"
     ],
     "alt": {
-      "en": "Lamb ribs over live coals, smoke rising through a rank of skewers",
-      "ru": "Рёбрышки ягнёнка над углями, дым идёт сквозь ряд шампуров",
+      "en": "Lulya kebabs over coals, smoke rolling through the rank of skewers",
+      "ru": "Люля-кебаб над углями, дым идёт сквозь ряд шампуров",
       "status": "draft_owner_approval_required"
     },
     "web": {
@@ -692,34 +936,142 @@ export const MEDIA: Record<string, MediaAsset> = {
         "src": "/media/motion/fire-poster.jpg",
         "width": 720,
         "height": 1280,
-        "bytes": 62797
+        "bytes": 71800
       },
-      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xAB6AAABBQEBAQAAAAAAAAAAAAAGBwUEAQIAAwgBAQEBAQEAAAAAAAAAAAAAAAMBBAIFEAACAQICBQoHAQAAAAAAAAABAhEAAyExUUESYQQUwRMi0ZGhUnFyU9KBsjKiQtMRAQADAQEBAQAAAAAAAAAAAAABERJRoQJx/8AAEQgAJAAUAwEiAAIRAAMRAP/aAAwDAQACEQMRAD8AGuIsojwJWd1BzgprFfQ72FdcYJjDRQfd4W0LeyQpecxOuguC1JDgzHXFal/NSi8kQjBZGkEVfI1+H4iud/PYWpK1abaUGI2ssQcNJ9aiuBjMTiYxmBz002WvWRbUkBBbhmIDOjRIECMBlrrn4xoAAVgUmZ05YemNHiZ4bUKtcEqW1AL5TjIOJ0C5Urko0t3n/Sn1SuysbRgbj41uRv7h21lz++ksl9wlQsE9ZhOsGdxkUQkkluwc4obvZW/cKIf6b6167CbC3RpbH5dSZMzizaCK8emPlX9vmqrmVv2D7jUCor//2Q==",
+      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xAB0AAADAQEBAAAAAAAAAAAAAAAGBAcFAgMBAAMBAQAAAAAAAAAAAAAAAAMBAgAEEAABAwICBwYHAQAAAAAAAAABAgARIQMSMWEEQYGREzJRksGhInHRsWJjUuEjMxEBAQEBAQEAAAAAAAAAAAAAABEBEgIh/8AAEQgAJAAUAwEiAAIRAAMRAP/aAAwDAQACEQMRAD8AEUhWKUjJ1qzdxIE5wxNOGSnBBpAVQxoUPKJempQtbxQGkkbMT5Ovo0J3SArqI4tPEPzPAsfurwKhWftPmKNLmjT3SyRNUP0lAAi4M6kUSMzPb2PHSrFKkSY6EKGyoME+DRuWUlf8TA2kHb7Mst2CoJFyuEUWKb6ZOPORW6w0WKUXcRoz8Q/fkfeXwPxZwLVyKEEaRJffKu/R3WcJMtVSFkrOYpxP6dD1dRJKTUMC1PJW75lnGr/6FthAv0GATDXxK7Wze6tzQaJ//9k=",
       "sources": [
         {
           "src": "/media/motion/fire-portrait.mp4",
           "width": 810,
           "height": 1440,
-          "bytes": 1156753
+          "bytes": 1301469
         },
         {
           "src": "/media/motion/fire-landscape.mp4",
           "width": 1080,
           "height": 608,
-          "bytes": 748757
+          "bytes": 746288
         }
       ],
-      "durationSeconds": 2.5,
-      "note": "lamb ribs over coals, then smoke rolling over the skewers",
-      "derivedFrom": "selected/motion/meat-platter-story-review-only.mp4",
+      "durationSeconds": 4,
+      "note": "lulya kebabs over coals in heavy smoke — 4K original",
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_6572.MOV",
       "segments": [
         [
-          16.3,
-          1.55
+          3,
+          2.2
         ],
         [
-          21.4,
-          0.95
+          14,
+          1.8
+        ]
+      ]
+    }
+  },
+  "motion/kazan": {
+    "id": "motion/kazan",
+    "kind": "video",
+    "sourcePath": "originals/client-supplied/2026-08-16-telegram/IMG_6591.MOV",
+    "width": 720,
+    "height": 1280,
+    "durationSeconds": 4.6,
+    "rightsStatus": "client_supplied_review_only",
+    "productionApproved": false,
+    "curationLabel": "the kazan at a boil, meat lifted with a skimmer, 4K",
+    "sourceUrl": null,
+    "qualityFlags": [
+      "production_resolution_candidate"
+    ],
+    "alt": {
+      "en": "The kazan at a boil; meat lifted out with a skimmer",
+      "ru": "Казан кипит; мясо достают шумовкой",
+      "status": "draft_owner_approval_required"
+    },
+    "web": {
+      "poster": {
+        "src": "/media/motion/kazan-poster.jpg",
+        "width": 720,
+        "height": 1280,
+        "bytes": 74514
+      },
+      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABwAAADAQEBAQAAAAAAAAAAAAAFBgcDBAACAQADAQAAAAAAAAAAAAAAAAACAwQBEAABAgUCBAUFAQAAAAAAAAABAgARIQMSBDGBQXFRkRRSYdETMyPhofBCEQEAAwEBAAAAAAAAAAAAAAAAQREhgQH/wAARCAAkABQDASIAAhEAAxEA/9oADAMBAAIRAxEAPwCVKqRWObo2NkBQSlSZJ0KfYvpRhYtMQtNQiZKiY7QgGRVj0LQaZsV0jcNwZtd+CGvtKncN5F/UKXmT+mqKX8ZtUJ+mm0nl8yen92e0wUpJK4HWMDLQDWTMKsUNBHZzzGyLYJWTJNqRKCumsgRoyFQ5JEEUliciYAciXPsKMGI1J2qlHiX66t5h3DOUsVFojcCZkGc32eGR6twUO4R4giDeKJUlAIJiBxm0j/JbrT+mOTTHVE8H0ZVSHA7fl7+KqdE9j7tdTx5vdkF//9k=",
+      "sources": [
+        {
+          "src": "/media/motion/kazan-portrait.mp4",
+          "width": 810,
+          "height": 1440,
+          "bytes": 3123636
+        },
+        {
+          "src": "/media/motion/kazan-landscape.mp4",
+          "width": 1080,
+          "height": 608,
+          "bytes": 2391950
+        }
+      ],
+      "durationSeconds": 4.6,
+      "note": "the kazan at a boil; meat lifted with a skimmer — 4K original",
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_6591.MOV",
+      "segments": [
+        [
+          8.5,
+          2
+        ],
+        [
+          13.2,
+          2.6
+        ]
+      ]
+    }
+  },
+  "motion/meat-board": {
+    "id": "motion/meat-board",
+    "kind": "video",
+    "sourcePath": "originals/client-supplied/2026-08-16-telegram/IMG_6595.MOV",
+    "width": 720,
+    "height": 1280,
+    "durationSeconds": 2.8,
+    "rightsStatus": "client_supplied_review_only",
+    "productionApproved": false,
+    "curationLabel": "overhead pan of shashlik board with fries and onion, 4K",
+    "sourceUrl": null,
+    "qualityFlags": [
+      "production_resolution_candidate"
+    ],
+    "alt": {
+      "en": "Shashlik skewers on a wooden board with fries and red onion, from above",
+      "ru": "Шашлык на деревянной доске с картофелем фри и красным луком, вид сверху",
+      "status": "draft_owner_approval_required"
+    },
+    "web": {
+      "poster": {
+        "src": "/media/motion/meat-board-poster.jpg",
+        "width": 720,
+        "height": 1280,
+        "bytes": 91857
+      },
+      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xAB1AAABBQEBAAAAAAAAAAAAAAAFBgcEAQMAAgEAAwEBAAAAAAAAAAAAAAAAAgMABAUQAAEDAgUDAgYDAQAAAAAAAAECEQADITESYRNBUZGx0SJToQSTgeJxNHNyEQEBAAIDAQAAAAAAAAAAAAAAARESIQIxA//AABEIACQAFAMBIgACEQADEQD/2gAMAwEAAhEDEQA/AFzuDLm16a4SCoubgdreIGVTJp06YfMtWZ+g6gdpLHurlIKimmliLhizs7Y/mYL840FKlSQOJpnHUQMFhV7YnSaONO59IzUCgDnLJfbSGycaX+Wgg2mhSUF3zqUTY69iAGhrdINkvYEgepawHmSKikqsoDjo+uPGEfYDLSikbYIDve+MIMeggYLqJHsQFAuXK2uT/wAz3u1/hJ+5+ssxcm9R9ZV3kJcELqKQbYJB4i5prz2ISecI1Cf7FH/ZfmOfQxH8DxD7+AhUS50uc81//9k=",
+      "sources": [
+        {
+          "src": "/media/motion/meat-board-portrait.mp4",
+          "width": 810,
+          "height": 1440,
+          "bytes": 1011404
+        },
+        {
+          "src": "/media/motion/meat-board-landscape.mp4",
+          "width": 1080,
+          "height": 608,
+          "bytes": 721710
+        }
+      ],
+      "durationSeconds": 2.8,
+      "note": "overhead pan of the shashlik board — 4K original",
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_6595.MOV",
+      "segments": [
+        [
+          1.2,
+          2.8
         ]
       ]
     }
@@ -929,6 +1281,58 @@ export const MEDIA: Record<string, MediaAsset> = {
       "status": "draft_owner_approval_required"
     },
     "web": null
+  },
+  "motion/sign-smoke": {
+    "id": "motion/sign-smoke",
+    "kind": "video",
+    "sourcePath": "originals/client-supplied/2026-08-16-telegram/IMG_6578.MOV",
+    "width": 720,
+    "height": 1280,
+    "durationSeconds": 2.6,
+    "rightsStatus": "client_supplied_review_only",
+    "productionApproved": false,
+    "curationLabel": "gold Padishah mirror sign behind drifting smoke, 4K",
+    "sourceUrl": null,
+    "qualityFlags": [
+      "production_resolution_candidate"
+    ],
+    "alt": {
+      "en": "The gold Padishah sign behind drifting smoke",
+      "ru": "Золотая вывеска Padishah за плывущим дымом",
+      "status": "draft_owner_approval_required"
+    },
+    "web": {
+      "poster": {
+        "src": "/media/motion/sign-smoke-poster.jpg",
+        "width": 720,
+        "height": 1280,
+        "bytes": 59585
+      },
+      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABtAAADAQEBAQAAAAAAAAAAAAADBQYCAAQBAQADAQEAAAAAAAAAAAAAAAACBAEDABAAAQMCBAUFAQEAAAAAAAAAAQACEQMxUSESBPBhInFBMhOR0YEzchEBAQEBAQAAAAAAAAAAAAAAAAECERL/wAARCAAkABQDASIAAhEAAxEA/9oADAMBAAIRAxEAPwChmoLkfCIHHKQD2lAqPdOTScOa8TXuJEtIzCxsyI+OrwsdSOuS/iL0t3AqNfLCRxgha3nRMzI1Yd00fSbUADHkQbGb8ipYNqUqgBmCR+psCrk4rpOKBK+Su4hjSHuU+rOLJXuKrmNaBHqjmm+2/mePCnN3Zv8AoLPIwQVri5+0ILaXG//Z",
+      "sources": [
+        {
+          "src": "/media/motion/sign-smoke-portrait.mp4",
+          "width": 810,
+          "height": 1440,
+          "bytes": 789138
+        },
+        {
+          "src": "/media/motion/sign-smoke-landscape.mp4",
+          "width": 1080,
+          "height": 608,
+          "bytes": 389549
+        }
+      ],
+      "durationSeconds": 2.6,
+      "note": "the gold Padishah sign behind drifting smoke — 4K original",
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_6578.MOV",
+      "segments": [
+        [
+          3.6,
+          2.6
+        ]
+      ]
+    }
   },
   "motion/storefront": {
     "id": "motion/storefront",

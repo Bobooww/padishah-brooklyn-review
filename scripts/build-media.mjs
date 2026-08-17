@@ -11,7 +11,7 @@
 
 import { execFileSync } from 'node:child_process';
 import { mkdirSync, writeFileSync, readFileSync, statSync, existsSync, rmSync } from 'node:fs';
-import { dirname, resolve, join } from 'node:path';
+import { basename, dirname, resolve, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -22,6 +22,8 @@ const TMP = resolve(APP, '.media-tmp');
 
 const REEL_FIRE = 'selected/motion/meat-platter-story-review-only.mp4';
 const REEL_SERVE = 'selected/motion/shashlik-serving-review-only.mp4';
+/** 4K originals supplied by the owner's side over Telegram, 2026-08-16. */
+const CS = 'originals/client-supplied/2026-08-16-telegram';
 
 /**
  * Cuts chosen by stepping through both reels frame by frame (see notes).
@@ -32,17 +34,60 @@ const REEL_SERVE = 'selected/motion/shashlik-serving-review-only.mp4';
 const CUTS = [
   {
     id: 'motion/fire',
-    src: REEL_FIRE,
-    // A longer breath for the hero arch: ribs settling over the coals, then the
-    // smoke bank rolling through the lulya rank. Both shots are people-free.
-    // Segment edges verified frame-by-frame: ribs cut to tomato-cutting at
-    // ~17.95, smoke cuts to the banquet board at ~22.4 — live inside both.
-    segments: [[16.3, 1.55], [21.4, 0.95]],
-    poster: 17.0,
+    // Upgraded 2026-08-16: the hero loop now comes from the owner-supplied 4K
+    // original instead of the Instagram-recompressed reel. No denoise needed.
+    src: `${CS}/IMG_6572.MOV`,
+    segments: [[3.0, 2.2], [14.0, 1.8]],
+    poster: 4.0,
     quality: 23,
-    enhance: true,
-    focus: 0.62,
-    note: 'lamb ribs over coals, then smoke rolling over the skewers',
+    focus: 0.5,
+    note: 'lulya kebabs over coals in heavy smoke — 4K original',
+  },
+  {
+    id: 'motion/coals',
+    src: `${CS}/IMG_6587.MOV`,
+    segments: [[2.0, 2.8]],
+    poster: 3.0,
+    quality: 23,
+    focus: 0.55,
+    note: 'meat skewers over glowing red coals — 4K original',
+  },
+  {
+    id: 'motion/kazan',
+    src: `${CS}/IMG_6591.MOV`,
+    // the boil, then the skimmer lifting the meat out
+    segments: [[8.5, 2.0], [13.2, 2.6]],
+    poster: 14.0,
+    quality: 23,
+    focus: 0.5,
+    note: 'the kazan at a boil; meat lifted with a skimmer — 4K original',
+  },
+  {
+    id: 'motion/meat-board',
+    src: `${CS}/IMG_6595.MOV`,
+    segments: [[1.2, 2.8]],
+    poster: 2.4,
+    quality: 23,
+    focus: 0.5,
+    note: 'overhead pan of the shashlik board — 4K original',
+  },
+  {
+    id: 'motion/banquet-room',
+    src: `${CS}/IMG_6575.MOV`,
+    segments: [[1.5, 3.4]],
+    poster: 3.0,
+    quality: 24,
+    focus: 0.45,
+    note: 'banquet in the dining room — guests in frame, release required',
+  },
+  {
+    id: 'motion/sign-smoke',
+    src: `${CS}/IMG_6578.MOV`,
+    segments: [[3.6, 2.6]],
+    poster: 4.6,
+    quality: 24,
+    focus: 0.4,
+    note: 'the gold Padishah sign behind drifting smoke — 4K original',
   },
   {
     id: 'motion/craft',
@@ -102,7 +147,15 @@ const STILLS = [
   'selected/food/chebureki-review-only.webp',
   'selected/location/storefront-2025-review-only.jpg',
   'selected/people/chef-fruit-platter-release-required.jpg',
+  `${CS}/IMG_6590.HEIC`,
+  `${CS}/photo_4904754040042884368_y.jpg`,
 ];
+
+/** The stills loop reads these to give owner-supplied files proper site ids. */
+const STILL_ID_OVERRIDES = {
+  [`${CS}/IMG_6590.HEIC`]: 'food/kazan-boil',
+  [`${CS}/photo_4904754040042884368_y.jpg`]: 'food/banquet-dessert',
+};
 
 /**
  * Stills lifted from single reel frames — the phone photos in the library have four
@@ -132,6 +185,13 @@ const FRAME_STILLS = [
     t: 10.4,
     focus: 0.38,
     note: 'salmon fingers with balsamic glaze on wood',
+  },
+  {
+    id: 'food/banquet-hall',
+    src: `${CS}/IMG_1341.MOV`,
+    t: 8.0,
+    focus: 0.4,
+    note: 'fruit towers under the glowing gold Padishah sign — small placements only (352px source)',
   },
 ];
 
@@ -242,12 +302,18 @@ for (const cut of CUTS) {
 /* ------------------------------------------------------------------ image */
 
 for (const relPath of STILLS) {
-  const src = resolve(LIB, relPath);
+  let src = resolve(LIB, relPath);
   if (!existsSync(src)) {
     console.warn(`missing still: ${relPath}`);
     continue;
   }
-  const id = idOf(relPath);
+  // ffmpeg on this machine cannot decode HEIC; sips can.
+  if (/\.heic$/i.test(src)) {
+    const converted = join(TMP, basename(src).replace(/\.heic$/i, '.jpg'));
+    execFileSync('sips', ['-s', 'format', 'jpeg', src, '--out', converted], { stdio: 'ignore' });
+    src = converted;
+  }
+  const id = STILL_ID_OVERRIDES[relPath] ?? idOf(relPath);
   const [group, name] = id.split('/');
   const meta = probe(src);
   const widths = [...new Set([Math.min(meta.width, 1200), Math.min(meta.width, 640)])].sort((a, b) => a - b);

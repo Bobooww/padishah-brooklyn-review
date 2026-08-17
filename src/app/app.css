@@ -1224,6 +1224,122 @@
   color: var(--text-on-ivory-dim);
 }
 
+/* ----------------------------------------------------------------- meat */
+
+.meat__inner {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .meat__inner {
+    grid-template-columns: 1fr 0.8fr;
+  }
+  .meat__media {
+    max-width: 420px;
+    justify-self: end;
+  }
+}
+.meat__cta {
+  margin-top: 2rem;
+}
+.meat__media {
+  will-change: transform;
+}
+
+/* ---------------------------------------------------------------- kazan */
+
+.kazan__inner {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .kazan__inner {
+    grid-template-columns: 0.8fr 1fr;
+  }
+  .kazan__media {
+    max-width: 420px;
+  }
+}
+.kazan__cta {
+  margin-top: 2rem;
+}
+.kazan__media {
+  will-change: transform;
+}
+
+/* ------------------------------------------------------------- banquets */
+
+.banquets__inner {
+  display: grid;
+  gap: clamp(2.4rem, 6vw, 5rem);
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .banquets__inner {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+}
+.banquets__cta {
+  margin-top: 2rem;
+  margin-bottom: 1.2rem;
+}
+.banquets__media {
+  position: relative;
+  will-change: transform;
+}
+/* two snapshots pinned over the film's lower corner, like table cards */
+.banquets__cards {
+  position: absolute;
+  right: -14px;
+  bottom: -34px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-end;
+}
+.banquets__card {
+  width: clamp(120px, 14vw, 190px);
+  background: var(--ivory-2);
+  padding: 6px;
+  box-shadow: 0 16px 40px rgba(6, 5, 5, 0.45);
+  will-change: transform;
+}
+.banquets__card:nth-child(1) {
+  transform: rotate(1.6deg);
+}
+.banquets__card:nth-child(2) {
+  transform: rotate(-2deg);
+}
+.banquets__card .frame {
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+.banquets__card .frame__core {
+  aspect-ratio: 4 / 5 !important;
+  position: relative;
+}
+.banquets__card img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
+}
+.banquets__card .rights {
+  left: 6px;
+  bottom: 6px;
+  padding: 0.18rem 0.4rem;
+  font-size: 0.5rem;
+}
+@media (max-width: 899px) {
+  .banquets__cards {
+    position: static;
+    margin-top: 1rem;
+    justify-content: flex-start;
+  }
+}
+
 /* --------------------------------------------------------------- dishes */
 
 .dishes__head {

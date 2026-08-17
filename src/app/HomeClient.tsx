@@ -228,20 +228,12 @@ export default function HomeClient() {
               </ul>
             </div>
             <div className="fire__media reveal">
-              <Still
-                asset={media('food/kebab-smoke')}
-                alt={
-                  lang === 'ru'
-                    ? 'Шампуры с мясом над углями в стальном мангале'
-                    : 'Skewers of meat over coals in a steel trough'
-                }
-                sizes="(min-width: 900px) 40vw, 90vw"
-                lang={lang}
-              />
+              {/* upgraded to the owner-supplied 4K coals footage */}
+              <Loop asset={media('motion/coals')} alt="" orientation="portrait" lang={lang} />
               <p className="micro">
                 {lang === 'ru'
-                  ? 'Кадр из съёмки самого ресторана. Только для согласования.'
-                  : "From the restaurant's own footage. Review use only."}
+                  ? 'Съёмка с кухни ресторана, август 2026. Только для согласования.'
+                  : "Shot in the restaurant's kitchen, August 2026. Review use only."}
               </p>
             </div>
           </div>
@@ -271,6 +263,67 @@ export default function HomeClient() {
                   : 'Off the skewers, onto wood, with lemon, herbs and a heap of red onion. That is how it leaves the kitchen and how it crosses the room.'}
               </p>
 
+            </div>
+          </div>
+        </section>
+
+        {/* ---------------------------------------------------------- meat */}
+        <section id="meat" className="section section--ivory meat">
+          <div className="rail meat__inner">
+            <div className="meat__copy reveal">
+              <p className="eyebrow">{lang === 'ru' ? 'Всё мясное' : 'The meat'}</p>
+              <h2>{lang === 'ru' ? 'Шампуры считают рядами.' : 'Skewers are counted in ranks.'}</h2>
+              <p className="lead">
+                {lang === 'ru'
+                  ? 'Восемь позиций шашлыка в публичном меню — рёбрышки ягнёнка, люля, печень среди них. С мангала — на доску, с доски — в середину стола.'
+                  : 'Eight shish kebab entries on the public menu — lamb ribs, lulya and liver among them. From the mangal to the board, from the board to the middle of the table.'}
+              </p>
+              <ul className="fire__facts" data-stagger>
+                <li className="reveal">{lang === 'ru' ? 'Рёбрышки ягнёнка.' : 'Lamb ribs.'}</li>
+                <li className="reveal">{lang === 'ru' ? 'Люля-кебаб.' : 'Lulya kebab.'}</li>
+                <li className="reveal">{lang === 'ru' ? 'Телячья печень.' : 'Veal liver.'}</li>
+              </ul>
+              <div className="meat__cta reveal">
+                <Link className="btn btn--gold" href="/menu/">
+                  {lang === 'ru' ? 'Весь раздел шашлыка' : 'The full kebab section'}
+                </Link>
+              </div>
+            </div>
+            <div className="meat__media reveal" data-drift="0.04">
+              <Loop asset={media('motion/meat-board')} alt="" orientation="portrait" lang={lang} />
+              <p className="micro">
+                {lang === 'ru'
+                  ? 'Доска целиком, август 2026 — съёмка ресторана.'
+                  : "The whole board, August 2026 — the restaurant's own footage."}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* --------------------------------------------------------- kazan */}
+        <section id="kazan" className="section section--cream kazan">
+          <div className="rail kazan__inner">
+            <div className="kazan__media reveal" data-drift="0.04">
+              <Loop asset={media('motion/kazan')} alt="" orientation="portrait" lang={lang} />
+            </div>
+            <div className="kazan__copy reveal">
+              <p className="eyebrow">{lang === 'ru' ? 'Казан' : 'The kazan'}</p>
+              <h2>{lang === 'ru' ? 'Плов начинается в казане.' : 'Plov begins in the kazan.'}</h2>
+              <p className="lead">
+                {lang === 'ru'
+                  ? 'Казан кипит на кухне: зирвак, шумовка, мясо. Кадры прислал сам ресторан — плов здесь готовят по-настоящему.'
+                  : 'The kazan boils in the kitchen: zirvak, a skimmer, the meat. The restaurant filmed this itself — plov here is made the real way.'}
+              </p>
+              <p className="notice">
+                {lang === 'ru'
+                  ? 'Плова нет в публичном срезе меню от 31.07.2026 — спросите про сегодняшний плов по телефону. Меню уточняется у ресторана.'
+                  : "Plov isn't in the public menu snapshot dated 2026-07-31 — ask about today's plov by phone. The menu is being confirmed with the restaurant."}
+              </p>
+              <div className="kazan__cta reveal">
+                <a className="btn btn--gold" href={`tel:${VERIFIED.phoneE164}`}>
+                  {t.hero.ctaCall}
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -397,6 +450,42 @@ export default function HomeClient() {
                 }
                 lang={lang}
               />
+            </div>
+          </div>
+        </section>
+
+        {/* ------------------------------------------------------ banquets */}
+        <section id="banquets" className="section section--ink banquets">
+          <div className="rail banquets__inner">
+            <div className="banquets__copy reveal">
+              <p className="eyebrow">{lang === 'ru' ? 'Банкеты' : 'Banquets'}</p>
+              <h2>{lang === 'ru' ? 'Зал собирает большие вечера.' : 'The room gathers big evenings.'}</h2>
+              <p className="lead">
+                {lang === 'ru'
+                  ? 'Длинные столы под люстрами, фруктовые башни, золотая вывеска над залом — так ресторан снимает собственные банкеты. Позвоните, чтобы обсудить ваш стол.'
+                  : 'Long tables under the chandeliers, fruit towers, the gold sign over the room — this is how the restaurant films its own banquets. Call to plan your table.'}
+              </p>
+              <div className="banquets__cta reveal">
+                <a className="btn btn--gold btn--lg" href={`tel:${VERIFIED.phoneE164}`}>
+                  {t.hero.ctaCall}
+                </a>
+              </div>
+              <p className="micro">
+                {lang === 'ru'
+                  ? 'Форматы и условия банкетов уточняются у ресторана. Гости в кадре — материал требует согласий, показан только для согласования.'
+                  : 'Banquet formats and terms are being confirmed with the restaurant. Guests appear in frame — releases required; shown for review only.'}
+              </p>
+            </div>
+            <div className="banquets__media reveal" data-drift="0.03">
+              <Loop asset={media('motion/banquet-room')} alt="" lang={lang} />
+              <div className="banquets__cards" data-stagger>
+                <div className="banquets__card reveal" data-drift="0.06" data-drift-rotate="1.2">
+                  <Still asset={media('food/banquet-dessert')} alt="" sizes="220px" lang={lang} />
+                </div>
+                <div className="banquets__card reveal" data-drift="0.08" data-drift-rotate="-1.4">
+                  <Still asset={media('food/banquet-hall')} alt="" sizes="180px" lang={lang} />
+                </div>
+              </div>
             </div>
           </div>
         </section>

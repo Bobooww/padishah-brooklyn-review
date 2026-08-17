@@ -98,7 +98,7 @@ export type MediaAsset = {
   /** False for every asset in this build. The production gate reads this. */
   productionApproved: boolean;
   curationLabel: string;
-  sourceUrl: string;
+  sourceUrl: string | null;
   qualityFlags: string[];
   alt: {
     en: string;
