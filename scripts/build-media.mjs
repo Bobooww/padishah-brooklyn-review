@@ -23,14 +23,9 @@ const TMP = resolve(APP, '.media-tmp');
 const REEL_FIRE = 'selected/motion/meat-platter-story-review-only.mp4';
 const REEL_SERVE = 'selected/motion/shashlik-serving-review-only.mp4';
 /** 4K originals supplied by the owner's side over Telegram, 2026-08-16. */
-const CS = 'originals/client-supplied/2026-08-16-telegram';
+/** The client-curated definitive folder, 2026-08-16. The sites use ONLY this. */
+const CS = 'originals/client-supplied/2026-08-16-padishah-final';
 
-/**
- * Cuts chosen by stepping through both reels frame by frame (see notes).
- * People-free segments only: guests appear in REEL_SERVE from ~7.4s and in REEL_FIRE's
- * dining-room shots only as an empty laid table, so no release-required frame ships.
- * `segments` are concatenated in order, so a loop can be edited out of the reel's own footage.
- */
 const CUTS = [
   {
     id: 'motion/fire',
@@ -39,63 +34,7 @@ const CUTS = [
     poster: 4.0,
     quality: 23,
     focus: 0.5,
-    note: 'lulya kebabs over coals in heavy smoke — 4K original',
-  },
-  {
-    id: 'motion/coals',
-    src: `${CS}/IMG_6587.MOV`,
-    segments: [[2.0, 2.8]],
-    poster: 3.0,
-    quality: 23,
-    focus: 0.55,
-    note: 'meat skewers over glowing red coals — 4K original',
-  },
-  {
-    id: 'motion/kazan',
-    src: `${CS}/IMG_6591.MOV`,
-    segments: [[8.5, 2.0], [13.2, 2.6]],
-    poster: 14.0,
-    quality: 23,
-    focus: 0.5,
-    note: 'the kazan at a boil; meat lifted with a skimmer — 4K original',
-  },
-  {
-    id: 'motion/meat-board',
-    src: `${CS}/IMG_6595.MOV`,
-    segments: [[1.2, 2.8]],
-    poster: 2.4,
-    quality: 23,
-    focus: 0.5,
-    note: 'overhead pan of the shashlik board — 4K original',
-  },
-  {
-    id: 'motion/grill-hands',
-    src: `${CS}/IMG_6574.MOV`,
-    // the cook's hands turning the rank near the end of the long take
-    segments: [[58.5, 2.8]],
-    poster: 59.6,
-    quality: 23,
-    focus: 0.5,
-    note: 'hands turning skewers on the grill — 4K original, no faces',
-  },
-  {
-    id: 'motion/banquet-room',
-    src: `${CS}/IMG_6575.MOV`,
-    segments: [[1.5, 3.4]],
-    poster: 3.0,
-    quality: 24,
-    focus: 0.45,
-    note: 'banquet in the renovated room — guests in frame, release required',
-  },
-  {
-    id: 'motion/room-table',
-    // the renovated room replaces the pre-renovation dining footage entirely
-    src: `${CS}/IMG_6575.MOV`,
-    segments: [[8.2, 3.0]],
-    poster: 9.2,
-    quality: 24,
-    focus: 0.22,
-    note: 'the renovated room: chandeliers and murals band — guests low in frame, release required',
+    note: 'lulya kebabs over coals in heavy smoke — 4K',
   },
   {
     id: 'motion/mangal',
@@ -104,69 +43,141 @@ const CUTS = [
     poster: 1.6,
     quality: 23,
     focus: 0.55,
-    note: 'shashlik over glowing red coals — 4K original, the classic mangal shot',
+    note: 'shashlik over glowing red coals — 4K',
   },
   {
-    id: 'motion/sign-smoke',
-    src: `${CS}/IMG_6578.MOV`,
-    segments: [[3.6, 2.6]],
-    poster: 4.6,
+    id: 'motion/raw-rank',
+    src: `${CS}/IMG_6584.MOV`,
+    segments: [[2.0, 3.0]],
+    poster: 3.0,
+    quality: 23,
+    focus: 0.5,
+    note: 'raw lamb skewers in ranks, headed for the grill — 4K',
+  },
+  {
+    id: 'motion/ribs-fries',
+    src: `${CS}/IMG_6593.MOV`,
+    segments: [[0.6, 2.6]],
+    poster: 1.4,
+    quality: 23,
+    focus: 0.5,
+    note: 'cooked ribs piled over fries — 4K',
+  },
+  {
+    id: 'motion/meat-board',
+    src: `${CS}/IMG_6595 (1).MOV`,
+    segments: [[1.2, 2.8]],
+    poster: 2.4,
+    quality: 23,
+    focus: 0.5,
+    note: 'overhead pan of the shashlik board — 4K',
+  },
+  {
+    id: 'motion/banquet-grand',
+    src: `${CS}/IMG_0013.MOV`,
+    // the long pan, sampled where the table reads clean (no soda in frame)
+    segments: [[34.0, 3.2], [50.0, 2.8]],
+    poster: 35.4,
     quality: 24,
-    focus: 0.4,
-    note: 'the gold Padishah sign behind drifting smoke — 4K original',
+    focus: 0.45,
+    note: 'the grand banquet table pan — 4K, chairs empty',
+  },
+  {
+    id: 'motion/storefront-walk',
+    src: `${CS}/IMG_1734.MOV`,
+    segments: [[0.3, 3.0], [4.6, 2.6]],
+    poster: 1.0,
+    quality: 26,
+    focus: 0.45,
+    note: 'the Padishah storefront, then a walk into the room (352px source)',
+  },
+  {
+    id: 'motion/terrace',
+    src: `${CS}/IMG_1732.MOV`,
+    segments: [[0.3, 3.0]],
+    poster: 1.2,
+    quality: 26,
+    focus: 0.45,
+    note: 'the flower terrace (352px source)',
+  },
+  {
+    id: 'motion/plated-spin',
+    src: `${CS}/IMG_1721.MOV`,
+    segments: [[0.8, 4.0]],
+    poster: 2.0,
+    quality: 26,
+    focus: 0.5,
+    note: 'the pedestal salad turning (352px source)',
+  },
+  {
+    id: 'motion/dessert-glasses',
+    src: `${CS}/IMG_9913.MOV`,
+    segments: [[2.0, 3.6]],
+    poster: 3.0,
+    quality: 26,
+    focus: 0.5,
+    note: 'dessert glasses and fruit plates (352px source)',
+  },
+  {
+    id: 'motion/furshet',
+    src: `${CS}/IMG_9722.MP4`,
+    segments: [[3.0, 3.2]],
+    poster: 4.0,
+    quality: 26,
+    focus: 0.5,
+    note: 'furshet salads with potato nests (352px source, caterer watermark)',
+  },
+  {
+    id: 'motion/meat-platter',
+    src: `${CS}/document_4911352440789403409.mp4`,
+    segments: [[0.8, 3.2]],
+    poster: 1.6,
+    quality: 26,
+    focus: 0.5,
+    note: 'meat platter closeups (464px source)',
+  },
+  {
+    id: 'motion/table-cards',
+    src: `${CS}/IMG_0995.MOV`,
+    segments: [[1.0, 3.4]],
+    poster: 2.0,
+    quality: 26,
+    focus: 0.5,
+    note: 'banquet setting closeups (352px source)',
+  },
+  {
+    id: 'motion/hall-sign',
+    src: `${CS}/IMG_1341.MOV`,
+    segments: [[6.5, 3.4]],
+    poster: 8.0,
+    quality: 26,
+    focus: 0.45,
+    note: 'the hall under the glowing gold sign (352px source)',
   },
 ];
 
 const STILLS = [
   'selected/hero/current-padishah-logo-poster-crop-review-only.png',
   'selected/hero/current-brand-grand-opening-poster-review-only.jpg',
-  `${CS}/IMG_6590.HEIC`,
-  `${CS}/photo_4904754040042884368_y.jpg`,
-  `${CS}/IMG_5902.HEIC`,
-  `${CS}/IMG_5849.HEIC`,
-  `${CS}/IMG_0010.HEIC`,
-  `${CS}/photo_4904843783384534325_y.jpg`,
+  `${CS}/IMG_5846.HEIC`,
+  `${CS}/IMG_5907.HEIC`,
+  `${CS}/photo_4904754040042884388_y.jpg`,
+  `${CS}/photo_4904754040042884390_y.jpg`,
+  `${CS}/photo_4904754040042884391_y.jpg`,
 ];
 
-/** Optional 4:5 centre crops for stills whose edges carry clutter (0..1 = vertical anchor). */
-const STILL_CROPS = {
-  // fractional region {x, y, w, h}; keep the fruit tower, lose the soda below
-  [`${CS}/IMG_0010.HEIC`]: { x: 0.18, y: 0, w: 0.82, h: 0.52 },
-  [`${CS}/IMG_6590.HEIC`]: { x: 0, y: 0.06, w: 1, h: 0.74 }, // kazan, no floor mats
-};
-
-/** The stills loop reads these to give owner-supplied files proper site ids. */
 const STILL_ID_OVERRIDES = {
-  [`${CS}/IMG_6590.HEIC`]: 'food/kazan-boil',
-  [`${CS}/photo_4904754040042884368_y.jpg`]: 'food/banquet-dessert',
-  [`${CS}/IMG_5902.HEIC`]: 'food/cold-platter',
-  [`${CS}/IMG_5849.HEIC`]: 'food/samsa-plate',
-  [`${CS}/IMG_0010.HEIC`]: 'food/fruit-tower',
-  [`${CS}/photo_4904843783384534325_y.jpg`]: 'food/cheese-plates',
+  [`${CS}/IMG_5846.HEIC`]: 'food/samsa-trays-new',
+  [`${CS}/IMG_5907.HEIC`]: 'food/cold-platter-new',
+  [`${CS}/photo_4904754040042884388_y.jpg`]: 'food/noodle-tower',
+  [`${CS}/photo_4904754040042884390_y.jpg`]: 'food/salad-crown',
+  [`${CS}/photo_4904754040042884391_y.jpg`]: 'food/noodle-plate',
 };
 
-/**
- * Stills lifted from single reel frames — the phone photos in the library have four
- * clashing white balances and crumpled-foil backgrounds, while the reel's composed
- * platter shots read like an actual food story. A frame is a derivative like any cut:
- * it inherits the reel's rights verbatim and ships with the same review badge.
- * Cropped to one 4:5 ratio so the kitchen strip reads as a set, not a camera roll.
- */
+/** Fractional region crops for stills whose edges carry clutter. */
+const STILL_CROPS = {};
+
 const FRAME_STILLS = [
-  {
-    id: 'food/board-overhead',
-    src: `${CS}/IMG_6595.MOV`,
-    t: 3.4,
-    focus: 0.5,
-    note: 'the shashlik board from above — 4K frame',
-  },
-  {
-    id: 'food/coals-close',
-    src: `${CS}/IMG_6587.MOV`,
-    t: 4.2,
-    focus: 0.55,
-    note: 'skewers over glowing coals — 4K frame',
-  },
   {
     id: 'food/lulya-smoke',
     src: `${CS}/IMG_6572.MOV`,
@@ -175,25 +186,18 @@ const FRAME_STILLS = [
     note: 'the lulya rank in smoke — 4K frame',
   },
   {
-    id: 'food/kazan-skim',
-    src: `${CS}/IMG_6591.MOV`,
-    t: 15.4,
-    focus: 0.45,
-    note: 'the skimmer lifting meat from the kazan — 4K frame',
-  },
-  {
-    id: 'food/grill-hands-print',
-    src: `${CS}/IMG_6574.MOV`,
-    t: 60.2,
+    id: 'food/board-overhead',
+    src: `${CS}/IMG_6595 (1).MOV`,
+    t: 3.4,
     focus: 0.5,
-    note: 'hands over the rank of skewers — 4K frame for the hero print',
+    note: 'the shashlik board from above — 4K frame',
   },
   {
-    id: 'food/banquet-frame',
-    src: `${CS}/IMG_6575.MOV`,
-    t: 5.0,
-    focus: 0.4,
-    note: 'the banquet table mid-room — guests in frame, release required',
+    id: 'food/storefront-print',
+    src: `${CS}/IMG_1734.MOV`,
+    t: 0.8,
+    focus: 0.25,
+    note: 'the Padishah sign over the flowered entrance — for the hero print',
   },
 ];
 

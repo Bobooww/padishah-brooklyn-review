@@ -2143,3 +2143,44 @@ html[data-tier='3'] .passage__plate .cartouche__svg {
   opacity: 0.7;
   max-width: 44ch;
 }
+
+/* -------------------------------------------------------------- stories */
+
+.stories__head {
+  margin-bottom: clamp(1.4rem, 2.5vw, 2rem);
+}
+/* The rail bleeds to the viewport edge: swiping should feel endless. */
+.stories__rail {
+  display: flex;
+  gap: clamp(0.9rem, 1.6vw, 1.3rem);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 0.5rem max(calc((100vw - var(--rail)) / 2 + var(--pad-x)), var(--pad-x)) 1rem;
+}
+.stories__rail::-webkit-scrollbar {
+  display: none;
+}
+.stories__card {
+  flex: none;
+  width: min(300px, 74vw);
+  scroll-snap-align: center;
+}
+@media (min-width: 900px) {
+  .stories__card {
+    scroll-snap-align: start;
+  }
+}
+.stories__card .frame__core {
+  aspect-ratio: 9 / 16 !important;
+  border: 1px solid var(--gold-line);
+}
+.stories__label {
+  margin: 0.55rem 0 0;
+  font-family: var(--display);
+  font-size: 1.15rem;
+  color: var(--text-on-ivory);
+}
+.stories__note {
+  margin-top: 0.6rem;
+}

@@ -17,6 +17,7 @@ import { IG_HANDLE, ReviewBar, SiteHeader, SiteFooter, StickyActions } from '@/c
 import { useLang } from '@/components/LangProvider';
 import Stage from '@/components/motion/Stage';
 import { Chapters } from '@/components/Chapters';
+import { Stories } from '@/components/Stories';
 import { fill } from '@/content/copy';
 
 /** Six dishes pulled straight from the public listing — described only as it describes them. */
@@ -173,7 +174,7 @@ export default function HomeClient() {
               <div className="hero__print" data-drift="0.045" data-drift-rotate="-0.8">
                 <div className="hero__print-settle">
                   <Still
-                    asset={media('food/grill-hands-print')}
+                    asset={media('food/storefront-print')}
                     alt=""
                     sizes="(min-width: 900px) 300px, 44vw"
                     lang={lang}
@@ -229,7 +230,7 @@ export default function HomeClient() {
             </div>
             <div className="fire__media reveal">
               {/* upgraded to the owner-supplied 4K coals footage */}
-              <Loop asset={media('motion/coals')} alt="" orientation="portrait" lang={lang} />
+              <Loop asset={media('motion/fire')} alt="" orientation="portrait" lang={lang} />
               <p className="micro">
                 {lang === 'ru'
                   ? 'Съёмка с кухни ресторана, август 2026. Только для согласования.'
@@ -278,6 +279,8 @@ export default function HomeClient() {
           </div>
         </section>
 
+        <Stories lang={lang} />
+
         {/* --------------------------------------------------------- visit */}
         <section id="visit" className="section section--cream visit">
           <div className="rail visit__inner">
@@ -305,7 +308,7 @@ export default function HomeClient() {
 
               {/* The sign you are actually looking for on Avenue U. */}
               <div className="visit__store reveal" data-drift="0.03">
-                <Loop asset={media('motion/sign-smoke')} alt="" orientation="portrait" lang={lang} />
+                <Loop asset={media('motion/storefront-walk')} alt="" orientation="portrait" lang={lang} />
               </div>
             </div>
 
