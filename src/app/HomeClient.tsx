@@ -11,6 +11,8 @@ import { observeDrift } from '@/lib/drift';
 import { Loop, Still } from '@/components/Media';
 import { Cartouche } from '@/components/Cartouche';
 import { Ornament } from '@/components/Ornament';
+import { CarpetBorder } from '@/components/CarpetBorder';
+import { Seal } from '@/components/Seal';
 import { IG_HANDLE, ReviewBar, SiteHeader, SiteFooter, StickyActions } from '@/components/Shell';
 import { useLang } from '@/components/LangProvider';
 import Stage from '@/components/motion/Stage';
@@ -84,8 +86,12 @@ export default function HomeClient() {
         <section id="hero" className="hero">
           <div className="hero__glow" aria-hidden="true" />
           <div className="hero__texture" aria-hidden="true" />
+          {/* the carpet trim down the page edge — the textile layer of the collage */}
+          <CarpetBorder className="hero__carpet" />
           <div className="rail hero__grid">
             <div className="hero__body">
+              {/* the ink seal: verified facts only, turning like an admired stamp */}
+              <Seal className="hero__seal" text="PADISHAH · 1920 AVENUE U · BROOKLYN · NY ·" />
               <p className="eyebrow hero__eyebrow">{t.hero.eyebrow}</p>
               <h1 className="hero__title">
                 {t.hero.title.split('\n').map((line, i) => (
@@ -125,12 +131,16 @@ export default function HomeClient() {
               <div className="hero__cta">
                 <Link className="btn btn--gold btn--lg" href="/menu/">
                   {t.hero.ctaMenu}
+                  <span className="btn__arr" aria-hidden="true">
+                    →
+                  </span>
                 </Link>
                 <a className="btn btn--ghost btn--lg" href={`tel:${VERIFIED.phoneE164}`}>
                   {t.hero.ctaCall}
                 </a>
               </div>
               <p className="hero__hours">
+                <span className="hero__hours-dot" aria-hidden="true" />
                 {PROVISIONAL.hoursSummary.value}
                 {PROVISIONAL.hoursSummary.status !== 'owner_confirmed' && <> · {t.visit.hoursNote}</>}
               </p>
