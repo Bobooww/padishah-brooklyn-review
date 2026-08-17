@@ -35,10 +35,10 @@ const DISH_IDS = [
  * They live in their own strip below, described only by what is visibly in them.
  */
 const KITCHEN_STRIP = [
-  'food/platter-overhead',
-  'food/grill-skewers-closeup',
-  'food/skewer-ranks',
-  'food/salmon-grill',
+  'food/board-overhead',
+  'food/coals-close',
+  'food/lulya-smoke',
+  'food/kazan-skim',
 ];
 
 /**
@@ -168,12 +168,11 @@ export default function HomeClient() {
                 <Ornament draw className="hero__ornament" />
               </div>
 
-              {/* the big sepia figure of the collage: the cook, torn straight
-                  out of an old print — release-required badge and all */}
+              {/* the big sepia figure of the collage: the cook's hands over the rank, torn like an old print — 4K frame, no faces */}
               <div className="hero__print" data-drift="0.045" data-drift-rotate="-0.8">
                 <div className="hero__print-settle">
                   <Still
-                    asset={media('people/chef-fruit-platter')}
+                    asset={media('food/grill-hands-print')}
                     alt=""
                     sizes="(min-width: 900px) 300px, 44vw"
                     lang={lang}
@@ -203,7 +202,7 @@ export default function HomeClient() {
               <div className="hero__snap" data-drift="0.08" data-drift-rotate="1.6">
                 <div className="hero__snap-settle">
                   <Still
-                    asset={media('food/skewer-ranks')}
+                    asset={media('food/lulya-smoke')}
                     alt=""
                     sizes="(min-width: 900px) 190px, 34vw"
                     lang={lang}
@@ -244,7 +243,7 @@ export default function HomeClient() {
           <div className="rail board__inner">
             <div className="board__media reveal">
               <Loop
-                asset={media('motion/serving')}
+                asset={media('motion/meat-board')}
                 alt={
                   lang === 'ru'
                     ? 'Шашлык выкладывают на деревянную доску с красным луком и лимоном'
@@ -290,7 +289,7 @@ export default function HomeClient() {
               </div>
             </div>
             <div className="meat__media reveal" data-drift="0.04">
-              <Loop asset={media('motion/meat-board')} alt="" orientation="portrait" lang={lang} />
+              <Loop asset={media('motion/grill-hands')} alt="" orientation="portrait" lang={lang} />
               <p className="micro">
                 {lang === 'ru'
                   ? 'Доска целиком, август 2026 — съёмка ресторана.'
@@ -341,7 +340,7 @@ export default function HomeClient() {
                   against the scroll — food doing the moving, nothing else */}
               <div className="plate" data-drift="0.06" data-drift-rotate="7">
                 <Still
-                  asset={media('food/platter-overhead')}
+                  asset={media('food/board-overhead')}
                   alt=""
                   sizes="(min-width: 900px) 380px, 70vw"
                   lang={lang}
@@ -372,8 +371,8 @@ export default function HomeClient() {
               </ul>
               <p className="micro">
                 {lang === 'ru'
-                  ? 'Фотографии из публикаций самого ресторана. Мы не подписываем их названиями блюд: какое блюдо в кадре — подтвердит только ресторан.'
-                  : "Photographs from the restaurant's own posts. We do not caption them with dish names — only the restaurant can confirm what is in the frame."}
+                  ? 'Кадры сняты на кухне ресторана в августе 2026-го. Мы не подписываем их названиями блюд: какое блюдо в кадре — подтвердит только ресторан.'
+                  : "Filmed in the restaurant's kitchen, August 2026. We do not caption frames with dish names — only the restaurant can confirm what is in the frame."}
               </p>
             </div>
 
@@ -483,7 +482,7 @@ export default function HomeClient() {
                   <Still asset={media('food/banquet-dessert')} alt="" sizes="220px" lang={lang} />
                 </div>
                 <div className="banquets__card reveal" data-drift="0.08" data-drift-rotate="-1.4">
-                  <Still asset={media('food/banquet-hall')} alt="" sizes="180px" lang={lang} />
+                  <Still asset={media('food/banquet-frame')} alt="" sizes="180px" lang={lang} />
                 </div>
               </div>
             </div>
@@ -517,7 +516,7 @@ export default function HomeClient() {
 
               {/* The sign you are actually looking for on Avenue U. */}
               <div className="visit__store reveal" data-drift="0.03">
-                <Loop asset={media('motion/storefront')} alt="" lang={lang} />
+                <Loop asset={media('motion/sign-smoke')} alt="" orientation="portrait" lang={lang} />
               </div>
             </div>
 

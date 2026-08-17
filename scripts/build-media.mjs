@@ -34,8 +34,6 @@ const CS = 'originals/client-supplied/2026-08-16-telegram';
 const CUTS = [
   {
     id: 'motion/fire',
-    // Upgraded 2026-08-16: the hero loop now comes from the owner-supplied 4K
-    // original instead of the Instagram-recompressed reel. No denoise needed.
     src: `${CS}/IMG_6572.MOV`,
     segments: [[3.0, 2.2], [14.0, 1.8]],
     poster: 4.0,
@@ -55,7 +53,6 @@ const CUTS = [
   {
     id: 'motion/kazan',
     src: `${CS}/IMG_6591.MOV`,
-    // the boil, then the skimmer lifting the meat out
     segments: [[8.5, 2.0], [13.2, 2.6]],
     poster: 14.0,
     quality: 23,
@@ -72,13 +69,33 @@ const CUTS = [
     note: 'overhead pan of the shashlik board — 4K original',
   },
   {
+    id: 'motion/grill-hands',
+    src: `${CS}/IMG_6574.MOV`,
+    // the cook's hands turning the rank near the end of the long take
+    segments: [[58.5, 2.8]],
+    poster: 59.6,
+    quality: 23,
+    focus: 0.5,
+    note: 'hands turning skewers on the grill — 4K original, no faces',
+  },
+  {
     id: 'motion/banquet-room',
     src: `${CS}/IMG_6575.MOV`,
     segments: [[1.5, 3.4]],
     poster: 3.0,
     quality: 24,
     focus: 0.45,
-    note: 'banquet in the dining room — guests in frame, release required',
+    note: 'banquet in the renovated room — guests in frame, release required',
+  },
+  {
+    id: 'motion/room-table',
+    // the renovated room replaces the pre-renovation dining footage entirely
+    src: `${CS}/IMG_6575.MOV`,
+    segments: [[8.2, 3.0]],
+    poster: 9.2,
+    quality: 24,
+    focus: 0.22,
+    note: 'the renovated room: chandeliers and murals band — guests low in frame, release required',
   },
   {
     id: 'motion/sign-smoke',
@@ -89,64 +106,11 @@ const CUTS = [
     focus: 0.4,
     note: 'the gold Padishah sign behind drifting smoke — 4K original',
   },
-  {
-    id: 'motion/craft',
-    src: REEL_FIRE,
-    segments: [[18.3, 2.4]],
-    poster: 19.0,
-    quality: 29,
-    focus: 0.5,
-    note: 'tomatoes sliced on the pass',
-  },
-  {
-    id: 'motion/room-table',
-    src: REEL_FIRE,
-    segments: [[25.0, 2.2]],
-    poster: 25.8,
-    quality: 28,
-    focus: 0.46,
-    note: 'the long table laid for a celebration — empty, no guests in frame',
-  },
-  {
-    id: 'motion/platter',
-    src: REEL_FIRE,
-    segments: [[23.3, 1.4], [0.2, 1.8]],
-    poster: 23.8,
-    quality: 29,
-    focus: 0.5,
-    note: 'overhead sharing platters',
-  },
-  {
-    id: 'motion/storefront',
-    src: REEL_FIRE,
-    segments: [[5.2, 2.4]],
-    poster: 6.6,
-    quality: 29,
-    focus: 0.34,
-    note: '1920 Avenue U storefront, daylight sign into the night neon',
-  },
-  {
-    id: 'motion/serving',
-    src: REEL_SERVE,
-    segments: [[3.2, 3.4], [10.1, 0.9]],
-    poster: 4.2,
-    quality: 28,
-    focus: 0.55,
-    note: 'kebabs and red onion carried on the wooden board; lulya close-up',
-  },
 ];
 
 const STILLS = [
-  'selected/hero/grill-skewers-smoke-review-only.jpg',
   'selected/hero/current-padishah-logo-poster-crop-review-only.png',
   'selected/hero/current-brand-grand-opening-poster-review-only.jpg',
-  'selected/food/grill-skewers-closeup-review-only.jpg',
-  'selected/food/kebab-on-bread-review-only.jpg',
-  'selected/food/samsa-trays-review-only.jpg',
-  'selected/food/kebab-smoke-review-only.jpg',
-  'selected/food/chebureki-review-only.webp',
-  'selected/location/storefront-2025-review-only.jpg',
-  'selected/people/chef-fruit-platter-release-required.jpg',
   `${CS}/IMG_6590.HEIC`,
   `${CS}/photo_4904754040042884368_y.jpg`,
 ];
@@ -166,32 +130,46 @@ const STILL_ID_OVERRIDES = {
  */
 const FRAME_STILLS = [
   {
-    id: 'food/platter-overhead',
-    src: REEL_FIRE,
-    t: 0.55,
+    id: 'food/board-overhead',
+    src: `${CS}/IMG_6595.MOV`,
+    t: 3.4,
     focus: 0.5,
-    note: 'overhead sharing board: grilled meat, fries, cherry tomatoes',
+    note: 'the shashlik board from above — 4K frame',
   },
   {
-    id: 'food/skewer-ranks',
-    src: REEL_FIRE,
-    t: 15.2,
-    focus: 0.42,
-    note: 'hands laying kebab skewers in ranks',
+    id: 'food/coals-close',
+    src: `${CS}/IMG_6587.MOV`,
+    t: 4.2,
+    focus: 0.55,
+    note: 'skewers over glowing coals — 4K frame',
   },
   {
-    id: 'food/salmon-grill',
-    src: REEL_FIRE,
-    t: 10.4,
-    focus: 0.38,
-    note: 'salmon fingers with balsamic glaze on wood',
-  },
-  {
-    id: 'food/banquet-hall',
-    src: `${CS}/IMG_1341.MOV`,
+    id: 'food/lulya-smoke',
+    src: `${CS}/IMG_6572.MOV`,
     t: 8.0,
+    focus: 0.5,
+    note: 'the lulya rank in smoke — 4K frame',
+  },
+  {
+    id: 'food/kazan-skim',
+    src: `${CS}/IMG_6591.MOV`,
+    t: 15.4,
+    focus: 0.45,
+    note: 'the skimmer lifting meat from the kazan — 4K frame',
+  },
+  {
+    id: 'food/grill-hands-print',
+    src: `${CS}/IMG_6574.MOV`,
+    t: 60.2,
+    focus: 0.5,
+    note: 'hands over the rank of skewers — 4K frame for the hero print',
+  },
+  {
+    id: 'food/banquet-frame',
+    src: `${CS}/IMG_6575.MOV`,
+    t: 5.0,
     focus: 0.4,
-    note: 'fruit towers under the glowing gold Padishah sign — small placements only (352px source)',
+    note: 'the banquet table mid-room — guests in frame, release required',
   },
 ];
 

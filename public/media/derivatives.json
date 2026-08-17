@@ -138,6 +138,38 @@
         ]
       ]
     },
+    "motion/grill-hands": {
+      "poster": {
+        "src": "/media/motion/grill-hands-poster.jpg",
+        "width": 720,
+        "height": 1280,
+        "bytes": 53496
+      },
+      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABvAAACAwEBAQAAAAAAAAAAAAAGBQQHAwIBCAEAAwEAAAAAAAAAAAAAAAAAAgEEAxAAAQMCBAQGAwEAAAAAAAAAAQIRADEDIVESYRNBBKEyUtFxkSKxchTwEQEBAQEBAAAAAAAAAAAAAAAAEQECEv/AABEIACQAFAMBIgACEQADEQD/2gAMAwEAAhEDEQA/ADhE8uLCd5Br4ccv9lOChy5d+Xr7Sb1jSHKXIek10nPtIiFskCSOJNLgYry0vQ+JqB+yjyTyYQv16qF6O1W2G8Q3bTthgn8wSu8QqYKZzqWqjAUA2SO8CGswEHxEDZ2mn0zHyPWUbc6tZUcWydyW95G/qV5uxgQVfRl9IaA6UJWS4rD3qKQKtxdHyWHp7QOCROODb8o+BGyqzCS1S//Z",
+      "sources": [
+        {
+          "src": "/media/motion/grill-hands-portrait.mp4",
+          "width": 810,
+          "height": 1440,
+          "bytes": 883859
+        },
+        {
+          "src": "/media/motion/grill-hands-landscape.mp4",
+          "width": 1080,
+          "height": 608,
+          "bytes": 603865
+        }
+      ],
+      "durationSeconds": 2.8,
+      "note": "hands turning skewers on the grill — 4K original, no faces",
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_6574.MOV",
+      "segments": [
+        [
+          58.5,
+          2.8
+        ]
+      ]
+    },
     "motion/banquet-room": {
       "poster": {
         "src": "/media/motion/banquet-room-poster.jpg",
@@ -161,12 +193,44 @@
         }
       ],
       "durationSeconds": 3.4,
-      "note": "banquet in the dining room — guests in frame, release required",
+      "note": "banquet in the renovated room — guests in frame, release required",
       "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_6575.MOV",
       "segments": [
         [
           1.5,
           3.4
+        ]
+      ]
+    },
+    "motion/room-table": {
+      "poster": {
+        "src": "/media/motion/room-table-poster.jpg",
+        "width": 720,
+        "height": 1280,
+        "bytes": 103581
+      },
+      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABxAAADAQEBAAAAAAAAAAAAAAAEBwMGBQEBAAMBAAAAAAAAAAAAAAAAAAMBAgAQAAEDAQYDBwUBAAAAAAAAAAECEQADEiFBIqEEUXGBsTFhMpFCEzMU0cHhchEBAQEBAQEAAAAAAAAAAAAAAAERMcFx/8AAEQgAJAAUAwEiAAIRAAMRAP/aAAwDAQACEQMRAD8Aa1OtaTkS5xcsB2nSEGoQM6QOBBtDsB0mXCviOamQ+GUg6yVeqHQyGS97MG8WEjWerUCZFxC8qe8ie2kcRB6pnxaSspUsru8yseX5nRTUSsqTdc5Pd1IOPB4t0qSayKWdTteT7mOkrVqI2Rs2Q5dOPcRweEt2/TwykLp1UhQLjlCGT4aRP066Ug5awtF8nl6O8L+5Rw3Hp/JsS22yoIQoEXmwLzfhL1aFM/I6QbVu8hzeMOEL2uH+B+pWr7uSoG+iFZsyTQT1Gpnc9Zwdl9BPM9s0EV7Tf//Z",
+      "sources": [
+        {
+          "src": "/media/motion/room-table-portrait.mp4",
+          "width": 810,
+          "height": 1440,
+          "bytes": 1000686
+        },
+        {
+          "src": "/media/motion/room-table-landscape.mp4",
+          "width": 1080,
+          "height": 608,
+          "bytes": 393964
+        }
+      ],
+      "durationSeconds": 3,
+      "note": "the renovated room: chandeliers and murals band — guests low in frame, release required",
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_6575.MOV",
+      "segments": [
+        [
+          8.2,
+          3
         ]
       ]
     },
@@ -201,192 +265,6 @@
           2.6
         ]
       ]
-    },
-    "motion/craft": {
-      "poster": {
-        "src": "/media/motion/craft-poster.jpg",
-        "width": 720,
-        "height": 1280,
-        "bytes": 32175
-      },
-      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xACAAAACAwEBAAAAAAAAAAAAAAAGBAcCAwABAQACAwEBAAAAAAAAAAAAAAAEAQUCAAMGEAABAwIEAggHAQAAAAAAAAABAgARAzESBBNhcSFRFEEykYFToaKxktEFUoIjEQACAQMDBQEBAAAAAAAAAAABAAIRMSETUQNB8KHRgVJT/8AAEQgAJAAUAwEiAAIRAAMRAP/aAAwDAQACEQMRAD8AJkagR/pgJ6QIHu0VrwiQASbWMlkVSlipkYcUizCx+Nr8lGpEWp9h4xy8ZYlTVKAFL5R5WWKjNQrxm8BQHB5dUR01PBTODqjvUVTsUkeVnSV+iv4fu9VthlJQwomJhM+zEKGaK1hNTTAUCQQe7HOFS5DFhwY3WyNGqgpCQk3kfLg1MSqDHpcbvTjMMiQvY7PHAuClSVDpBBdMI2caHIV/TSP6vvd59QzH6p+pjakvwe/jJaHH/UePbMgqGBZ31Ds0BYO7lXzrmuoZ7LNXUOz8XfyarbZ//9k=",
-      "sources": [
-        {
-          "src": "/media/motion/craft-portrait.mp4",
-          "width": 810,
-          "height": 1440,
-          "bytes": 197952
-        },
-        {
-          "src": "/media/motion/craft-landscape.mp4",
-          "width": 1080,
-          "height": 608,
-          "bytes": 117171
-        }
-      ],
-      "durationSeconds": 2.4,
-      "note": "tomatoes sliced on the pass",
-      "derivedFrom": "selected/motion/meat-platter-story-review-only.mp4",
-      "segments": [
-        [
-          18.3,
-          2.4
-        ]
-      ]
-    },
-    "motion/room-table": {
-      "poster": {
-        "src": "/media/motion/room-table-poster.jpg",
-        "width": 720,
-        "height": 1280,
-        "bytes": 123341
-      },
-      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xAByAAADAQEBAAAAAAAAAAAAAAAGBQMEAgEBAAMBAQAAAAAAAAAAAAAAAAMCAQQAEAACAQIDBQUJAQAAAAAAAAABAgARAyESMVFhMgRBcYETIvDB0eGxUqGRchUUEQEBAQEBAAAAAAAAAAAAAAAAIQEREv/AABEIACQAFAMBIgACEQADEQD/2gAMAwEAAhEDEQA/AC5L7nVUKhMGBFTQbeHGJg6HTL5mbZUHfuOFN01WytsAdu8YxBRLzB1zjEilQoNOvwmaDUZ5lRUGHCOm8zjxB6EAOY5/I4WgwURT/RGwfg++F9F4O/ANzKVbKBxKCRmw0ma7dUVVAQMSdNdgI+80375s28obE0AA1UdanX2xEhD3Auxans9CZtkFSPKo/mZQSdvynH+Oz9CwoaRrI4CXXOVd5x7475c4s1BXh7oN3OFO2EHL6N+0RT1mkaz1pKEK/9k=",
-      "sources": [
-        {
-          "src": "/media/motion/room-table-portrait.mp4",
-          "width": 810,
-          "height": 1440,
-          "bytes": 773062
-        },
-        {
-          "src": "/media/motion/room-table-landscape.mp4",
-          "width": 1080,
-          "height": 608,
-          "bytes": 472716
-        }
-      ],
-      "durationSeconds": 2.2,
-      "note": "the long table laid for a celebration — empty, no guests in frame",
-      "derivedFrom": "selected/motion/meat-platter-story-review-only.mp4",
-      "segments": [
-        [
-          25,
-          2.2
-        ]
-      ]
-    },
-    "motion/platter": {
-      "poster": {
-        "src": "/media/motion/platter-poster.jpg",
-        "width": 720,
-        "height": 1280,
-        "bytes": 88488
-      },
-      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xAByAAADAQEBAAAAAAAAAAAAAAAFBgQHAgMBAQEBAAAAAAAAAAAAAAAAAAQFAxAAAQIEAwcDBQEBAAAAAAAAAQIRAAMhBBIxIlHBoUFhBZGBcRM0M7Gyc1JyEQACAwEBAQAAAAAAAAAAAAABABECQRIhUf/AABEIACQAFAMBIgACEQADEQD/2gAMAwEAAhEDEQA/AF+xQkzRioNI9X3s0PFvd2kr5NGJ6sEDkaBzTjSFHtCioLWsjCFJDkDNvEG12yUzJi1YVI1qYGrk08QCxgnYz6umpMHxJXBAW4A1AK9n5QKx9BHBU4SwIADD058o8YnQFDR2ySD28hnM2YpuA3QamSJNtpMzUwwoHU7T1jq0Bl2toBTQpfkvvhRvgVz0pOIkihI9sizGux4eSJOJRXo1TMxnplE0WFDBIANABUHMZx54Ts4RO5lWtEtTfCGDCSluEZveXMxFyAGFSBm4A2Vp6RoSM5X8hujJb/6sf9GKoANvQlXeXMXgTUh3/J2xT8q/9GBcv7afY/sYpjEu7//Z",
-      "sources": [
-        {
-          "src": "/media/motion/platter-portrait.mp4",
-          "width": 810,
-          "height": 1440,
-          "bytes": 1151595
-        },
-        {
-          "src": "/media/motion/platter-landscape.mp4",
-          "width": 1080,
-          "height": 608,
-          "bytes": 665823
-        }
-      ],
-      "durationSeconds": 3.2,
-      "note": "overhead sharing platters",
-      "derivedFrom": "selected/motion/meat-platter-story-review-only.mp4",
-      "segments": [
-        [
-          23.3,
-          1.4
-        ],
-        [
-          0.2,
-          1.8
-        ]
-      ]
-    },
-    "motion/storefront": {
-      "poster": {
-        "src": "/media/motion/storefront-poster.jpg",
-        "width": 720,
-        "height": 1280,
-        "bytes": 70261
-      },
-      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABxAAACAwEBAAAAAAAAAAAAAAAHAwUCBgEEAQEBAQEAAAAAAAAAAAAAAAAEAgEDEAABAwIEBQUBAQAAAAAAAAABAgARIQMEMRKhURNhkRRBgULR4fBxEQABBAMBAQAAAAAAAAAAAAAAEVEBAjEhEmFx/8AAEQgAJAAUAwEiAAIRAAMRAP/aAAwDAQACEQMRAD8AGuc1A2/X4lggEiSMiYIFcompe7Thbt0BYUhAUKUrCBHDo4TEYNY5Y5uorqBBoI4Z7PilvEGLR5mfmjI61CBSjrzD0fpVhVj5A+yvpq8ZfHZX08Wrk7YJKccvDBKLttSdIKRIIoeravF28RetaSEwFyT/AJ7MiqKVCCAQfQ1DHt/AWSSpA0mMhl2d2wihozgw9+9pXAyG9S43yC5NeBuT8Ts0eDc4J7s/NWFdS4XlLILVJl8Xn2dfVoOJHGrpA/iXd8cGn//Z",
-      "sources": [
-        {
-          "src": "/media/motion/storefront-portrait.mp4",
-          "width": 810,
-          "height": 1440,
-          "bytes": 547158
-        },
-        {
-          "src": "/media/motion/storefront-landscape.mp4",
-          "width": 1080,
-          "height": 608,
-          "bytes": 335590
-        }
-      ],
-      "durationSeconds": 2.4,
-      "note": "1920 Avenue U storefront, daylight sign into the night neon",
-      "derivedFrom": "selected/motion/meat-platter-story-review-only.mp4",
-      "segments": [
-        [
-          5.2,
-          2.4
-        ]
-      ]
-    },
-    "motion/serving": {
-      "poster": {
-        "src": "/media/motion/serving-poster.jpg",
-        "width": 720,
-        "height": 1280,
-        "bytes": 59358
-      },
-      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xAB1AAADAQEBAAAAAAAAAAAAAAAFBgQDAggBAQEBAQAAAAAAAAAAAAAAAAIEAwAQAAEDAgMFBQkBAAAAAAAAAAECAwARIQRREjETYVJBkcFxMoGzsrFCguEzYhQiEQACAwEBAQAAAAAAAAAAAAAAAQISUbERE//AABEIACQAFAMBIgACEQADEQD/2gAMAwEAAhEDEQA/AF7B4dh4HeatSeG0H0PrHoYFlHygjis9xpFBVcMRUZW638NkbUOKcbNEXBpt6Z0pIfcLFFkaGkkXbw6eCrn4yrdI5cL2feD9OZpOaDmgut6P5yzgEeJxK1USaUJ8aC1ctkKsHdGiiBrCSL/qD3wmrHsLQ5pKASgmwAPdFRCku+YAgDZwFrTaMfAOYwOOIKj1paTa05RuwzmGQ2AlIA7b+Jhjfs5J7BOqh3Z5Yau5Q8i/cVMitQFiRTKbM/k+hz2apErZKSFhtt9wJH+jKv6HeaBUeUSiZjP/2Q==",
-      "sources": [
-        {
-          "src": "/media/motion/serving-portrait.mp4",
-          "width": 810,
-          "height": 1440,
-          "bytes": 1290912
-        },
-        {
-          "src": "/media/motion/serving-landscape.mp4",
-          "width": 1080,
-          "height": 606,
-          "bytes": 812778
-        }
-      ],
-      "durationSeconds": 4.3,
-      "note": "kebabs and red onion carried on the wooden board; lulya close-up",
-      "derivedFrom": "selected/motion/shashlik-serving-review-only.mp4",
-      "segments": [
-        [
-          3.2,
-          3.4
-        ],
-        [
-          10.1,
-          0.9
-        ]
-      ]
-    },
-    "hero/grill-skewers-smoke": {
-      "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAAQABAAD//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABzAAADAQEAAAAAAAAAAAAAAAAFAgMEBwEBAQEBAAAAAAAAAAAAAAAABAIAARAAAQMBAwkIAwEAAAAAAAAAAQIAESExYUFSUbGBEkOSAxPhwdFyI7IigmLwcTIRAQADAQEBAAAAAAAAAAAAAAACESJhAUH/wAARCAAUABQDASIAAhEAAxEA/9oADAMBAAIRAxEAPwBSoDM7hQCq6GE25Ai1QJRONf8AOuyM7x9ZRiABW04HJV3KYLkfUfProgIwIbzeHzVXMXNqRcVbJ7f6LXLqryuXxudcdyJz6SvxIIumhYhSiVIOXRV/yj9vZTdr+ulhjudfvaxm1IiRbBIEgGmsOtMyeFPg1xV5jpbPKf/Z",
-      "sources": [
-        {
-          "src": "/media/hero/grill-skewers-smoke-640.webp",
-          "width": 640,
-          "height": 640,
-          "bytes": 44032
-        },
-        {
-          "src": "/media/hero/grill-skewers-smoke-640.jpg",
-          "width": 640,
-          "height": 640,
-          "bytes": 41064
-        }
-      ],
-      "derivedFrom": "selected/hero/grill-skewers-smoke-review-only.jpg"
     },
     "hero/current-padishah-logo-poster-crop": {
       "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAHwAcAAD//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABoAAEAAwEAAAAAAAAAAAAAAAAGAQMEBQEBAQEAAAAAAAAAAAAAAAAAAwQCEAABAgQEBwEAAAAAAAAAAAACAREhAwAEMTJxYZGBM1GxNEESEQEAAwEBAQAAAAAAAAAAAAAAIQEiEVGR/8AAEQgACAAUAwESAAISAAMSAP/aAAwDAQACEQMRAD8AApJkiMoiBRcUL9O6GrxSMMGhXQuPTtdF8VLqVBYGgxtpqg68EFOUO3yjEvOOqVLqvPqgsDU3IhLmkIZYNHZMd6xXPVKs13klasb/2Q==",
@@ -435,168 +313,6 @@
         }
       ],
       "derivedFrom": "selected/hero/current-brand-grand-opening-poster-review-only.jpg"
-    },
-    "food/grill-skewers-closeup": {
-      "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAGgAZAAD//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABnAAADAAMBAAAAAAAAAAAAAAAFBwIBBAMGAQEBAQAAAAAAAAAAAAAAAAAEAwEQAAEDAgUEAwEAAAAAAAAAAAEAAhEDUSETBDGxIkFycSNhEjIRAQEBAQAAAAAAAAAAAAAAAAABITH/wAARCAAaABQDASIAAhEAAxEA/9oADAMBAAIRAxEAPwAoQZJ2GPCY1MBzBNkladc5ZBO89kwKNboYZgQFsxHr0ppiVGWLrnKykJFXU0uW0AOxJtYEnhG6ZdlNwnp7xb2r1H9N8anAQDRPcd3OOFyikQwqR/dNp+sfa3YQXSn4z5FG0lF//9k=",
-      "sources": [
-        {
-          "src": "/media/food/grill-skewers-closeup-640.webp",
-          "width": 640,
-          "height": 800,
-          "bytes": 24908
-        },
-        {
-          "src": "/media/food/grill-skewers-closeup-640.jpg",
-          "width": 640,
-          "height": 800,
-          "bytes": 28530
-        },
-        {
-          "src": "/media/food/grill-skewers-closeup-1080.webp",
-          "width": 1080,
-          "height": 1350,
-          "bytes": 48372
-        },
-        {
-          "src": "/media/food/grill-skewers-closeup-1080.jpg",
-          "width": 1080,
-          "height": 1350,
-          "bytes": 58478
-        }
-      ],
-      "derivedFrom": "selected/food/grill-skewers-closeup-review-only.jpg"
-    },
-    "food/kebab-on-bread": {
-      "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAAQABAAD//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABvAAEBAQEBAAAAAAAAAAAAAAAFAwQGAgEBAQEBAAAAAAAAAAAAAAAAAgQFABAAAQMDAQcCBwEAAAAAAAAAAQIAAxEhMXEyQWFSIoEEkVGxwaETEuFicxEBAQEAAwEAAAAAAAAAAAAAAAESMVERYf/AABEIABQAFAMBIgACEQADEQD/2gAMAwEAAhEDEQA/AOLXUShWRU2Nq8H4TdQsrqqVJAqAeG8tyKSpAAP5K2iMelxrZ2kmkFf5zT9APPsvvC6WdtUEq0IoRjGjS++r2+rDSk0zTUulD7hnF+O1EfESCCreLBvT3REnmkIPZkeHsK1Hxa82IP8AZXzegidIpCI7BCcb7lz6eRHo9cu12DwtC//Z",
-      "sources": [
-        {
-          "src": "/media/food/kebab-on-bread-546.webp",
-          "width": 546,
-          "height": 546,
-          "bytes": 21648
-        },
-        {
-          "src": "/media/food/kebab-on-bread-546.jpg",
-          "width": 546,
-          "height": 546,
-          "bytes": 23369
-        }
-      ],
-      "derivedFrom": "selected/food/kebab-on-bread-review-only.jpg"
-    },
-    "food/samsa-trays": {
-      "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAAQABAAD//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xAByAAADAQEAAAAAAAAAAAAAAAAFAwIEBgEBAQEBAAAAAAAAAAAAAAAABAMFAhAAAQIEAwQLAQEAAAAAAAAAAQIAAxEhMWESUdHwkTIiFBNBM6HBsYHxcnFSEQADAAMBAQAAAAAAAAAAAAAAAQIRUTEhA//AABEIABQAFAMBIgACEQADEQD/2gAMAwEAAhEDEQA/ANpywqU+rVsTPVsiRAjmMiAkyF1TEjLa8SlphJzDEIQJKGM3yHSjKrby/gw3s8mfm2/co2atJeExVkq76UqK+zw5t5DY7McwyQhSgJ67XPWon+1cQ3YnQLNbOwjoT2c9TUWHAMYEBRKagZVWwZqP4Q+GNh85/K/RrXCFdOBVDGLVkGLIKaHA7P/Z",
-      "sources": [
-        {
-          "src": "/media/food/samsa-trays-640.webp",
-          "width": 640,
-          "height": 640,
-          "bytes": 42386
-        },
-        {
-          "src": "/media/food/samsa-trays-640.jpg",
-          "width": 640,
-          "height": 640,
-          "bytes": 46201
-        },
-        {
-          "src": "/media/food/samsa-trays-720.webp",
-          "width": 720,
-          "height": 720,
-          "bytes": 54944
-        },
-        {
-          "src": "/media/food/samsa-trays-720.jpg",
-          "width": 720,
-          "height": 720,
-          "bytes": 57318
-        }
-      ],
-      "derivedFrom": "selected/food/samsa-trays-review-only.jpg"
-    },
-    "food/kebab-smoke": {
-      "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAAQABAAD//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABtAAABBQEAAAAAAAAAAAAAAAAGBwACBAMFAQEBAQAAAAAAAAAAAAAAAAAEAgMQAAECAggGAwEAAAAAAAAAAAEAAhEhA3EEEhQxYUEysYFSUSLwkZITEQEBAQEBAQAAAAAAAAAAAAAAEQFRMQL/wAARCAAUABQDASIAAhEAAxEA/9oADAMBAAIRAxEAPwDq2emAaQTEwy3U/wCzpx6IKcAxwLHR2vDIolZ7MnnXMckIqVYxGieJ0VcWakM7oPWHNSwtJ2D9BbXOs5pQrRQUbWiDQIeJICuifyo1jZKfauFJr5rKj5Vx0S0AmQOpmU4N7W/S0dxGtZou+nP/2Q==",
-      "sources": [
-        {
-          "src": "/media/food/kebab-smoke-640.webp",
-          "width": 640,
-          "height": 640,
-          "bytes": 74170
-        },
-        {
-          "src": "/media/food/kebab-smoke-640.jpg",
-          "width": 640,
-          "height": 640,
-          "bytes": 57627
-        }
-      ],
-      "derivedFrom": "selected/food/kebab-smoke-review-only.jpg"
-    },
-    "food/chebureki": {
-      "lqip": "data:image/jpeg;base64,/9j/4gHYSUNDX1BST0ZJTEUAAQEAAAHIbGNtcwIQAABtbnRyUkdCIFhZWiAH4gADABQACQAOAB1hY3NwTVNGVAAAAABzYXdzY3RybAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWhhbmSdkQA9QICwPUB0LIGepSKOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAABxjcHJ0AAABDAAAAAx3dHB0AAABGAAAABRyWFlaAAABLAAAABRnWFlaAAABQAAAABRiWFlaAAABVAAAABRyVFJDAAABaAAAAGBnVFJDAAABaAAAAGBiVFJDAAABaAAAAGBkZXNjAAAAAAAAAAV1UkdCAAAAAAAAAAAAAAAAdGV4dAAAAABDQzAAWFlaIAAAAAAAAPNUAAEAAAABFslYWVogAAAAAAAAb6AAADjyAAADj1hZWiAAAAAAAABilgAAt4kAABjaWFlaIAAAAAAAACSgAAAPhQAAtsRjdXJ2AAAAAAAAACoAAAB8APgBnAJ1A4MEyQZOCBIKGAxiDvQRzxT2GGocLiBDJKwpai5+M+s5sz/WRldNNlR2XBdkHWyGdVZ+jYgskjacq6eMstu+mcrH12Xkd/H5/////gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xAB1AAEAAwEBAAAAAAAAAAAAAAAFBgAEAgEBAQEBAAAAAAAAAAAAAAAAAAMFBBAAAQIDAwkJAQAAAAAAAAAAAQIAEQMxBCESFFKhInGBE1NhBUE0sdHBgtJyUREAAgIDAQEBAAAAAAAAAAAAAQAREjECoRNRUv/AABEIABQAFAMBIgACEQADEQD/2gAMAwEAAhEDEQA/AArL2elIjNGJWaDcNsHMlYUSSkDUqUijPWrhqCqxEC9GMKFAR06uB6bZktagxDFjaSDdLMO7Zuq+MqVyjp9G/inIASmfBIoIIuH8vDvEtHP0I+ro20+8Qg/nrgkRm2eXMUTFQMdxhG9rps6CRGJ1oVZNk8HK+XmXKkVH69mo1FsBEk1yXnJpWa7k0rNaz9e2A4pL/9k=",
-      "sources": [
-        {
-          "src": "/media/food/chebureki-640.webp",
-          "width": 640,
-          "height": 640,
-          "bytes": 28312
-        },
-        {
-          "src": "/media/food/chebureki-640.jpg",
-          "width": 640,
-          "height": 640,
-          "bytes": 30126
-        },
-        {
-          "src": "/media/food/chebureki-689.webp",
-          "width": 689,
-          "height": 690,
-          "bytes": 32662
-        },
-        {
-          "src": "/media/food/chebureki-689.jpg",
-          "width": 689,
-          "height": 690,
-          "bytes": 34210
-        }
-      ],
-      "derivedFrom": "selected/food/chebureki-review-only.webp"
-    },
-    "location/storefront-2025": {
-      "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAASABHAAD//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABvAAACAwEBAQAAAAAAAAAAAAAFBwMABAYCAQEBAQEAAAAAAAAAAAAAAAAAAwQFEAACAQIGAgAHAQAAAAAAAAABAgADERJBBCExUSITokKBkWJxUrERAAIDAQEBAQAAAAAAAAAAAAEAIRESYTFRAv/AABEIACQAFAMBIgACEQADEQD/2gAMAwEAAhEDEQA/AF3YqFP43/e8Hdkdw7Wq09RUp4R6bJhb+TbjjuDWU0z5ArfI7/ENj/smPvfjdUcQzM15HiM2S7xdJZXNU0GndGYYh4qQM/KK6tTNOmoV2If5TlaNltRTGM4ucIFtwbWiz1TgqiryCfsZccmIJZhoA+vK4WGZn2zdmSnGSTaePPqS2eKUOvp6rvyfplNNGmHJJvBJnQabONVfmIhMmWT1rL61muWZ67//2Q==",
-      "sources": [
-        {
-          "src": "/media/location/storefront-2025-640.webp",
-          "width": 640,
-          "height": 1136,
-          "bytes": 72984
-        },
-        {
-          "src": "/media/location/storefront-2025-640.jpg",
-          "width": 640,
-          "height": 1136,
-          "bytes": 81821
-        }
-      ],
-      "derivedFrom": "selected/location/storefront-2025-review-only.jpg"
-    },
-    "people/chef-fruit-platter": {
-      "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAAQABAAD//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xAB3AAEAAwEBAAAAAAAAAAAAAAAFAwQCBgcBAQEBAAAAAAAAAAAAAAAAAAMCARAAAgECAgYGCwEAAAAAAAAAAQIDEQAhBDESYXFRQRSxkiJSBRMzFTKR0aGC4XJTNBEBAAIDAQEBAAAAAAAAAAAAAQAREiFRoWKR/8AAEQgAFAAUAwEiAAIRAAMRAP/aAAwDAQACEQMRAD8A3K/pWY0dUFBiNJOgVFRfO4ACorjiMRjurw5361k83E0UaoK4YgjnzNTtsPOZdZJmJwrSmqaA79tdtm4m1jFughUfmLQKESFNVdHfrdn2vL/JO3fLSZVUYq1AR931rdXo8fEfD83GR3xlY/L+w2DWEiIrMoIOg0tPLTyTTojsWALAE6cAbMh9em49V7yX+pf2fqN7GvbInz+Y127wOPhHAbLh6dP4h2V+VgP77b7is6OQLes//9k=",
-      "sources": [
-        {
-          "src": "/media/people/chef-fruit-platter-640.webp",
-          "width": 640,
-          "height": 640,
-          "bytes": 59892
-        },
-        {
-          "src": "/media/people/chef-fruit-platter-640.jpg",
-          "width": 640,
-          "height": 640,
-          "bytes": 54872
-        }
-      ],
-      "derivedFrom": "selected/people/chef-fruit-platter-release-required.jpg"
     },
     "food/kazan-boil": {
       "lqip": "data:image/jpeg;base64,/9j/4gIoSUNDX1BST0ZJTEUAAQEAAAIYYXBwbAQAAABtbnRyUkdCIFhZWiAH5gABAAEAAAAAAABhY3NwQVBQTAAAAABBUFBMAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWFwcGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApkZXNjAAAA/AAAADBjcHJ0AAABLAAAAFB3dHB0AAABfAAAABRyWFlaAAABkAAAABRnWFlaAAABpAAAABRiWFlaAAABuAAAABRyVFJDAAABzAAAACBjaGFkAAAB7AAAACxiVFJDAAABzAAAACBnVFJDAAABzAAAACBtbHVjAAAAAAAAAAEAAAAMZW5VUwAAABQAAAAcAEQAaQBzAHAAbABhAHkAIABQADNtbHVjAAAAAAAAAAEAAAAMZW5VUwAAADQAAAAcAEMAbwBwAHkAcgBpAGcAaAB0ACAAQQBwAHAAbABlACAASQBuAGMALgAsACAAMgAwADIAMlhZWiAAAAAAAAD21QABAAAAANMsWFlaIAAAAAAAAIPfAAA9v////7tYWVogAAAAAAAASr8AALE3AAAKuVhZWiAAAAAAAAAoOAAAEQsAAMi5cGFyYQAAAAAAAwAAAAJmZgAA8qcAAA1ZAAAT0AAACltzZjMyAAAAAAABDEIAAAXe///zJgAAB5MAAP2Q///7ov///aMAAAPcAADAbv/+ABBMYXZjNjIuMjguMTAyAP/bAEMACBgYHBgcISEhISEhJyQnKCgoJycnJygoKCsrKzMzMysrKygoKyswMDMzNzk3NDQzNDk5PDw8SEhFRVRUV2dnfP/EAHQAAAIDAQEAAAAAAAAAAAAAAAYFBAMCAAgBAQEBAQAAAAAAAAAAAAAAAAMCAAQQAAIBAgEICgMBAAAAAAAAAAECEQADEjEhQVEEFHEyE9FhIgWSkbHwUoGhQlMRAQEBAAMBAAAAAAAAAAAAAAABERJRIUH/wAARCAAkABQDASIAAhEAAxEA/9oADAMBAAIRAxEAPwAZvOmBIOcBaJ9na3cAXFBmWmY1e1KNm8Me+oNx8AI7qgS0azOYCjUeG7uMVu4WOkOM3quT0o7na0rdgcn6iu3b5m6qUttK2zhdMLcQRxB1VVvlr6+1HlUM9ku23QwRIyjSBwpg9+2mU6NGc/ivNzjCcVskEdtFttG6FLrXSxY8swZ1HryVGSlvgjdblw4jZuEHl7sws5pqP0T/AOFzyGsM5cyztOSAYA7BVXd+7+Y9dbYTjQvhBVjqpvYQKs6TSz+G+aadWeQcKJ2fSB3OKqOkPZWX5qjVSH//2Q==",
@@ -658,121 +374,197 @@
       ],
       "derivedFrom": "originals/client-supplied/2026-08-16-telegram/photo_4904754040042884368_y.jpg"
     },
-    "food/platter-overhead": {
-      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xAB5AAADAQEBAAAAAAAAAAAAAAAHBAYFAgMBAAMBAQAAAAAAAAAAAAAAAAUEAwIBEAABAwIDBwUBAAAAAAAAAAABAgMRACFREjETQaFhsSKRweGBMkRxEQACAQMDBAMBAQAAAAAAAAABABECQSExYRIyQlGxkfBxAxP/wAARCAAaABQDARIAAhIAAxIA/9oADAMBAAIRAxEAPwDJccfbUbxOpTNwOnmvPZ5joCLkhs6eaHT4ZGYxE7r3EHUNxFxjZULrjl1KJEwcPal3F7QBCZy4EXviRwrNNPDQanPlpRy7onZ7g/GHNQHbMbpMStAQjNBOWfoFW3XJFYbRTs06mBF+RqhI+hWxTr+o7ibe0nJq9PbjALaoASQq+JmqT9Df8PCmSJWhqEf/AKcToq/0sjZpoqcAAUruw3TrjRlgAkgUlUIBOSdrpOyTFdpAQjO5GkdpzW+d/IUsfU9TSEC+rOvqKXk2d0dIf//Z",
+    "food/board-overhead": {
+      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABsAAEBAAMBAAAAAAAAAAAAAAAEAgMABgUBAAMBAQAAAAAAAAAAAAAAAAIEAQADEAEAAgEEAAYDAQAAAAAAAAABAhEAAzEhElFBcSLBkfAEgkIRAQEAAgMBAQAAAAAAAAAAAAABESExkUHREv/AABEIABoAFAMBEgACEgADEgD/2gAMAwEAAhEDEQA/AFSnM/X7yLZtHo7PnidUNbXhAj7dItL4utmvvF8RaYaEVSRvl3fDYD1zYQdXV7vAb08NO33zg/meCmwrdOpjAiUtplyad38MXw71nMV09Mi9Xoy86283wdsDph1iVxT8YePjTjsGV96VpBoyZy6wEpugC/b/AKebzNEFj/Xxmmii8upkpdm48nibOelnelwK/9k=",
       "sources": [
         {
-          "src": "/media/food/platter-overhead-640.webp",
+          "src": "/media/food/board-overhead-640.webp",
           "width": 640,
           "height": 800,
-          "bytes": 100866
+          "bytes": 60960
         },
         {
-          "src": "/media/food/platter-overhead-640.jpg",
+          "src": "/media/food/board-overhead-640.jpg",
           "width": 640,
           "height": 800,
-          "bytes": 121087
+          "bytes": 78828
         },
         {
-          "src": "/media/food/platter-overhead-1080.webp",
+          "src": "/media/food/board-overhead-1080.webp",
           "width": 1080,
           "height": 1350,
-          "bytes": 241168
+          "bytes": 119430
         },
         {
-          "src": "/media/food/platter-overhead-1080.jpg",
+          "src": "/media/food/board-overhead-1080.jpg",
           "width": 1080,
           "height": 1350,
-          "bytes": 279131
+          "bytes": 162774
         }
       ],
-      "derivedFrom": "selected/motion/meat-platter-story-review-only.mp4",
-      "frameAtSeconds": 0.55,
-      "note": "overhead sharing board: grilled meat, fries, cherry tomatoes"
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_6595.MOV",
+      "frameAtSeconds": 3.4,
+      "note": "the shashlik board from above — 4K frame"
     },
-    "food/skewer-ranks": {
-      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xAB1AAACAwEBAAAAAAAAAAAAAAAFBAMBCAcGAQEBAAMBAAAAAAAAAAAAAAAEBQMBBgIQAAEDAwIGAgMBAAAAAAAAAAECESEDABJRMbFBBJETcYFhUnIF4REAAgMBAAEFAQAAAAAAAAAAAQAhMQIRUQMSBBNBMv/AABEIABoAFAMBEgACEgADEgD/2gAMAwEAAhEDEQA/AAFNCxQKlpAALh258Jfe7QVVGC14giHMlvwTHeB92IZ4JEUq1SuCXELUalZRDBhEEBuH+XXjUgtjjyyglWuO3y1yxkdp9EwrOYUhgHR+UBRVJ3tglSCwxHszdbOQBDNz6hA8su1xxPhhooRRarUI1BXrqzz3P63zckqJJJJ+5ui6Zzp0GqkOoxqU1uYJ5uPmeF+R/nKVhuYIabifYPdwpPkf20QiFpapRVlCgPbWUVJvoOD8MPOig5yOm05f/9k=",
+    "food/coals-close": {
+      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABiAAEBAQAAAAAAAAAAAAAAAAAGBQQBAQEBAQAAAAAAAAAAAAAAAAMEAQIQAQACAQMFAQADAQAAAAAAAAECESEAAzFhQRJxUTIiE4GREQEBAQEAAAAAAAAAAAAAAAAAEQES/8AAEQgAGgAUAwESAAISAAMSAP/aAAwDAQACEQMRAD8A1jEkSpc/mPN/L4X720c/uh45sWhXNHwMV71NXMNyWlbNkyqXdw9656JrPFJIQlS1RWYwM1/ukTp1SbJ27/ltq9GjVyLFzPxtWvXbVIKkUxEnhvc2zpIMV1jznpfrTjeLP+6qjUrAbyjQkvF4JfqProfTRfcxvQrF81396OELRHLCc6YlAAeNJoMqOFNDmFUUD//Z",
       "sources": [
         {
-          "src": "/media/food/skewer-ranks-640.webp",
+          "src": "/media/food/coals-close-640.webp",
           "width": 640,
           "height": 800,
-          "bytes": 70048
+          "bytes": 45436
         },
         {
-          "src": "/media/food/skewer-ranks-640.jpg",
+          "src": "/media/food/coals-close-640.jpg",
           "width": 640,
           "height": 800,
-          "bytes": 95824
+          "bytes": 60649
         },
         {
-          "src": "/media/food/skewer-ranks-1080.webp",
+          "src": "/media/food/coals-close-1080.webp",
           "width": 1080,
           "height": 1350,
-          "bytes": 130698
+          "bytes": 89636
         },
         {
-          "src": "/media/food/skewer-ranks-1080.jpg",
+          "src": "/media/food/coals-close-1080.jpg",
           "width": 1080,
           "height": 1350,
-          "bytes": 181889
+          "bytes": 123249
         }
       ],
-      "derivedFrom": "selected/motion/meat-platter-story-review-only.mp4",
-      "frameAtSeconds": 15.2,
-      "note": "hands laying kebab skewers in ranks"
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_6587.MOV",
+      "frameAtSeconds": 4.2,
+      "note": "skewers over glowing coals — 4K frame"
     },
-    "food/salmon-grill": {
-      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xAByAAEBAQAAAAAAAAAAAAAAAAAGAwQBAQEBAQEBAAAAAAAAAAAAAAUDBAYBAhABAAIBAgYBBQEBAAAAAAAAAQIRAAMhEjFBkQQTUbGhMoHwFGERAQACAQQCAwEBAAAAAAAAAAEAAhEDgSExQRIj4WFRQv/AABEIABoAFAMBEgACEgADEgD/2gAMAwEAAhEDEQA/AAniFzZNtFd3Evhx9Pj+xPzk9jDXrmQ1RaAeWJ4ygSlE938JgnpWShGUBZcXDvdfF8VPbbMDvqUUcU6a/wCuzfQ+XPDVx3Vx/fqfBxXy4JnaW3z1EfO8tOyX8/TFWpCM5WsP0riJixkgWla1a4+TaowdMOGMXqL/AJ3cS0o+rS0ShInC3yvn98WRBgiDi+qOMniKQf2QSRgjU/zm8d3qob4PQdUKKvl055xx757Z1Qcs321RAANuYfGGlCUo2NCqbdMYgAZPTripN8vbUbOWZZ//2Q==",
+    "food/lulya-smoke": {
+      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABwAAEBAQEAAAAAAAAAAAAAAAAGBAECAQADAQEAAAAAAAAAAAAAAAAABAIDARAAAgAEAwgBBQEAAAAAAAAAAQIRABIhMQNBgWGRBCKhcVIyE6KxUSPhEQEBAQACAwEAAAAAAAAAAAAAARFhAhIxUUH/wAARCAAaABQDARIAAhIAAxIA/9oADAMBAAIRAxEAPwDrLywABEGOmsNuOybKHUAr/T9Rsw3+OEp+Rb3wZzGqh3+mlzE8Dwk+XriwNQHwVhGLDebS3q5MYItEs3M6zVjtE3BD7Zi7rGHcfibdS4Ycy6g9RoY2VomCjUH/AGcYBuYaN8MfJledbLw3v42t1n9YcouaGqZVupwa/wBrCVOVhI6kJAhAhUph7Y95TAA6CQBx/9k=",
       "sources": [
         {
-          "src": "/media/food/salmon-grill-640.webp",
+          "src": "/media/food/lulya-smoke-640.webp",
           "width": 640,
           "height": 800,
-          "bytes": 58028
+          "bytes": 42876
         },
         {
-          "src": "/media/food/salmon-grill-640.jpg",
+          "src": "/media/food/lulya-smoke-640.jpg",
           "width": 640,
           "height": 800,
-          "bytes": 80798
+          "bytes": 57199
         },
         {
-          "src": "/media/food/salmon-grill-1080.webp",
+          "src": "/media/food/lulya-smoke-1080.webp",
           "width": 1080,
           "height": 1350,
-          "bytes": 110376
+          "bytes": 82412
         },
         {
-          "src": "/media/food/salmon-grill-1080.jpg",
+          "src": "/media/food/lulya-smoke-1080.jpg",
           "width": 1080,
           "height": 1350,
-          "bytes": 160733
+          "bytes": 117640
         }
       ],
-      "derivedFrom": "selected/motion/meat-platter-story-review-only.mp4",
-      "frameAtSeconds": 10.4,
-      "note": "salmon fingers with balsamic glaze on wood"
-    },
-    "food/banquet-hall": {
-      "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAGgAZAAD//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABwAAEBAQEAAAAAAAAAAAAAAAAGBAMFAQEAAwEAAAAAAAAAAAAAAAADBAEFAhAAAgECBAUFAQAAAAAAAAAAAQIRACEDMRJBIuEyUYHBkRNxUhQRAAIDAQABBQEAAAAAAAAAAAEAAiERMaFBsQPwgVH/wAARCAAaABQDARIAAhIAAxIA/9oADAMBAAIRAxEAPwANhll4Y4mBzHce9q1bVrlWGYkZVUq69S0gny0FBmF5TYzLKNE+Lc6QE6BMK5MajwyZ2IzpAlCYHogQobRWtDJYkSchlTP+BPwx8mplKCIkNtFvjn8IDX6tok1WK4Mb5bMHfxSuoMTLFytjtaZO8ircO6n6HpWPKEgNoW6/32XBGojrXhpihbMyjsDzrq4fSKiRj8mVjuAUuZR/nhhv/9k=",
-      "sources": [
-        {
-          "src": "/media/food/banquet-hall-352.webp",
-          "width": 352,
-          "height": 440,
-          "bytes": 28130
-        },
-        {
-          "src": "/media/food/banquet-hall-352.jpg",
-          "width": 352,
-          "height": 440,
-          "bytes": 32928
-        }
-      ],
-      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_1341.MOV",
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_6572.MOV",
       "frameAtSeconds": 8,
-      "note": "fruit towers under the glowing gold Padishah sign — small placements only (352px source)"
+      "note": "the lulya rank in smoke — 4K frame"
+    },
+    "food/kazan-skim": {
+      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABqAAEBAQEBAAAAAAAAAAAAAAAGBwUBBAEBAAMBAAAAAAAAAAAAAAAAAwEEAAIQAAECBQIHAAMBAAAAAAAAAAECEQADMQQhkRIiMoFhgmIzsROyQREBAQEBAQAAAAAAAAAAAAAAAAERIUH/wAARCAAaABQDARIAAhIAAxIA/9oADAMBAAIRAxEAPwACmxuFBKikJHsWOlYrEuaJhVvHDQH/AF4ynLak2A8uVMtzxOn2FNRDTfMUQ0slPi+jxaD0JOOpnLbmR1qdIBzhtWWDPlqNHRkDa9tc/vTtVwMocuBR36tBu1+p8P6EVbyN4sR16qBmFJamHpjHeC9x927K/BgdqS5EvXNWgKypnjEYMMCgjuWtA5E1/9k=",
+      "sources": [
+        {
+          "src": "/media/food/kazan-skim-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 45892
+        },
+        {
+          "src": "/media/food/kazan-skim-640.jpg",
+          "width": 640,
+          "height": 800,
+          "bytes": 59686
+        },
+        {
+          "src": "/media/food/kazan-skim-1080.webp",
+          "width": 1080,
+          "height": 1350,
+          "bytes": 91586
+        },
+        {
+          "src": "/media/food/kazan-skim-1080.jpg",
+          "width": 1080,
+          "height": 1350,
+          "bytes": 128509
+        }
+      ],
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_6591.MOV",
+      "frameAtSeconds": 15.4,
+      "note": "the skimmer lifting meat from the kazan — 4K frame"
+    },
+    "food/grill-hands-print": {
+      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABpAAEAAwEBAAAAAAAAAAAAAAAGAQUHAgMBAAMBAQAAAAAAAAAAAAAAAAMBAgQAEAEAAQIFAwUBAQAAAAAAAAABAhEAAyFBMRLBBFEyQoGhcUNiEQEBAQEBAAAAAAAAAAAAAAAAERJhIf/AABEIABoAFAMBEgACEgADEgD/2gAMAwEAAhEDEQA/AFUpcVbrMHGfcZn1XrePXpZGjqmRirUaWgqOW1k0HIUUmEniV3vgjXW9TLYCOCsGDEi5DylXz5fzSlosUy+elnIFwq95iEowAWStJbRhpVM60OTdVif2f89S2Rk93v1fUhsZaXmMlJNGlxOCrqX/2Q==",
+      "sources": [
+        {
+          "src": "/media/food/grill-hands-print-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 31460
+        },
+        {
+          "src": "/media/food/grill-hands-print-640.jpg",
+          "width": 640,
+          "height": 800,
+          "bytes": 45194
+        },
+        {
+          "src": "/media/food/grill-hands-print-1080.webp",
+          "width": 1080,
+          "height": 1350,
+          "bytes": 60822
+        },
+        {
+          "src": "/media/food/grill-hands-print-1080.jpg",
+          "width": 1080,
+          "height": 1350,
+          "bytes": 92768
+        }
+      ],
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_6574.MOV",
+      "frameAtSeconds": 60.2,
+      "note": "hands over the rank of skewers — 4K frame for the hero print"
+    },
+    "food/banquet-frame": {
+      "lqip": "data:image/jpeg;base64,/9j//gAQTGF2YzYyLjI4LjEwMgD/2wBDAAgYGBwYHCEhISEhISckJygoKCcnJycoKCgrKyszMzMrKysoKCsrMDAzMzc5NzQ0MzQ5OTw8PEhIRUVUVFdnZ3z/xABuAAEBAQEAAAAAAAAAAAAAAAAFBgIEAQEBAQEBAAAAAAAAAAAAAAABAwAEAhAAAQMDAgQHAQEAAAAAAAAAAQIRIQMAQTFhEgQTsYGRoVFxwSIUchEBAQEAAgMBAAAAAAAAAAAAAAERAiESwVEx/8AAEQgAGgAUAwESAAISAAMSAP/aAAwDAQACEQMRAD8AtaSWIdlDeQD72R1ELgUjT3MP4A+dzNmFlZW/AD8BU8EQR6mwFUwtLHZtXEX5/DOmFaL5N96QGD63PyTsUwIH+ipUUlfTUCRD6EZbEWfyRJTUeWH3fRb9HI5jQzRr1OIlQSEu0KgRgY3uX5+Fp/2nsLBw9A08nnKwcNxMdQxHxnvcEFrDspQnBNvTsLnf/9k=",
+      "sources": [
+        {
+          "src": "/media/food/banquet-frame-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 68342
+        },
+        {
+          "src": "/media/food/banquet-frame-640.jpg",
+          "width": 640,
+          "height": 800,
+          "bytes": 87858
+        },
+        {
+          "src": "/media/food/banquet-frame-1080.webp",
+          "width": 1080,
+          "height": 1350,
+          "bytes": 143642
+        },
+        {
+          "src": "/media/food/banquet-frame-1080.jpg",
+          "width": 1080,
+          "height": 1350,
+          "bytes": 190708
+        }
+      ],
+      "derivedFrom": "originals/client-supplied/2026-08-16-telegram/IMG_6575.MOV",
+      "frameAtSeconds": 5,
+      "note": "the banquet table mid-room — guests in frame, release required"
     }
   }
 }
