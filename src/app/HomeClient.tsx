@@ -2,9 +2,8 @@
 
 import Link from 'next/link';
 import { useEffect } from 'react';
-import { CATEGORIES, ITEMS, MENU_APPROVED_AT, MENU_OBSERVED_AT } from '@/content/generated/menu';
+import { CATEGORIES, ITEMS } from '@/content/generated/menu';
 import { HOURS, PROVISIONAL, VERIFIED, OBSERVED_AT } from '@/content/generated/facts';
-import type { MenuItem } from '@/content/types';
 import { media } from '@/lib/review-mode';
 import { observeReveals, stagger } from '@/lib/reveal';
 import { observeDrift } from '@/lib/drift';
@@ -19,29 +18,6 @@ import Stage from '@/components/motion/Stage';
 import { Chapters } from '@/components/Chapters';
 import { Stories } from '@/components/Stories';
 import { fill } from '@/content/copy';
-
-/** Six dishes pulled straight from the public listing — described only as it describes them. */
-const DISH_IDS = [
-  'shish-kebab--lamb-ribs-kebab',
-  'shish-kebab--lulya-kebab',
-  'shish-kebab--veal-liver-kebab',
-  'cold-appetizers--samsa-1-piece',
-  'main-course--manti',
-  'salads--achichuk-salad',
-];
-
-/**
- * Photographs are NOT matched to dish names. The library is phone footage from the
- * restaurant's own posts; nobody has confirmed which dish is in which frame, and
- * captioning a photo with a dish name would be a claim we cannot support.
- * They live in their own strip below, described only by what is visibly in them.
- */
-const KITCHEN_STRIP = [
-  'food/board-overhead',
-  'food/coals-close',
-  'food/lulya-smoke',
-  'food/kazan-skim',
-];
 
 /**
  * The provisional cuisine wording is research data and arrives in English. On the
@@ -60,15 +36,21 @@ export default function HomeClient() {
     document.querySelectorAll<HTMLElement>('[data-stagger]').forEach((el) => stagger(el));
     const teardownReveals = observeReveals(document);
     const teardownDrift = observeDrift(document);
+    let teardownCinema: (() => void) | null = null;
+    let cancelled = false;
+    import('@/lib/cinema').then(({ bootCinema }) =>
+      bootCinema().then((t) => {
+        if (cancelled) t();
+        else teardownCinema = t;
+      }),
+    );
     return () => {
+      cancelled = true;
       teardownReveals();
       teardownDrift();
+      teardownCinema?.();
     };
   }, []);
-
-  const dishes = DISH_IDS.map((id) => ITEMS.find((i) => i.id === id)).filter(
-    (d): d is MenuItem => d !== undefined,
-  );
 
   return (
     <>
@@ -280,6 +262,15 @@ export default function HomeClient() {
         </section>
 
         <Stories lang={lang} />
+
+        {/* ---------------------------------------------------------- band */}
+        {/* one oversized line sliding against the scroll — the tagline as texture */}
+        <div className="band" aria-hidden="true">
+          <p className="band__track">
+            Off the fire — onto the table&nbsp;&nbsp;·&nbsp;&nbsp;С огня — сразу на стол&nbsp;&nbsp;·&nbsp;&nbsp;Off
+            the fire — onto the table&nbsp;&nbsp;·&nbsp;&nbsp;С огня — сразу на стол&nbsp;&nbsp;·
+          </p>
+        </div>
 
         {/* --------------------------------------------------------- visit */}
         <section id="visit" className="section section--cream visit">

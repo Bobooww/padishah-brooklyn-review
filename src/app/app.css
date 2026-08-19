@@ -2255,3 +2255,37 @@ html[data-tier='3'] .passage__plate .cartouche__svg {
   justify-content: space-between;
   gap: 1rem;
 }
+
+/* ----------------------------------------------------------------- band */
+
+/* The tagline as texture: one oversized outlined line that slides a few
+   viewport-widths against the scroll. Decorative twin of the H1 — hidden
+   from readers, motionless without the cinema layer. */
+.band {
+  overflow: hidden;
+  background: var(--cream);
+  padding-block: clamp(1rem, 3vw, 2.4rem);
+  border-block: 1px solid var(--gold-line);
+}
+.band__track {
+  margin: 0;
+  white-space: nowrap;
+  font-family: var(--display);
+  font-size: clamp(3.4rem, 9vw, 8rem);
+  line-height: 1.04;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(138, 100, 32, 0.55);
+  will-change: transform;
+}
+.band__track::selection {
+  background: transparent;
+}
+
+/* Stories in cinema mode: the section pins and vertical scroll drives the
+   rail sideways, so the native scrollbar and the arrows step aside. */
+.stories--cinema .stories__rail {
+  overflow-x: hidden;
+}
+.stories--cinema .stories__nav {
+  display: none;
+}
