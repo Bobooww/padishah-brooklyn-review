@@ -144,7 +144,24 @@ export function Chapters({ lang, callLabel }: { lang: Lang; callLabel: string })
           <h2>{lang === 'ru' ? 'Что здесь готовят.' : 'What the kitchen makes.'}</h2>
         </header>
 
-        <div className="chapters__tabs" role="tablist" aria-label={lang === 'ru' ? 'Главы кухни' : 'Kitchen chapters'}>
+        <div
+          className="chapters__tabs"
+          role="tablist"
+          aria-label={lang === 'ru' ? 'Главы кухни' : 'Kitchen chapters'}
+          onKeyDown={(e) => {
+            // roving tabs: arrows move selection, Home/End jump — standard tablist keys
+            const idx = CHAPTERS.findIndex((c) => c.id === active);
+            let next = -1;
+            if (e.key === 'ArrowRight') next = (idx + 1) % CHAPTERS.length;
+            if (e.key === 'ArrowLeft') next = (idx - 1 + CHAPTERS.length) % CHAPTERS.length;
+            if (e.key === 'Home') next = 0;
+            if (e.key === 'End') next = CHAPTERS.length - 1;
+            if (next === -1) return;
+            e.preventDefault();
+            setActive(CHAPTERS[next].id);
+            document.getElementById(`chapters-tab-${CHAPTERS[next].id}`)?.focus();
+          }}
+        >
           {CHAPTERS.map((c) => (
             <button
               key={c.id}
@@ -153,6 +170,7 @@ export function Chapters({ lang, callLabel }: { lang: Lang; callLabel: string })
               role="tab"
               aria-selected={active === c.id}
               aria-controls="chapters-panel"
+              tabIndex={active === c.id ? 0 : -1}
               className="chapters__tab"
               onClick={() => setActive(c.id)}
             >

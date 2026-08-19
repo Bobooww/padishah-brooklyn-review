@@ -24,13 +24,19 @@
   text-decoration: none;
   cursor: pointer;
   transition:
-    transform 0.4s var(--ease),
-    background-color 0.4s var(--ease),
-    border-color 0.4s var(--ease),
-    color 0.4s var(--ease);
+    transform 0.16s var(--ease),
+    background-color 0.25s var(--ease),
+    border-color 0.25s var(--ease),
+    color 0.25s var(--ease);
 }
-.btn:hover {
-  transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+}
+/* the press: the interface confirms it heard you, instantly */
+.btn:active {
+  transform: translateY(0) scale(0.97);
 }
 .btn--gold {
   --btn-bg: var(--gold);
@@ -160,10 +166,17 @@
   color: var(--ivory);
   cursor: pointer;
   backdrop-filter: blur(6px);
-  transition: background-color 0.4s var(--ease);
+  transition:
+    background-color 0.2s var(--ease),
+    transform 0.14s var(--ease);
 }
-.loopctl:hover {
-  background: rgba(6, 5, 5, 0.8);
+@media (hover: hover) and (pointer: fine) {
+  .loopctl:hover {
+    background: rgba(6, 5, 5, 0.8);
+  }
+}
+.loopctl:active {
+  transform: scale(0.94);
 }
 .loopctl__glyph {
   font-size: 0.7rem;
@@ -299,6 +312,11 @@
   opacity: 0.5;
 }
 .reviewbar__panel {
+  transition:
+    opacity 0.18s var(--ease),
+    transform 0.18s var(--ease),
+    display 0.18s;
+  transition-behavior: allow-discrete;
   margin-bottom: 0.6rem;
   padding: 1.1rem 1.2rem;
   background: rgba(43, 5, 4, 0.96);
@@ -332,6 +350,12 @@
   font-size: 0.72rem;
   opacity: 0.7;
   max-width: 70ch;
+}
+@starting-style {
+  .reviewbar__panel {
+    opacity: 0;
+    transform: translateY(6px);
+  }
 }
 
 /* --------------------------------------------------------------- header */
@@ -1252,11 +1276,19 @@
   font-size: clamp(1.1rem, 1.7vw, 1.4rem);
   color: var(--text-on-ivory-dim);
   cursor: pointer;
-  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+  transition:
+    color 0.2s var(--ease),
+    border-color 0.2s var(--ease),
+    transform 0.14s var(--ease);
   white-space: nowrap;
 }
-.chapters__tab:hover {
-  color: var(--text-on-ivory);
+@media (hover: hover) and (pointer: fine) {
+  .chapters__tab:hover {
+    color: var(--text-on-ivory);
+  }
+}
+.chapters__tab:active {
+  transform: scale(0.97);
 }
 .chapters__tab[aria-selected='true'] {
   color: var(--text-on-ivory);
@@ -1290,7 +1322,7 @@
   }
 }
 .chapters__tile {
-  animation: tileIn 0.6s var(--ease-spring) both;
+  animation: tileIn 0.46s var(--ease-spring) both;
   will-change: transform;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1830,8 +1862,12 @@ html[data-tier='3'] .passage__plate .cartouche__svg {
   white-space: nowrap;
   cursor: pointer;
   transition:
-    border-color 0.4s var(--ease),
-    background-color 0.4s var(--ease);
+    border-color 0.2s var(--ease),
+    background-color 0.2s var(--ease),
+    transform 0.14s var(--ease);
+}
+.menunav__tab:active {
+  transform: scale(0.96);
 }
 /* the buttons state themselves with aria-pressed — the style reads the same attribute */
 .menunav__tab[aria-pressed='true'] {
@@ -2183,4 +2219,39 @@ html[data-tier='3'] .passage__plate .cartouche__svg {
 }
 .stories__note {
   margin-top: 0.6rem;
+}
+.stories__nav {
+  display: none;
+  gap: 0.5rem;
+}
+@media (hover: hover) and (pointer: fine) {
+  .stories__nav {
+    display: inline-flex;
+  }
+}
+.stories__arrow {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--gold-line);
+  background: var(--ivory-2);
+  color: var(--text-on-ivory);
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    background-color 0.2s var(--ease),
+    transform 0.14s var(--ease);
+}
+.stories__arrow:hover {
+  background: #fff;
+}
+.stories__arrow:active {
+  transform: scale(0.94);
+}
+.stories__headrow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
 }

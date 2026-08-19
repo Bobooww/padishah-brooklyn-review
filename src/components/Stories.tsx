@@ -1,5 +1,6 @@
 'use client';
 
+import { useRef } from 'react';
 import { media } from '@/lib/review-mode';
 import { Loop } from '@/components/Media';
 import type { Lang } from '@/content/copy';
@@ -25,15 +26,34 @@ const CARDS: { id: string; label: { en: string; ru: string } }[] = [
 ];
 
 export function Stories({ lang }: { lang: Lang }) {
+  const rail = useRef<HTMLDivElement>(null);
+  const nudge = (dir: 1 | -1) => {
+    const el = rail.current;
+    if (!el) return;
+    const card = el.querySelector('.stories__card');
+    const step = card ? card.getBoundingClientRect().width + 18 : 320;
+    el.scrollBy({ left: dir * step * 2, behavior: 'smooth' });
+  };
   return (
     <section id="stories" className="section section--cream stories" aria-label={lang === 'ru' ? 'Видео с кухни' : 'Kitchen stories'}>
       <div className="rail">
-        <header className="stories__head reveal">
-          <p className="eyebrow">{lang === 'ru' ? 'Листайте' : 'Swipe through'}</p>
-          <h2>{lang === 'ru' ? 'Кухня в движении.' : 'The kitchen, moving.'}</h2>
+        <header className="stories__head stories__headrow reveal">
+          <div>
+            <p className="eyebrow">{lang === 'ru' ? 'Листайте' : 'Swipe through'}</p>
+            <h2>{lang === 'ru' ? 'Кухня в движении.' : 'The kitchen, moving.'}</h2>
+          </div>
+          {/* pointer-only affordance: touch users already have the swipe */}
+          <div className="stories__nav">
+            <button type="button" className="stories__arrow" onClick={() => nudge(-1)} aria-label={lang === 'ru' ? 'Назад' : 'Previous'}>
+              ←
+            </button>
+            <button type="button" className="stories__arrow" onClick={() => nudge(1)} aria-label={lang === 'ru' ? 'Вперёд' : 'Next'}>
+              →
+            </button>
+          </div>
         </header>
       </div>
-      <div className="stories__rail" role="list">
+      <div className="stories__rail" role="list" ref={rail}>
         {CARDS.map((card, i) => (
           <div key={card.id} className="stories__card reveal" role="listitem" style={{ ['--i' as string]: i }}>
             <Loop asset={media(card.id)} alt="" orientation="portrait" lang={lang} />
