@@ -106,7 +106,7 @@ export const PRODUCTION_APPROVALS = {
     "approved_at": null
   },
   "menu": {
-    "approved_at": null
+    "approved_at": "2026-08-17"
   },
   "logo_master": {
     "public_path": null,

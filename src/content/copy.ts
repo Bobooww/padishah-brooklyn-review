@@ -25,7 +25,7 @@ export const COPY = {
       mediaNote: 'Research preview image. Final photography to be supplied by the restaurant.',
       verifiedToggle: 'What is verified?',
       checked:
-        'Checked {date}. Hours, menu, prices, cuisine wording and the halal statement come from public sources and still need the restaurant’s confirmation.',
+        'Checked {date}. Menu and prices come from the restaurant’s own Clover export (2026-08-17). Hours, cuisine wording and the halal statement still need the restaurant’s confirmation.',
       verifiedLabels: {
         name: 'Name',
         address: 'Address',
@@ -85,8 +85,8 @@ export const COPY = {
     },
     menuPreview: {
       eyebrow: 'The menu',
-      title: 'Nine sections, forty-two dishes.',
-      body: 'Salads, soups, cold and hot appetisers, mains, shish kebab, fish, sides and drinks.',
+      title: 'Eight sections, one hundred forty-three dishes.',
+      body: 'Specials, soups and salads, cold and hot appetizers, shish kebabs, fish, sides, desserts and drinks — with the restaurant’s own prices.',
     },
     ratings: {
       eyebrow: 'In public',
@@ -117,7 +117,7 @@ export const COPY = {
     },
     menuPage: {
       title: 'Menu',
-      lead: 'The full public menu, kept in structured data so it can be corrected in one place.',
+      lead: 'The restaurant’s own menu and prices, from its Clover register — August 17, 2026.',
       notice:
         'Menu and prices are being confirmed with the restaurant. No confirmed prices are published yet — please call for today’s menu and availability.',
       observed: 'Snapshot observed {date} · source: {source}',
@@ -170,15 +170,14 @@ export const COPY = {
       ],
     },
     menuCategories: {
-      salads: 'Salads',
-      soups: 'Soups',
+      specials: 'Specials',
+      'soup-salads': 'Soups & Salads',
       'cold-appetizers': 'Cold Appetizers',
-      'main-course': 'Main Course',
-      'shish-kebab': 'Shish Kebab',
-      'fish-dishes': 'Fish Dishes',
-      'side-dishes': 'Side Dishes',
-      'cold-beverages': 'Cold Beverages',
       'hot-appetizers': 'Hot Appetizers',
+      'shish-kebabs': 'Shish Kebabs',
+      'fish-entrees': 'Fish Entrées',
+      'sides-misc': 'Sides',
+      'dessert-drink': 'Desserts & Drinks',
     },
   },
 
@@ -199,7 +198,7 @@ export const COPY = {
       mediaNote: 'Изображение из исследования. Финальные фото предоставит ресторан.',
       verifiedToggle: 'Что проверено?',
       checked:
-        'Проверено {date}. Часы, меню, цены, формулировка кухни и заявление о халяль взяты из публичных источников и требуют подтверждения ресторана.',
+        'Проверено {date}. Меню и цены — из собственной выгрузки Clover ресторана (17.08.2026). Часы, формулировка кухни и заявление о халяль всё ещё требуют подтверждения.',
       verifiedLabels: {
         name: 'Название',
         address: 'Адрес',
@@ -258,8 +257,8 @@ export const COPY = {
     },
     menuPreview: {
       eyebrow: 'Меню',
-      title: 'Девять разделов, сорок два блюда.',
-      body: 'Салаты, супы, холодные и горячие закуски, горячее, шашлык, рыба, гарниры и напитки.',
+      title: 'Восемь разделов, сто сорок три блюда.',
+      body: 'Спешелы, супы и салаты, холодные и горячие закуски, шашлык, рыба, гарниры, десерты и напитки — с ценами самого ресторана.',
     },
     ratings: {
       eyebrow: 'Публично',
@@ -290,7 +289,7 @@ export const COPY = {
     },
     menuPage: {
       title: 'Меню',
-      lead: 'Полное публичное меню — в структурированных данных, чтобы правки вносились в одном месте.',
+      lead: 'Собственное меню и цены ресторана — из его кассы Clover, 17 августа 2026.',
       notice:
         'Меню и цены уточняются у ресторана. Подтверждённых цен пока нет — пожалуйста, звоните, чтобы узнать сегодняшнее меню и наличие.',
       observed: 'Снимок от {date} · источник: {source}',
@@ -343,15 +342,14 @@ export const COPY = {
       ],
     },
     menuCategories: {
-      salads: 'Салаты',
-      soups: 'Супы',
+      specials: 'Специальные блюда',
+      'soup-salads': 'Супы и салаты',
       'cold-appetizers': 'Холодные закуски',
-      'main-course': 'Горячие блюда',
-      'shish-kebab': 'Шашлык',
-      'fish-dishes': 'Рыбные блюда',
-      'side-dishes': 'Гарниры',
-      'cold-beverages': 'Холодные напитки',
       'hot-appetizers': 'Горячие закуски',
+      'shish-kebabs': 'Шашлык',
+      'fish-entrees': 'Рыбные блюда',
+      'sides-misc': 'Гарниры',
+      'dessert-drink': 'Десерты и напитки',
     },
   },
 } as const;

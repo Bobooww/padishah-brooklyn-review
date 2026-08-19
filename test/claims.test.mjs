@@ -74,7 +74,7 @@ test('no claim the restaurant has not approved', () => {
   }
 });
 
-test('no price is ever rendered as $0.00, and Beef Soup has no published price', () => {
+test('no price is ever rendered as $0.00', () => {
   for (const { file, body } of html()) {
     // strip the RSC flight payload: "$0:f:…" is a React reference, not a price
     const visible = body.replace(/<script[\s\S]*?<\/script>/g, '');
@@ -82,10 +82,7 @@ test('no price is ever rendered as $0.00, and Beef Soup has no published price',
     assert.ok(!/>\s*\$0\s*</.test(visible), `${file} renders a bare $0`);
   }
   const menu = readFileSync(join(APP, 'src/content/generated/menu.ts'), 'utf8');
-  const beef = menu.match(/\{[^{}]*"rawName": "Beef soup"[^{}]*\}/);
-  assert.ok(beef, 'Beef Soup is missing from the generated menu');
-  assert.ok(/"priceCents": null/.test(beef[0]), 'Beef Soup must have no publishable price');
-  assert.ok(/"researchPriceCents": null/.test(beef[0]), 'the invalid $0.00 research price must be dropped');
+  assert.ok(!/"priceCents": 0[,}]/.test(menu), 'a zero price leaked into the generated menu');
 });
 
 test('no Instagram CDN URL is embedded — those expire and are not a licence', () => {

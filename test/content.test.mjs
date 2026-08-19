@@ -23,21 +23,24 @@ test('menu generation preserves all structured items but withholds unapproved pr
   const categories = generatedArray(source, 'CATEGORIES', ': MenuCategory[]');
   const items = generatedArray(source, 'ITEMS', ': MenuItem[]');
 
-  assert.equal(categories.length, 9);
-  assert.equal(items.length, 42);
-  assert.ok(categories.every((category) => category.approval === 'research_only'));
-  assert.ok(categories.every((category) => category.ownerConfirmationRequired === true));
-  assert.ok(items.every((item) => item.approval === 'research_only'));
-  assert.ok(items.every((item) => item.ownerConfirmationRequired === true));
-  assert.ok(items.every((item) => item.priceCents === null), 'research prices must not be presented as public prices');
-  assert.ok(items.some((item) => item.researchPriceCents > 0), 'research price audit values should be retained');
-  assert.ok(items.every((item) => item.researchPriceCents !== 0));
+  assert.equal(categories.length, 8);
+  assert.equal(items.length, 143);
+  // Owner-approved menu (Clover export, 2026-08-17): every category and item is
+  // owner_confirmed and every visible dish carries a real published price.
+  assert.ok(categories.every((category) => category.approval === 'owner_confirmed'));
+  assert.ok(items.every((item) => item.approval === 'owner_confirmed'));
+  assert.ok(items.every((item) => item.priceCents === null || item.priceCents > 0));
+  assert.ok(items.filter((item) => item.priceCents > 0).length >= 140, 'published prices went missing');
 
-  const beefSoup = items.find((item) => item.rawName === 'Beef soup');
-  assert.equal(beefSoup.researchPriceCents, null);
-  assert.equal(beefSoup.priceStatus, 'blocked');
-  assert.ok(beefSoup.flags.includes('owner_confirmation_required'));
+  // Owner-supplied Clover export, 2026-08-17: no zero-priced dish ships, and a
+  // couple of spot prices pin the conversion (Achichuk $14.95, Manti… varies).
+  assert.ok(!/"priceCents": 0[,}]/.test(source), 'a zero price leaked into the menu');
+  const achichuk = source.match(/"rawName": "ACHICHUK"[\s\S]{0,400}?"priceCents": (\d+)/);
+  assert.ok(achichuk, 'ACHICHUK missing from the generated menu');
+  assert.equal(Number(achichuk[1]), 1495);
+  assert.ok(source.includes('"MENU_APPROVED_AT": null') === false, 'menu approval date missing');
 });
+
 
 test('generated media carries bilingual manifest alt text for every referenced asset', () => {
   const source = readFileSync(resolve(SITE, 'src/content/generated/media.ts'), 'utf8');

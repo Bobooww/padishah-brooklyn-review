@@ -147,7 +147,7 @@ export default function MenuClient() {
           <p className="menupage__observed">
             {fill(t.menuPage.observed, { date: MENU_OBSERVED_AT, source: MENU_SOURCE.platform })}
           </p>
-          {REVIEW_MODE && (
+          {REVIEW_MODE && MENU_APPROVED_AT === null && (
             <div className="pricereveal">
               <button
                 type="button"

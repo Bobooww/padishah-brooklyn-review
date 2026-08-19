@@ -78,8 +78,9 @@ test('production media gate accepts only a referenced cleared asset with approve
 
 test('production approvals fail closed while owner fields are blank', () => {
   const approvals = loadJson(resolve(RESEARCH, 'data/production-approvals.json'));
+  // menu.approved_at is legitimately set (the owner supplied their Clover
+  // export on 2026-08-17); the remaining blanks must still block production.
   assert.throws(() => assertProductionApprovals(SITE, approvals), /current_hours\.days/);
-  assert.throws(() => assertProductionApprovals(SITE, approvals), /menu\.approved_at/);
   assert.throws(() => assertProductionApprovals(SITE, approvals), /logo_master\.public_path/);
   assert.throws(() => assertProductionApprovals(SITE, approvals), /canonical_order_url\.value/);
   assert.throws(() => assertProductionApprovals(SITE, approvals), /canonical_reservation_url\.value/);

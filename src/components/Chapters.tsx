@@ -38,8 +38,8 @@ const CHAPTERS: Chapter[] = [
     id: 'meat',
     label: { en: 'The grill', ru: 'Мясное' },
     line: {
-      en: 'Raw ranks head for the coals; lulya breathes in the smoke. Eight kebab entries on the public menu.',
-      ru: 'Сырые ряды идут на угли; люля дышит в дыму. Восемь позиций шашлыка в публичном меню.',
+      en: 'Raw ranks head for the coals; lulya breathes in the smoke. Sixteen kebab entries on the restaurant’s own menu.',
+      ru: 'Сырые ряды идут на угли; люля дышит в дыму. Шестнадцать позиций шашлыка в собственном меню ресторана.',
     },
     tiles: [
       { kind: 'loop', id: 'motion/mangal', portrait: true, big: true },
