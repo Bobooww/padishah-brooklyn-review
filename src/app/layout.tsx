@@ -82,6 +82,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
     >
       <head>
+        {/* the browser chrome matches the paper the page opens on */}
+        <meta name="theme-color" content="#f7f3ea" />
+        {/* the two faces that draw the first screen — swap is already set in fonts.css */}
+        <link
+          rel="preload"
+          href="/fonts/cormorant-normal-500-latin.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/manrope-normal-400-latin.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         {!REVIEW_MODE && (
           <script
             type="application/ld+json"

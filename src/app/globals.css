@@ -62,6 +62,27 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  /* the site is a single warm-paper theme: say so, or the UA paints form
+     controls, scrollbars and the tap flash for a scheme we never designed */
+  color-scheme: light;
+}
+
+/* No 300ms tap delay, and no stock blue flash over gold buttons on iOS. */
+a,
+button,
+[role='tab'],
+summary,
+input,
+label {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(207, 154, 49, 0.22);
+}
+
+/* Anchored sections must clear the sticky header when jumped to. */
+:target,
+section[id],
+[id^='chapters-'] {
+  scroll-margin-top: calc(var(--chrome-h) + 16px);
 }
 
 body {

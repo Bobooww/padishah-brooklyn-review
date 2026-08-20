@@ -1254,6 +1254,7 @@
   margin-bottom: clamp(1.6rem, 3vw, 2.4rem);
 }
 .chapters__tabs {
+  overscroll-behavior-x: contain;
   display: flex;
   flex-wrap: wrap;
   gap: 0.3rem;
@@ -1836,6 +1837,7 @@ html[data-tier='3'] .passage__plate .cartouche__svg {
   padding-block: 0.6rem;
 }
 .menunav__tabs {
+  overscroll-behavior-x: contain;
   display: flex;
   gap: 0.35rem;
   overflow-x: auto;
@@ -2107,6 +2109,7 @@ html[data-tier='3'] .passage__plate .cartouche__svg {
   margin-bottom: 1.4rem;
 }
 .kitchenstrip__grid {
+  overscroll-behavior-x: contain;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -2187,6 +2190,7 @@ html[data-tier='3'] .passage__plate .cartouche__svg {
 }
 /* The rail bleeds to the viewport edge: swiping should feel endless. */
 .stories__rail {
+  overscroll-behavior-x: contain;
   display: flex;
   gap: clamp(0.9rem, 1.6vw, 1.3rem);
   overflow-x: auto;
