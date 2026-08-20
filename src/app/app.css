@@ -2282,9 +2282,15 @@ html[data-tier='3'] .passage__plate .cartouche__svg {
 }
 
 /* Stories in cinema mode: the section pins and vertical scroll drives the
-   rail sideways, so the native scrollbar and the arrows step aside. */
+   rail sideways, so the native scrollbar and the arrows step aside.
+   The clip lives on the pinned SECTION — clipping the rail itself would
+   cut every card that sits past its own box, which is all of them. */
+.stories--cinema {
+  overflow: hidden;
+}
 .stories--cinema .stories__rail {
-  overflow-x: hidden;
+  overflow: visible;
+  padding-right: 0;
 }
 .stories--cinema .stories__nav {
   display: none;

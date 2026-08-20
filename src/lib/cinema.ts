@@ -109,6 +109,14 @@ export async function bootCinema(): Promise<() => void> {
     if (!section || !rail) return;
 
     section.classList.add('stories--cinema');
+
+    // The rail's cards enter sideways, driven by this tween — the page-level
+    // IntersectionObserver reveal is a beat behind that and leaves a hole of
+    // blank paper at the right edge. Cinema mode owns the choreography here,
+    // so un-arm the cards and let them ride in already visible.
+    const cards = Array.from(rail.querySelectorAll<HTMLElement>('.stories__card.reveal'));
+    cards.forEach((card) => card.classList.remove('reveal--armed', 'is-in'));
+
     const distance = () => Math.max(0, rail.scrollWidth - rail.clientWidth);
 
     const tween = gsap.to(rail, {
