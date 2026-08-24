@@ -4,10 +4,18 @@ A private preview of the website for **Padishah Restaurant, 1920 Avenue U, Brook
 It is not the restaurant's published site: every page is `noindex`, and the deploy also sends
 `X-Robots-Tag: noindex, nofollow`.
 
-**This repository is private on purpose.** The media in `public/media/` is derived from footage and
-photographs supplied by the restaurant for review only. Nothing here is rights-cleared for
-publication, some frames contain identifiable guests who would need releases, and the research
-library that feeds it lives outside this repo.
+**About the media.** Everything in `public/media/` is the restaurant's own footage and photography,
+supplied by the owner, who has agreed to this repository being public (2026-08-24, relayed by the
+project owner). Two notes remain for whoever ships this to production:
+
+- `motion/plated-spin` is derived from a clip where hands appear at the frame edges; the media
+  ledger still marks it `people_release_required`, and the site renders that badge on it.
+- The two `hero/` brand images are crops of the restaurant's own poster and social artwork.
+
+The machine-readable rights ledger (`website-research/media-library/manifest.json`) and the
+production gate still record every asset as **not production-approved** — that flag flips only when
+written owner approval with a date is filed in `production-approvals.json`. Publishing this
+repository does not change what the site is allowed to launch with.
 
 Live review link: https://padishah-brooklyn-review.netlify.app
 
