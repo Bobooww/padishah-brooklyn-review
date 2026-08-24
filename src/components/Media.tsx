@@ -2,22 +2,12 @@
 
 import { useEffect, useRef, useState } from 'react';
 import type { MediaAsset } from '@/content/types';
-import { REVIEW_MODE, rightsState } from '@/lib/review-mode';
 import { COPY, type Lang } from '@/content/copy';
 
 /* ------------------------------------------------------------------ badge */
 
-export function RightsBadge({ asset, lang = 'en' }: { asset: MediaAsset; lang?: Lang }) {
-  if (!REVIEW_MODE) return null;
-  const state = rightsState(asset);
-  if (state === 'cleared') return null;
-  const c = COPY[lang].review;
-  return (
-    <span className="rights" data-state={state}>
-      <span className="rights__dot" aria-hidden="true" />
-      {state === 'release_required' ? c.badgeRelease : c.badgeReviewOnly}
-    </span>
-  );
+export function RightsBadge(_props: { asset: MediaAsset; lang?: Lang }) {
+  return null;
 }
 
 /* ------------------------------------------------------------------ still */

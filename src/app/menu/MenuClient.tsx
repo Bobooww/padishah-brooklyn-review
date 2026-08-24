@@ -1,13 +1,12 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { CATEGORIES, ITEMS, MENU_APPROVED_AT, MENU_OBSERVED_AT, MENU_SOURCE } from '@/content/generated/menu';
+import { CATEGORIES, ITEMS, MENU_OBSERVED_AT, MENU_SOURCE } from '@/content/generated/menu';
 import type { MenuItem, MenuNote } from '@/content/types';
 import { askMenu, categoryName, formatPrice, searchItems } from '@/lib/menu';
-import { REVIEW_MODE } from '@/lib/review-mode';
 import { fill } from '@/content/copy';
 import { useLang } from '@/components/LangProvider';
-import { ReviewBar, SiteHeader, SiteFooter, StickyActions } from '@/components/Shell';
+import { SiteHeader, SiteFooter, StickyActions } from '@/components/Shell';
 import { observeReveals } from '@/lib/reveal';
 
 const NOTE_KEY: Record<MenuNote, keyof ReturnType<typeof useLang>['t']['menuPage']> = {
@@ -18,12 +17,9 @@ const NOTE_KEY: Record<MenuNote, keyof ReturnType<typeof useLang>['t']['menuPage
   pending_owner: 'notePendingOwner',
 };
 
-function Row({ item, showResearch }: { item: MenuItem; showResearch: boolean }) {
+function Row({ item }: { item: MenuItem }) {
   const { t } = useLang();
-  // An owner-approved price wins. Otherwise, in review mode only, the dated research
-  // price can be revealed on request — always labelled as research, never as the menu.
-  const research = showResearch && item.priceCents === null ? item.researchPriceCents : null;
-  const shown = item.priceCents ?? research;
+  const shown = item.priceCents;
   return (
     <li className="dish">
       <div className="dish__head">
@@ -32,14 +28,11 @@ function Row({ item, showResearch }: { item: MenuItem; showResearch: boolean }) 
         <span
           className="dish__price"
           data-unpriced={shown === null ? 'true' : 'false'}
-          data-research={research !== null ? 'true' : 'false'}
-          title={research !== null ? t.menuPage.researchPriceTag : undefined}
         >
           {formatPrice(shown, t.menuPage.priceUnavailable)}
         </span>
       </div>
       {item.description && <p className="dish__desc">{item.description}</p>}
-      {item.ownerConfirmationRequired && <span className="u-sr">{t.menuPage.itemApproval}</span>}
       {item.notes.length > 0 && (
         <ul className="dish__notes">
           {item.notes.map((n) => (
@@ -119,7 +112,6 @@ export default function MenuClient() {
   const { t } = useLang();
   const [active, setActive] = useState<string>('all');
   const [query, setQuery] = useState('');
-  const [showResearch, setShowResearch] = useState(false);
   const main = useRef<HTMLElement>(null);
 
   useEffect(() => observeReveals(document), []);
@@ -135,35 +127,16 @@ export default function MenuClient() {
 
   return (
     <>
-      <ReviewBar />
       <SiteHeader tone="ivory" />
       <main id="menu-main" ref={main} className="menupage" tabIndex={-1}>
         <div className="rail menupage__head">
           <p className="eyebrow">{t.menuPage.title}</p>
           <h1 className="menupage__title">{t.menuPreview.title}</h1>
           <p className="menupage__lead">{t.menuPage.lead}</p>
-          {/* The "being confirmed" notice must disappear the day the owner approves the menu. */}
-          {MENU_APPROVED_AT === null && <p className="menupage__notice">{t.menuPage.notice}</p>}
           <p className="menupage__observed">
             {fill(t.menuPage.observed, { date: MENU_OBSERVED_AT, source: MENU_SOURCE.platform })}
           </p>
-          {REVIEW_MODE && MENU_APPROVED_AT === null && (
-            <div className="pricereveal">
-              <button
-                type="button"
-                className="pricereveal__btn"
-                onClick={() => setShowResearch((v) => !v)}
-                aria-expanded={showResearch}
-              >
-                {showResearch
-                  ? t.menuPage.hideResearchPrices
-                  : fill(t.menuPage.showResearchPrices, { date: MENU_OBSERVED_AT })}
-              </button>
-              {showResearch && (
-                <p className="pricereveal__note">{fill(t.menuPage.researchPriceNote, { date: MENU_OBSERVED_AT })}</p>
-              )}
-            </div>
-          )}
+
         </div>
 
         <div className="menunav">
@@ -223,16 +196,15 @@ export default function MenuClient() {
               key={category.id}
               className="course reveal"
               aria-labelledby={`c-${category.id}`}
-              data-approval={category.approval}
             >
               <h2 id={`c-${category.id}`} className="course__title">
                 {t.menuCategories[category.id as keyof typeof t.menuCategories] ?? category.name}
                 <span className="course__count">{items.length}</span>
-                {category.ownerConfirmationRequired && <span className="u-sr"> — {t.menuPage.categoryApproval}</span>}
+
               </h2>
               <ul className="course__list">
                 {items.map((item) => (
-                  <Row key={item.id} item={item} showResearch={showResearch} />
+                  <Row key={item.id} item={item} />
                 ))}
               </ul>
             </section>

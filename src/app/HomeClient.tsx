@@ -12,7 +12,7 @@ import { Cartouche } from '@/components/Cartouche';
 import { Ornament } from '@/components/Ornament';
 import { CarpetBorder } from '@/components/CarpetBorder';
 import { Seal } from '@/components/Seal';
-import { IG_HANDLE, ReviewBar, SiteHeader, SiteFooter, StickyActions } from '@/components/Shell';
+import { IG_HANDLE, SiteHeader, SiteFooter, StickyActions } from '@/components/Shell';
 import { useLang } from '@/components/LangProvider';
 import Stage from '@/components/motion/Stage';
 import { Chapters } from '@/components/Chapters';
@@ -55,7 +55,6 @@ export default function HomeClient() {
   return (
     <>
       <Stage />
-      <ReviewBar />
       <SiteHeader tone="ivory" />
 
       <main>
@@ -96,19 +95,8 @@ export default function HomeClient() {
                 ))}
               </h1>
               <p className="hero__sub">
-                <span
-                  className="provisional"
-                  title={
-                    lang === 'ru'
-                      ? 'Формулировку кухни ещё подтверждает ресторан'
-                      : 'Cuisine wording is still being confirmed by the restaurant'
-                  }
-                >
+                <span>
                   {lang === 'ru' ? (CUISINE_RU[PROVISIONAL.cuisine.value] ?? PROVISIONAL.cuisine.value) : PROVISIONAL.cuisine.value}
-                  {/* the dotted marker and title are invisible to readers and touch: say it */}
-                  <span className="u-sr">
-                    {lang === 'ru' ? ' (формулировка уточняется у ресторана)' : ' (wording pending the restaurant’s confirmation)'}
-                  </span>
                 </span>{' '}
                 {lang === 'ru' ? '— 1920 Avenue U, Бруклин.' : 'at 1920 Avenue U in Brooklyn.'}
               </p>
@@ -126,7 +114,6 @@ export default function HomeClient() {
               <p className="hero__hours">
                 <span className="hero__hours-dot" aria-hidden="true" />
                 {PROVISIONAL.hoursSummary.value}
-                {PROVISIONAL.hoursSummary.status !== 'owner_confirmed' && <> · {t.visit.hoursNote}</>}
               </p>
             </div>
 
@@ -215,8 +202,8 @@ export default function HomeClient() {
               <Loop asset={media('motion/fire')} alt="" orientation="portrait" lang={lang} />
               <p className="micro">
                 {lang === 'ru'
-                  ? 'Съёмка с кухни ресторана, август 2026. Только для согласования.'
-                  : "Shot in the restaurant's kitchen, August 2026. Review use only."}
+                  ? 'Съёмка с кухни ресторана, август 2026.'
+                  : "Shot in the restaurant's kitchen, August 2026."}
               </p>
             </div>
           </div>
@@ -280,8 +267,8 @@ export default function HomeClient() {
               <h2 className="visit__addr">{lang === 'ru' ? '1920 Avenue U, Бруклин.' : '1920 Avenue U, Brooklyn.'}</h2>
               <p className="lead">
                 {lang === 'ru'
-                  ? 'Позвоните в ресторан — про меню и про всё, на что сайт пока не отвечает.'
-                  : "Call the restaurant for the menu or anything the site can't answer yet."}
+                  ? 'Позвоните в ресторан по вопросам меню.'
+                  : 'Call the restaurant with menu questions.'}
               </p>
               <div className="visit__cta">
                 <a className="btn btn--gold btn--lg" href={`tel:${VERIFIED.phoneE164}`}>
@@ -320,8 +307,8 @@ export default function HomeClient() {
                   <p className="micro">
                     {fill(
                       lang === 'ru'
-                        ? 'Из открытого справочника, проверено {date}. Ресторан пока не подтвердил — перед визитом позвоните.'
-                        : "From a public listing, checked {date}. The restaurant hasn't confirmed these yet — please call before you come.",
+                        ? 'Из открытого справочника, проверено {date}. Перед визитом позвоните.'
+                        : 'From a public listing, checked {date}. Please call before you come.',
                       { date: OBSERVED_AT },
                     )}
                   </p>
@@ -345,7 +332,7 @@ export default function HomeClient() {
                     Grubhub
                   </a>
                 </p>
-                <p className="micro">{t.visit.orderNote}</p>
+
               </div>
             </div>
           </div>

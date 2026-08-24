@@ -42,7 +42,7 @@
   --pad-y: clamp(5rem, 11vw, 9.5rem);
   --r: 2px; /* the site is edged, not rounded — ornament does the softening */
 
-  /* ---- chrome: the sticky header (the review disclosure floats, see .reviewbar) */
+  /* ---- chrome: the sticky header */
   --hdr-h: 70px;
   --chrome-h: var(--hdr-h);
 
@@ -161,7 +161,6 @@ html[lang='ru'] {
 .passage :focus-visible,
 .concierge :focus-visible,
 .ftr :focus-visible,
-.reviewbar :focus-visible,
 .u-skip:focus-visible,
 .hdr[data-tone='ink'] :focus-visible,
 .hdr[data-scrolled='true'] :focus-visible {

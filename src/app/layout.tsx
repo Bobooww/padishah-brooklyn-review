@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { COPY } from '@/content/copy';
 import { VERIFIED } from '@/content/generated/facts';
-import { REVIEW_MODE } from '@/lib/review-mode';
 import { LangProvider } from '@/components/LangProvider';
 import { SkipLink } from '@/components/Shell';
 import './fonts.css';
@@ -10,38 +9,32 @@ import './app.css';
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ??
-  'https://padishah-brooklyn-review.netlify.app';
+  'https://eatpadishah.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: COPY.en.meta.title,
   description: COPY.en.meta.description,
-  // Private review build. It must never be indexed before the restaurant approves it.
-  robots: REVIEW_MODE ? { index: false, follow: false, nocache: true } : undefined,
   openGraph: {
     title: COPY.en.meta.title,
     description: COPY.en.meta.description,
     type: 'website',
     locale: 'en_US',
-    images: REVIEW_MODE
-      ? [
-          {
-            url: '/og-padishah-logo.jpg',
-            width: 1200,
-            height: 630,
-            alt: 'Padishah Restaurant — the crowned mark',
-          },
-        ]
-      : undefined,
+    images: [
+      {
+        url: '/og-padishah-logo.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Padishah Restaurant — the crowned mark',
+      },
+    ],
   },
-  twitter: REVIEW_MODE
-    ? {
-        card: 'summary_large_image',
-        title: COPY.en.meta.title,
-        description: COPY.en.meta.description,
-        images: ['/og-padishah-logo.jpg'],
-      }
-    : undefined,
+  twitter: {
+    card: 'summary_large_image',
+    title: COPY.en.meta.title,
+    description: COPY.en.meta.description,
+    images: ['/og-padishah-logo.jpg'],
+  },
 };
 
 export const viewport: Viewport = {
@@ -51,8 +44,7 @@ export const viewport: Viewport = {
 
 /**
  * Structured data carries ONLY facts that are both verified and visible on the page.
- * Hours, cuisine, price range, reservations and ratings are deliberately absent:
- * they are still pending the restaurant's confirmation.
+ * Hours, cuisine, price range, reservations and ratings are deliberately absent.
  */
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -77,7 +69,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       className="no-js"
-      data-review={REVIEW_MODE ? 'true' : 'false'}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
@@ -99,12 +90,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        {!REVIEW_MODE && (
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-          />
-        )}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `document.documentElement.classList.remove('no-js');`,

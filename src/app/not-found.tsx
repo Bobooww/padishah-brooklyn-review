@@ -2,14 +2,13 @@
 
 import Link from 'next/link';
 import { VERIFIED } from '@/content/generated/facts';
-import { ReviewBar, SiteHeader, SiteFooter } from '@/components/Shell';
+import { SiteHeader, SiteFooter } from '@/components/Shell';
 import { useLang } from '@/components/LangProvider';
 
 export default function NotFound() {
   const { t, lang } = useLang();
   return (
     <>
-      <ReviewBar />
       <SiteHeader tone="ivory" />
       {/* id="hero": the layout's skip link targets #hero on every non-menu route */}
       <main id="hero" tabIndex={-1} className="section section--ivory">

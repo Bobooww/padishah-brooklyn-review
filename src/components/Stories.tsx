@@ -8,8 +8,8 @@ import type { Lang } from '@/content/copy';
 /**
  * Stories — the swipe rail. Vertical cards, native horizontal scroll with
  * snap points (the shawarma-stop pattern: no JS carousel, the platform does
- * the swiping). Each card is a Loop, so it plays only while on screen and
- * carries its rights badge; labels describe only what is visibly in frame.
+ * swiping). Each card is a Loop, so it plays only while on screen; labels
+ * describe only what is visibly in frame.
  */
 
 const CARDS: { id: string; label: { en: string; ru: string } }[] = [
@@ -63,8 +63,8 @@ export function Stories({ lang }: { lang: Lang }) {
       </div>
       <p className="rail micro stories__note reveal">
         {lang === 'ru'
-          ? 'Всё снято самим рестораном, август 2026. Только для согласования.'
-          : "All filmed by the restaurant itself, August 2026. Review use only."}
+          ? 'Всё снято самим рестораном, август 2026.'
+          : 'All filmed by the restaurant itself, August 2026.'}
       </p>
     </section>
   );

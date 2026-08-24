@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { VERIFIED, OBSERVED_AT, PROVISIONAL } from '@/content/generated/facts';
 import { fill } from '@/content/copy';
-import { media, pickSource, REVIEW_MODE } from '@/lib/review-mode';
+import { media, pickSource } from '@/lib/review-mode';
 import { useLang, LangToggle } from '@/components/LangProvider';
 
 const LOGO_ASSET = media('hero/current-padishah-logo-poster-crop');
@@ -33,59 +33,6 @@ export function SkipLink() {
     >
       {t.nav.skip}
     </a>
-  );
-}
-
-/* --------------------------------------------------------------- review bar */
-
-/**
- * The persistent review disclosure, restaged as a quiet floating pill instead of
- * a bar across the top: the disclaimer never leaves the screen, but it stops
- * shouting over the hero. The full banner text and the verified-facts list live
- * in the panel the pill opens.
- */
-export function ReviewBar() {
-  const { t } = useLang();
-  const [open, setOpen] = useState(false);
-  if (!REVIEW_MODE) return null;
-
-  const verified = [
-    [t.review.verifiedLabels.name, VERIFIED.name],
-    [t.review.verifiedLabels.address, VERIFIED.addressLine],
-    [t.review.verifiedLabels.phone, VERIFIED.phoneDisplay],
-    [t.review.verifiedLabels.instagram, IG_HANDLE],
-    [t.review.verifiedLabels.directions, t.review.directionsValue],
-  ];
-
-  return (
-    <div className="reviewbar" data-open={open ? 'true' : 'false'}>
-      <div className="reviewbar__panel" id="reviewbar-panel" hidden={!open}>
-        <p className="reviewbar__text">{t.review.banner}</p>
-        <dl>
-          {verified.map(([k, v]) => (
-            <div key={k}>
-              <dt>{k}</dt>
-              <dd>{v}</dd>
-            </div>
-          ))}
-        </dl>
-        <p className="reviewbar__meta">{fill(t.review.checked, { date: OBSERVED_AT })}</p>
-      </div>
-      <button
-        type="button"
-        className="reviewbar__toggle"
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-        aria-controls="reviewbar-panel"
-      >
-        <span className="reviewbar__dot" aria-hidden="true" />
-        {t.review.bannerShort}
-        <span className="reviewbar__sep" aria-hidden="true">
-          ·
-        </span>
-        {t.review.verifiedToggle}
-      </button>
-    </div>
   );
 }
 
@@ -185,26 +132,11 @@ export function SiteFooter() {
           </a>
           <a href={PROVISIONAL.orderLink.value} target="_blank" rel="noreferrer noopener">
             {t.visit.order}
-            <span className="ftr__prov" aria-hidden="true">
-              ?
-            </span>
-            <span className="u-sr">— {t.visit.orderNote}</span>
           </a>
         </nav>
 
-        {REVIEW_MODE && (
-          <details className="ftr__pending">
-            <summary>{t.footer.pendingTitle}</summary>
-            <ul>
-              {t.footer.pendingItems.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </details>
-        )}
-
         <p className="ftr__note">
-          {t.footer.rights} {fill(t.footer.factsChecked, { date: OBSERVED_AT })}
+          {fill(t.footer.factsChecked, { date: OBSERVED_AT })}
         </p>
       </div>
     </footer>

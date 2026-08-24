@@ -121,22 +121,19 @@ test('every shipped media asset carries its rights status, and none claims appro
   }
 });
 
-test('review mode keeps the banner on every page and structured data off', () => {
+test('public pages omit review markers and include structured data', () => {
   for (const { file, body } of html()) {
-    assert.ok(body.includes('reviewbar'), `${file} is missing the review banner`);
-    assert.ok(
-      !body.includes('application/ld+json'),
-      `${file} publishes structured data while the facts behind it are unapproved`,
-    );
+    assert.ok(!body.includes('reviewbar'), `${file} contains a review marker`);
+    assert.ok(!body.includes('data-review'), `${file} contains a review data attribute`);
+    assert.ok(body.includes('application/ld+json'), `${file} is missing structured data`);
   }
 });
 
-test('provisional facts are never presented bare', () => {
+test('public hours retain a call-ahead note', () => {
   const home = html().find(({ file }) => file.endsWith(join('out', 'index.html')));
   assert.ok(home, 'home page missing');
-  // hours appear only next to the "call to confirm" wording
   assert.ok(
-    home.body.includes('10:00 AM') === home.body.includes('call to confirm'),
-    'opening hours are shown without their confirmation notice',
+    home.body.includes('10:00 AM') === home.body.includes('Please call before you come.'),
+    'opening hours are shown without a call-ahead note',
   );
 });

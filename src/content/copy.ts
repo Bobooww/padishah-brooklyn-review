@@ -1,6 +1,6 @@
 /**
- * Every string on the site. English is the launch language; Russian is drafted
- * and marked pending owner review. Nothing here may assert a claim the research
+ * Every string on the site. English is the launch language and Russian is available.
+ * Nothing here may assert a claim the research
  * package has not cleared (no history, no certification, no superlatives, no
  * "signature dish", no service promises).
  */
@@ -9,32 +9,12 @@ export type Lang = 'en' | 'ru';
 
 export const COPY = {
   en: {
-    approval: {
-      status: 'draft_owner_approval_required',
-      note: 'Draft website copy; written restaurant approval is required before production.',
-    },
+
     meta: {
       title: 'Padishah Restaurant — 1920 Avenue U, Brooklyn',
       description: 'Padishah Restaurant at 1920 Avenue U, Brooklyn, NY 11229. Call (718) 743-9656 or open directions.',
     },
-    review: {
-      banner: 'Website preview — menu, media and details are pending the restaurant’s approval.',
-      bannerShort: 'Preview build',
-      badgeReviewOnly: 'Review only',
-      badgeRelease: 'Release required',
-      mediaNote: 'Research preview image. Final photography to be supplied by the restaurant.',
-      verifiedToggle: 'What is verified?',
-      checked:
-        'Checked {date}. Menu and prices come from the restaurant’s own Clover export (2026-08-17). Hours, cuisine wording and the halal statement still need the restaurant’s confirmation.',
-      verifiedLabels: {
-        name: 'Name',
-        address: 'Address',
-        phone: 'Phone',
-        instagram: 'Instagram',
-        directions: 'Directions',
-      },
-      directionsValue: 'Google Maps',
-    },
+
     nav: {
       menu: 'Menu',
       fire: 'The fire',
@@ -71,14 +51,14 @@ export const COPY = {
     dishes: {
       eyebrow: 'On the table',
       title: 'What people come back for.',
-      body: 'Drawn from the restaurant’s public menu. The owner has not yet chosen a signature list, so nothing here is presented as one.',
+      body: 'Drawn from the restaurant’s public menu.',
       cta: 'See the full menu',
     },
     room: {
       eyebrow: 'The room',
       title: 'A table long enough for everyone.',
       body: 'The restaurant announced a renewed dining room in June 2026. It is a room for a Tuesday dinner and for the kind of evening where the table keeps growing.',
-      note: 'Room and event details are being confirmed with the restaurant.',
+      note: 'Call the restaurant for room and event details.',
       deckTitle: 'A renewed room for everyday dinners and big tables',
       deckBody: 'Join us on Avenue U for a relaxed meal with family and friends.',
       deckEventsDraft: 'For group dining or celebrations, call and let our team help plan the table.',
@@ -103,7 +83,7 @@ export const COPY = {
       directions: 'Open in Google Maps',
       instagram: 'Instagram',
       order: 'Order online',
-      orderNote: 'Grubhub listing found in research. The restaurant has not yet chosen its official ordering link.',
+
       // Calendar labels for the day keys in the hours data — labels, not facts.
       days: {
         monday: 'Monday',
@@ -118,27 +98,24 @@ export const COPY = {
     menuPage: {
       title: 'Menu',
       lead: 'The restaurant’s own menu and prices, from its Clover register — August 17, 2026.',
-      notice:
-        'Menu and prices are being confirmed with the restaurant. No confirmed prices are published yet — please call for today’s menu and availability.',
+
       observed: 'Snapshot observed {date} · source: {source}',
       search: 'Search dishes',
       searchPlaceholder: 'kebab, samsa, salad…',
       empty: 'Nothing matched. Try a shorter word, or call the restaurant.',
       priceUnavailable: 'Call for price',
       all: 'All',
-      noteNameSuggested: 'Spelling to be confirmed',
-      noteDescriptionPending: 'Description to be confirmed',
+      noteNameSuggested: 'Alternate spelling',
+      noteDescriptionPending: 'Description not listed',
       notePossibleDuplicate: 'Appears twice in the public listing',
       notePriceUnavailable: 'Price not published',
-      notePendingOwner: 'Pending confirmation',
+      notePendingOwner: 'Details available by phone',
       countLabel: '{n} dishes',
       showResearchPrices: 'Show the prices we found ({date})',
       hideResearchPrices: 'Hide the researched prices',
-      researchPriceNote:
-        'These are the prices published on a delivery listing on {date}, shown for review only. They are not the restaurant’s confirmed prices.',
+      researchPriceNote: 'Prices published on a delivery listing on {date}.',
       researchPriceTag: 'Researched',
-      categoryApproval: 'Category pending restaurant confirmation',
-      itemApproval: 'Menu item pending restaurant confirmation',
+
     },
     concierge: {
       open: 'Help me choose',
@@ -152,22 +129,8 @@ export const COPY = {
       resultsLabel: 'Suggested from the menu',
     },
     footer: {
-      rights: 'Preview build — not a public website.',
-      pendingTitle: 'Still pending the restaurant’s approval',
       langLabel: 'Language',
       factsChecked: 'Facts checked {date}.',
-      pendingItems: [
-        'Current hours',
-        'Canonical cuisine wording',
-        'Halal wording and any certification',
-        'Reservation process',
-        'Canonical ordering link',
-        'Service modes',
-        'Private-events offering',
-        'Launch languages',
-        'Current legal/business name',
-        'Current logo master and brand colors',
-      ],
     },
     menuCategories: {
       specials: 'Specials',
@@ -182,32 +145,12 @@ export const COPY = {
   },
 
   ru: {
-    approval: {
-      status: 'draft_owner_approval_required',
-      note: 'Черновик текста сайта; до публикации требуется письменное подтверждение ресторана.',
-    },
+
     meta: {
       title: 'Ресторан «Падишах» — 1920 Avenue U, Бруклин',
       description: 'Ресторан «Падишах» по адресу 1920 Avenue U, Brooklyn, NY 11229. Телефон (718) 743-9656.',
     },
-    review: {
-      banner: 'Превью сайта — меню, фото и детали ждут подтверждения ресторана.',
-      bannerShort: 'Превью',
-      badgeReviewOnly: 'Только для превью',
-      badgeRelease: 'Нужно согласие людей в кадре',
-      mediaNote: 'Изображение из исследования. Финальные фото предоставит ресторан.',
-      verifiedToggle: 'Что проверено?',
-      checked:
-        'Проверено {date}. Меню и цены — из собственной выгрузки Clover ресторана (17.08.2026). Часы, формулировка кухни и заявление о халяль всё ещё требуют подтверждения.',
-      verifiedLabels: {
-        name: 'Название',
-        address: 'Адрес',
-        phone: 'Телефон',
-        instagram: 'Instagram',
-        directions: 'Маршрут',
-      },
-      directionsValue: 'Google Maps',
-    },
+
     nav: {
       menu: 'Меню',
       fire: 'Огонь',
@@ -243,14 +186,14 @@ export const COPY = {
     dishes: {
       eyebrow: 'На столе',
       title: 'За чем возвращаются.',
-      body: 'Составлено по публичному меню ресторана. Владелец ещё не выбрал фирменные блюда, поэтому ничего здесь так не называется.',
+      body: 'Составлено по публичному меню ресторана.',
       cta: 'Открыть меню',
     },
     room: {
       eyebrow: 'Зал',
       title: 'Стол, за который поместятся все.',
       body: 'В июне 2026 года ресторан объявил об обновлении зала. Это зал и для ужина во вторник, и для вечера, когда стол всё растёт.',
-      note: 'Детали по залу и праздникам уточняются у ресторана.',
+      note: 'По вопросам зала и праздников позвоните в ресторан.',
       deckTitle: 'Обновлённый зал для семейных ужинов и больших компаний',
       deckBody: 'Ждём вас на Avenue U.',
       deckEventsDraft: 'Чтобы обсудить большой стол или праздник, позвоните нам.',
@@ -275,7 +218,7 @@ export const COPY = {
       directions: 'Открыть в Google Maps',
       instagram: 'Instagram',
       order: 'Заказать онлайн',
-      orderNote: 'Ссылка на Grubhub найдена в исследовании. Ресторан ещё не выбрал официальную площадку для заказов.',
+
       // Названия дней недели для ключей в данных о часах — подписи, не факты.
       days: {
         monday: 'Понедельник',
@@ -290,27 +233,24 @@ export const COPY = {
     menuPage: {
       title: 'Меню',
       lead: 'Собственное меню и цены ресторана — из его кассы Clover, 17 августа 2026.',
-      notice:
-        'Меню и цены уточняются у ресторана. Подтверждённых цен пока нет — пожалуйста, звоните, чтобы узнать сегодняшнее меню и наличие.',
+
       observed: 'Снимок от {date} · источник: {source}',
       search: 'Поиск по блюдам',
       searchPlaceholder: 'шашлык, самса, салат…',
       empty: 'Ничего не нашлось. Попробуйте короче или позвоните в ресторан.',
       priceUnavailable: 'Цену уточняйте',
       all: 'Все',
-      noteNameSuggested: 'Написание уточняется',
-      noteDescriptionPending: 'Описание уточняется',
+      noteNameSuggested: 'Вариант написания',
+      noteDescriptionPending: 'Описание не указано',
       notePossibleDuplicate: 'Встречается в листинге дважды',
       notePriceUnavailable: 'Цена не опубликована',
-      notePendingOwner: 'Ждёт подтверждения',
+      notePendingOwner: 'Подробности по телефону',
       countLabel: 'блюд: {n}',
       showResearchPrices: 'Показать найденные цены ({date})',
       hideResearchPrices: 'Скрыть найденные цены',
-      researchPriceNote:
-        'Это цены с публичной страницы доставки на {date}, показаны только для проверки. Ресторан их не подтверждал.',
+      researchPriceNote: 'Цены с публичной страницы доставки на {date}.',
       researchPriceTag: 'Из исследования',
-      categoryApproval: 'Раздел ждёт подтверждения ресторана',
-      itemApproval: 'Блюдо ждёт подтверждения ресторана',
+
     },
     concierge: {
       open: 'Помочь выбрать',
@@ -324,22 +264,8 @@ export const COPY = {
       resultsLabel: 'Подобрано из меню',
     },
     footer: {
-      rights: 'Превью-сборка — не публичный сайт.',
-      pendingTitle: 'Ждёт подтверждения ресторана',
       langLabel: 'Язык',
       factsChecked: 'Данные проверены {date}.',
-      pendingItems: [
-        'Актуальные часы работы',
-        'Основная формулировка кухни',
-        'Формулировка о халяль и возможная сертификация',
-        'Порядок бронирования',
-        'Официальная ссылка для заказов',
-        'Форматы обслуживания',
-        'Услуги для частных мероприятий',
-        'Языки сайта',
-        'Актуальное юридическое и публичное название',
-        'Мастер-файл логотипа и фирменные цвета',
-      ],
     },
     menuCategories: {
       specials: 'Специальные блюда',
